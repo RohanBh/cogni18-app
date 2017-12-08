@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Cognizance 18</string>
+    <string name="nav_one">Events</string>
+    <string name="nav_two">Workshops</string>
+    <string name="nav_three">Home</string>
+    <string name="nav_four">Your Profile</string>
+    <string name="nav_five">Spotlight</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
 </resources>
