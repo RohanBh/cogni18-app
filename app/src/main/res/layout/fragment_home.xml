@@ -1,79 +1,126 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#f1f1f1"
+    android:layout_height="wrap_content"
     tools:context="com.cognizance.cognizance18.HomeFragment">
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="8dp"
-        android:layout_marginBottom="5dp">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffff">
+
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="8dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="@color/gray">
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SPOTLIGHT"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/spotlight_string"
+                    android:layout_marginStart="7dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:id="@+id/spot_light_head"/>
 
-        </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="24dp"
+                    android:layout_below="@id/spot_light_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/spot_light_recycler_view"/>
+            </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+
+        </android.support.v7.widget.CardView>
 
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="8dp"
-        android:layout_marginBottom="5dp">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="8dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="@color/gray">
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EVENTS"
-                android:layout_marginLeft="7dp"
-                android:textStyle="bold"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/events_string"
+                    android:layout_marginStart="7dp"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/events_head"/>
 
-        </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="24dp"
+                    android:layout_below="@id/events_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/events_recycler_view"/>
 
-    </android.support.v7.widget.CardView>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
 
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="8dp"
-        android:layout_marginBottom="5dp">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
+        <android.support.v7.widget.CardView
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            card_view:cardUseCompatPadding="true"
+            card_view:cardCornerRadius="8dp"
+            android:layout_marginBottom="5dp"
+            app:cardBackgroundColor="@color/gray">
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="WORKSHOPS"
-                android:layout_marginLeft="7dp"
-                android:layout_marginTop="5dp"
-                android:textStyle="bold"/>
-        </RelativeLayout>
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/workshops_string"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="5dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:id="@+id/workshops_head"/>
 
-    </android.support.v7.widget.CardView>
+                <android.support.v7.widget.RecyclerView
+                    android:layout_marginTop="24dp"
+                    android:layout_below="@id/workshops_head"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/workshops_recycler_view"/>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
 
 
-</LinearLayout>
+</ScrollView>
