@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.cognizance.cognizance18.adapters.EventsRViewAdapter;
+import com.cognizance.cognizance18.adapters.CarouselRViewAdapter;
 import com.cognizance.cognizance18.models.Event;
 
 import java.util.ArrayList;
@@ -35,9 +35,10 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         initViews(view);
         setupViews();
-        initListeners();
+        setListeners();
         return view;
     }
+
     private void initViews(View view) {
         spotLightsRecyclerView = view.findViewById(R.id.spot_light_recycler_view);
         eventsRecyclerView = view.findViewById(R.id.events_recycler_view);
@@ -49,23 +50,23 @@ public class HomeFragment extends Fragment {
         eventsList = new ArrayList<>();
         for(int i=0;i<10;i++){
             Event event = new Event();
-            event.setTitle("Event" + (i+1));
+            event.setName("Event" + (i+1));
             eventsList.add(event);
         }
         spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 ,LinearLayoutManager.HORIZONTAL,false));
-        spotLightsRecyclerView.setAdapter(new EventsRViewAdapter(getContext(),eventsList));
+        spotLightsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
 
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 ,LinearLayoutManager.HORIZONTAL,false));
-        eventsRecyclerView.setAdapter(new EventsRViewAdapter(getContext(),eventsList));
+        eventsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
 
         workshopsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 ,LinearLayoutManager.HORIZONTAL,false));
-        workshopsRecyclerView.setAdapter(new EventsRViewAdapter(getContext(),eventsList));
+        workshopsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
     }
 
-    private void initListeners() {
+    private void setListeners() {
 
     }
 }

@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/action_events"
-        android:title="@string/nav_one"
+        android:name="@string/nav_one"
         android:icon="@mipmap/ic_launcher" />
     <item android:id="@+id/action_workshops"
-        android:title="@string/nav_two"
+        android:name="@string/nav_two"
         android:icon="@mipmap/ic_launcher" />
     <item android:id="@+id/action_home"
-        android:title="@string/nav_three"
+        android:name="@string/nav_three"
         android:icon="@mipmap/ic_launcher" />
     <item android:id="@+id/action_profile"
-        android:title="@string/nav_four"
+        android:name="@string/nav_four"
         android:icon="@mipmap/ic_launcher" />
     <item android:id="@+id/action_spotlight"
-        android:title="@string/nav_five"
+        android:name="@string/nav_five"
         android:icon="@mipmap/ic_launcher" />
 </menu>
