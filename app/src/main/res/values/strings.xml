@@ -8,7 +8,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_string">title</string>
+    <string name="title_string">name</string>
     <string name="spotlight_string">Spotlights</string>
     <string name="events_string">Events</string>
     <string name="workshops_string">Workshops</string>
@@ -16,4 +16,8 @@
     <string name="get_started">Get Started</string>
     <string name="email">Your email</string>
     <string name="mobile_number">Mobile Number (an OTP will be sent to this)</string>
+    <string name="departmental_string">Departmental</string>
+    <string name="centerstage_string">Centerstage</string>
+    <string name="mainstay_string">Mainstay</string>
+    <string name="image_description_string">image description</string>
 </resources>
