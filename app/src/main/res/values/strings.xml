@@ -20,4 +20,19 @@
     <string name="centerstage_string">Centerstage</string>
     <string name="mainstay_string">Mainstay</string>
     <string name="image_description_string">image description</string>
+
+    <string name="placeholder_text">Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Donec posuere porta risus
+        quis condimentum. Donec nec convallis eros. Nunc pharetra,
+        odio sit amet pulvinar mattis, lacus tortor aliquet elit,
+        quis lobortis dui neque a metus. Donec consectetur aliquam
+        elit a sollicitudin. Nulla eget maximus augue. Aenean
+        tristique justo ac ornare vulputate. Vivamus vel aliquet
+        orci, efficitur mollis neque. Sed dui odio, convallis vitae
+        condimentum et, maximus a est. Duis a vehicula diam.
+        Curabitur eu bibendum lectus, vitae sollicitudin lectus.
+        Duis vel ultricies massa, non convallis nibh. Mauris sodales
+        varius est. Ut et diam eu velit eleifend efficitur.</string>
+    <string name="event_details">DETAILS</string>
+
 </resources>

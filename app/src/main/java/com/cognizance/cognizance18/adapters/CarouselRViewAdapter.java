@@ -21,7 +21,7 @@ public class CarouselRViewAdapter extends RecyclerView.Adapter<CarouselRViewAdap
     private Context ctx;
     private ArrayList<Event> list;
 
-    public CarouselRViewAdapter(Context ctx, ArrayList<Event> list){
+    public CarouselRViewAdapter(Context ctx, ArrayList<Event> list) {
         this.ctx = ctx;
         this.list = list;
     }
@@ -40,11 +40,12 @@ public class CarouselRViewAdapter extends RecyclerView.Adapter<CarouselRViewAdap
 
     @Override
     public int getItemCount() {
-        return list.isEmpty()?0:list.size();
+        return list.isEmpty() ? 0 : list.size();
     }
 
-    class EventRHolder extends RecyclerView.ViewHolder{
+    class EventRHolder extends RecyclerView.ViewHolder {
         TextView title;
+
         public EventRHolder(View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.title_text);
