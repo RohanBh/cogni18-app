@@ -11,7 +11,7 @@ import com.cognizance.cognizance18.models.Event;
 
 import java.util.ArrayList;
 
-public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.EventRViewHolder>{
+public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.EventRViewHolder> {
 
     private ArrayList<Event> list;
 
@@ -33,12 +33,13 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     @Override
     public int getItemCount() {
-        return list.isEmpty()?0:list.size();
+        return list.isEmpty() ? 0 : list.size();
     }
 
-    class EventRViewHolder extends RecyclerView.ViewHolder{
+    class EventRViewHolder extends RecyclerView.ViewHolder {
 
         TextView name;
+
         EventRViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.event_name_text);

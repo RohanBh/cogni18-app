@@ -48,22 +48,22 @@ public class HomeFragment extends Fragment {
     private void setupViews() {
         ArrayList<Event> eventsList;
         eventsList = new ArrayList<>();
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             Event event = new Event();
-            event.setName("Event" + (i+1));
+            event.setName("Event" + (i + 1));
             eventsList.add(event);
         }
         spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                ,LinearLayoutManager.HORIZONTAL,false));
-        spotLightsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
+                , LinearLayoutManager.HORIZONTAL, false));
+        spotLightsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(), eventsList));
 
         eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                ,LinearLayoutManager.HORIZONTAL,false));
-        eventsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
+                , LinearLayoutManager.HORIZONTAL, false));
+        eventsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(), eventsList));
 
         workshopsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                ,LinearLayoutManager.HORIZONTAL,false));
-        workshopsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(),eventsList));
+                , LinearLayoutManager.HORIZONTAL, false));
+        workshopsRecyclerView.setAdapter(new CarouselRViewAdapter(getContext(), eventsList));
     }
 
     private void setListeners() {

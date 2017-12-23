@@ -27,7 +27,7 @@ public class EventsContentFragment extends Fragment {
     public static EventsContentFragment newInstance(String categoryName) {
         EventsContentFragment fragment = new EventsContentFragment();
         Bundle args = new Bundle();
-        args.putString("category",categoryName);
+        args.putString("category", categoryName);
         fragment.setArguments(args);
         return fragment;
     }
@@ -37,7 +37,7 @@ public class EventsContentFragment extends Fragment {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             categoryName = getArguments().getString("category");
-          }
+        }
     }
 
     @Override
@@ -57,20 +57,20 @@ public class EventsContentFragment extends Fragment {
     private void setupViews() {
         ArrayList<EventCategory> list;
         list = new ArrayList<>();
-        for(int i=0;i<10;i++){
+        for (int i = 0; i < 10; i++) {
             ArrayList<Event> eventList;
             eventList = new ArrayList<>();
-            for(int j=0;j<6;j++){
+            for (int j = 0; j < 6; j++) {
                 Event event = new Event();
-                event.setName("Event Name " + (j+1));
+                event.setName("Event Name " + (j + 1));
                 eventList.add(event);
             }
             EventCategory eventCategory = new EventCategory();
-            eventCategory.setName(categoryName + " Category " + (i+1));
+            eventCategory.setName(categoryName + " Category " + (i + 1));
             eventCategory.setEventList(eventList);
             list.add(eventCategory);
         }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(),list));
+        recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), list));
     }
 }
