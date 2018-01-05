@@ -17,6 +17,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     BottomNavigationView bottomNavigationView;
+    private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +35,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
+        navigationView.getMenu().getItem(0).setChecked(true);
 
         // Bottom Navigation View
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -49,18 +50,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         switch (item.getItemId()) {
                             case R.id.action_home:
                                 selectedFragment = HomeFragment.newInstance();
+                                navigationView.getMenu().findItem(R.id.nav_home).setChecked(true);
                                 break;
                             case R.id.action_events:
                                 selectedFragment = EventsFragment.newInstance();
+                                navigationView.getMenu().findItem(R.id.nav_events).setChecked(true);
                                 break;
                             case R.id.action_profile:
                                 selectedFragment = ProfileFragment.newInstance();
+                                navigationView.getMenu().findItem(R.id.nav_profile).setChecked(true);
                                 break;
                             case R.id.action_workshops:
                                 selectedFragment = WorkshopsFragment.newInstance();
+                                navigationView.getMenu().findItem(R.id.nav_workshops).setChecked(true);
                                 break;
                             case R.id.action_spotlight:
                                 selectedFragment = SpotlightFragment.newInstance();
+                                navigationView.getMenu().findItem(R.id.nav_spotlights).setChecked(true);
                                 break;
                         }
                         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
