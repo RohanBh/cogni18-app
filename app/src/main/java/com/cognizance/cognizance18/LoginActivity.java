@@ -1,6 +1,7 @@
 package com.cognizance.cognizance18;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 219;
+    private static final String TYPE_GOOGLE = "google";
+    private static final String TYPE_FB = "facebook";
+    private static final String ROLE = "spp";
 
     private TextInputEditText emailEditText;
     private TextInputEditText phoneEditText;
@@ -60,7 +64,9 @@ public class LoginActivity extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        updateUI(account);
+        if (session.isLoggedIn() && account != null) {
+            startActivity(new Intent(this, MainActivity.class));
+        }
     }
 
     @Override
@@ -87,20 +93,36 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             // Signed in successfully, show authenticated UI.
-            updateUI(account);
+            onGoogleSignIn(account);
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w(LOG_TAG, "signInResult:failed code=" + e.getStatusCode());
-            updateUI(null);
+            onGoogleSignIn(null);
         }
     }
 
-    private void updateUI(GoogleSignInAccount account) {
+    private void onGoogleSignIn(GoogleSignInAccount account) {
         if (account == null) {
-            // No account exists
+            // No account exists or error
+            Toast.makeText(this, "Google Login Error", Toast.LENGTH_SHORT).show();
         } else {
             // user is signed in
+            String personName = account.getDisplayName();
+            String personEmail = account.getEmail();
+            String personId = account.getId();
+            String personOauthToken = account.getIdToken();
+            Uri personPhoto = account.getPhotoUrl();
+            sendOauthRequest(
+                    TYPE_GOOGLE,
+                    ROLE,
+                    personName,
+                    personEmail,
+                    personOauthToken,
+                    "test",
+                    personId,
+                    personPhoto.toString()
+            );
         }
     }
 
@@ -140,14 +162,13 @@ public class LoginActivity extends AppCompatActivity {
         service.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful()){
+                if (response.code() == 200) {
                     session.createLoginSession(response.body());
-                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
 
-                }
-                else
+                } else
                     Toast.makeText(LoginActivity.this, "Error : " + response.code(), Toast.LENGTH_SHORT).show();
             }
 
@@ -159,23 +180,21 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void sendOauthRequest(String type, String role, String name, String email, String accessToken, String dateTime, String id, String imageUrl){
-        OauthUser user = new OauthUser(type,role,name,email, accessToken,
-                dateTime,id,imageUrl);
+    private void sendOauthRequest(String type, String role, String name, String email, String accessToken, String dateTime, String id, String imageUrl) {
+        OauthUser user = new OauthUser(type, role, name, email, accessToken,
+                dateTime, id, imageUrl);
         ApiInterface apiInterface = this.getInterfaceService();
-        Call<LoginResponse> service = apiInterface.oauthLogin(role,user);
+        Call<LoginResponse> service = apiInterface.oauthLogin(role, user);
         service.enqueue(new Callback<LoginResponse>() {
             @Override
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                if (response.isSuccessful()) {
+                if (response.code() == 200) {
                     session.createLoginSession(response.body());
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                }
-                else
+                } else
                     Toast.makeText(LoginActivity.this, "Error : " + response.code(), Toast.LENGTH_SHORT).show();
-
 
 
             }
