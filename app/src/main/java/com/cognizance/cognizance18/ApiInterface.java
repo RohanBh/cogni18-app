@@ -1,7 +1,10 @@
 package com.cognizance.cognizance18;
 
+import com.cognizance.cognizance18.models.LoginResponse;
+import com.cognizance.cognizance18.models.User;
+
 import retrofit2.Call;
-import retrofit2.http.GET;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 
@@ -10,8 +13,8 @@ import retrofit2.http.Path;
  */
 
 public interface ApiInterface {
-    @GET("api/login/{email}/{password}")
-    Call<String> authenticate(@Path("user") String email, @Path("password") String password);
+    @POST("api/login/")
+    Call<LoginResponse> authenticate(@Body User user);
 
     @POST("api/{email}/{password}")
     Call<String> register(@Path("email") String email, @Path("password") String password);
