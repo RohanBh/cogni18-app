@@ -5,16 +5,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.cognizance.cognizance18.models.LoginResponse;
+
 /**
  * Created by samagra on 1/12/17.
  */
 
 public class SessionManager {
     // Shared Preferences
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
     // Editor for Shared preferences
-    SharedPreferences.Editor editor;
+    private SharedPreferences.Editor editor;
 
     // Context
     private Context context;
@@ -29,27 +31,39 @@ public class SessionManager {
     private static final String IS_LOGIN = "IsLoggedIn";
 
     // User name (make variable public to access from outside)
-    public static final String KEY_USER_EMAIL = "email";
+    private static final String KEY_USER_EMAIL = "email";
+
+    private static final String MESSAGE = "message";
+    private static final String TOKEN = "token";
+    private static final String ROLE = "role";
+    private static final String NAME = "name";
+
+
 
     public SessionManager(Context context) {
         this.context = context;
         preferences = context.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
-        editor = preferences.edit();
+
     }
 
     /**
      * Create login session
      * */
-    public void createLoginSession(String email){
+    public void createLoginSession(LoginResponse response){
         // Storing login value as TRUE
+        editor = preferences.edit();
         editor.putBoolean(IS_LOGIN, true);
 
         // Storing email in pref
-        editor.putString(KEY_USER_EMAIL, email);
+        editor.putString(KEY_USER_EMAIL, response.getEmail());
+        editor.putString(MESSAGE, response.getMessage());
+        editor.putString(TOKEN , response.getToken());
+        editor.putString(ROLE, response.getRole());
+        editor.putString(NAME , response.getName());
 
 
         // commit changes
-        editor.commit();
+        editor.apply();
     }
 
     /**
@@ -97,6 +111,7 @@ public class SessionManager {
      * */
     public void logoutUser(){
         // Clearing all data from Shared Preferences
+        editor = preferences.edit();
         editor.clear();
         editor.commit();
 

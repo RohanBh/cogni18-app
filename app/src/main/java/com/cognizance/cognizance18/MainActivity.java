@@ -1,22 +1,25 @@
 package com.cognizance.cognizance18;
 
-import android.app.Fragment;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
+    SessionManager session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.front_activity);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        session = new SessionManager(getApplicationContext());
+        Toast.makeText(this, "Logged in"+ session.isLoggedIn(), Toast.LENGTH_SHORT).show();
         bottomNavigationView.getMenu().getItem(2).setChecked(true);
         bottomNavigationView.setOnNavigationItemSelectedListener
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
