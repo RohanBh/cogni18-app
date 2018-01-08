@@ -26,6 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+// Do not change this Activity's name
 public class LoginActivity extends AppCompatActivity {
 
     private static final int RC_SIGN_IN = 219;

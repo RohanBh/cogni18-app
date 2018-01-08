@@ -35,4 +35,7 @@
         varius est. Ut et diam eu velit eleifend efficitur.</string>
     <string name="event_details">DETAILS</string>
 
+    <string name="facebook_app_id">1563593923725221</string>
+    <string name="fb_login_protocol_scheme">fb1563593923725221</string>
+
 </resources>
