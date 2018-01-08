@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
                     personOauthToken,
                     "test",
                     personId,
-                    personPhoto.toString()
+                    personPhoto == null ? null : personPhoto.toString()
             );
         }
     }
