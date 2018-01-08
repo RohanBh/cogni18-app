@@ -13,12 +13,22 @@ import android.widget.Toast;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.OauthUser;
 import com.cognizance.cognizance18.models.User;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.Profile;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+
+import org.json.JSONException;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,6 +51,8 @@ public class LoginActivity extends AppCompatActivity {
     private final String LOG_TAG = "LoginActivity :";
     private SessionManager session;
     private GoogleSignInClient mGoogleSignInClient;
+    private CallbackManager callbackManager;
+    private LoginButton loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +77,17 @@ public class LoginActivity extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if (session.isLoggedIn() && account != null) {
+        boolean fbIsLoggedIn = AccessToken.getCurrentAccessToken() != null;
+        boolean googleIsLoggedIn = account != null;
+        if (session.isLoggedIn() || fbIsLoggedIn || googleIsLoggedIn) {
             startActivity(new Intent(this, MainActivity.class));
+            finish();
         }
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
 
         // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
@@ -88,6 +104,9 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+        callbackManager = CallbackManager.Factory.create();
+        loginButton = (LoginButton) findViewById(R.id.fb_login_button);
+        loginButton.setReadPermissions("email");
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -98,9 +117,81 @@ public class LoginActivity extends AppCompatActivity {
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(LOG_TAG, "signInResult:failed code=" + e.getStatusCode());
+            Log.w(LOG_TAG, "googleSignInResult:failed code=" + e.getStatusCode());
             onGoogleSignIn(null);
         }
+    }
+
+    private void initViews() {
+        emailEditText = findViewById(R.id.email_edit_text);
+        phoneEditText = findViewById(R.id.mobile_number_edit_text);
+        getStartedButton = findViewById(R.id.get_started_btn);
+
+    }
+
+    private void setClickListeners() {
+        getStartedButton.setOnClickListener(
+                view -> {
+                    String email = emailEditText.getText().toString();
+                    String password = phoneEditText.getText().toString();
+                    verifyFromAPI(email, password);
+                });
+        findViewById(R.id.google_login_button).setOnClickListener(
+                (View v) -> {
+                    switch (v.getId()) {
+                        case R.id.google_login_button: {
+                            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                            startActivityForResult(signInIntent, RC_SIGN_IN);
+                            break;
+                        }
+                    }
+                }
+        );
+        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                onFbSignIn();
+            }
+
+            @Override
+            public void onCancel() {
+
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Log.w(LOG_TAG, "fbSignInResult:failed " + exception.getMessage());
+            }
+        });
+    }
+
+    private void onFbSignIn() {
+        GraphRequest request = GraphRequest.newMeRequest(
+                AccessToken.getCurrentAccessToken(),
+                (object, response) -> {
+                    Profile profile = Profile.getCurrentProfile();
+                    String userEmail = null;
+                    try {
+                        userEmail = object.getString("email");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    sendOauthRequest(
+                            TYPE_FB,
+                            ROLE,
+                            profile.getName(),
+                            userEmail,
+                            AccessToken.getCurrentAccessToken().getToken(),
+                            "test",
+                            profile.getId(),
+                            profile.getProfilePictureUri(400, 500).toString()
+                    );
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "id,name,email" +
+                "");
+        request.setParameters(parameters);
+        request.executeAsync();
     }
 
     private void onGoogleSignIn(GoogleSignInAccount account) {
@@ -125,35 +216,6 @@ public class LoginActivity extends AppCompatActivity {
                     personPhoto == null ? null : personPhoto.toString()
             );
         }
-    }
-
-    private void initViews() {
-        emailEditText = findViewById(R.id.email_edit_text);
-        phoneEditText = findViewById(R.id.mobile_number_edit_text);
-        getStartedButton = findViewById(R.id.get_started_btn);
-
-    }
-
-    private void setClickListeners() {
-        getStartedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = emailEditText.getText().toString();
-                String password = phoneEditText.getText().toString();
-                verifyFromAPI(email, password);
-            }
-        });
-        findViewById(R.id.sign_in_button).setOnClickListener(
-                (View v) -> {
-                    switch (v.getId()) {
-                        case R.id.sign_in_button: {
-                            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                            startActivityForResult(signInIntent, RC_SIGN_IN);
-                            break;
-                        }
-                    }
-                }
-        );
     }
 
     private void verifyFromAPI(String email, String password) {
