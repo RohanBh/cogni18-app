@@ -34,5 +34,21 @@
         Duis vel ultricies massa, non convallis nibh. Mauris sodales
         varius est. Ut et diam eu velit eleifend efficitur.</string>
     <string name="event_details">DETAILS</string>
+    <string name="title_activity_sign_up">SignUpActivity</string>
+    <string name="full_name">Full Name</string>
+    <string name="select_state">Select State</string>
+    <string name="select_your_college">Select Your College</string>
+    <string name="year">Year</string>
+    <string name="state">State</string>
+    <string name="college">College</string>
+    <string name="gender">Gender</string>
+    <string name="city">City</string>
+    <string name="pincode">Pincode</string>
+    <string name="branch">Branch</string>
+    <string name="password">Password</string>
+    <string name="other_college">Other College</string>
+    <string name="corresponding_address">Corresponding Address</string>
+    <string name="room_no_hostel">Room No., Hostel</string>
+    <string name="save">Save</string>
 
 </resources>

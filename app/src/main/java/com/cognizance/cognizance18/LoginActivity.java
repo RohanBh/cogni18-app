@@ -1,11 +1,13 @@
 package com.cognizance.cognizance18;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.User;
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextInputEditText emailEditText;
     private TextInputEditText phoneEditText;
     private AppCompatButton getStartedButton;
+    private TextView signTextView;
     private final String BASE_URL = "https://api.cognizance.org.in/";
     private final String LOG_TAG = "LoginActivity :";
 
@@ -40,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
         emailEditText = findViewById(R.id.email_edit_text);
         phoneEditText = findViewById(R.id.mobile_number_edit_text);
         getStartedButton = findViewById(R.id.get_started_btn);
+        signTextView = findViewById(R.id.sign_up_text);
 
     }
 
@@ -50,6 +54,13 @@ public class LoginActivity extends AppCompatActivity {
                 String email = emailEditText.getText().toString();
                 String password = phoneEditText.getText().toString();
                 verifyFromAPI("mastertester456@gmail.com", "password123");
+            }
+        });
+
+        signTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity1.class));
             }
         });
     }
