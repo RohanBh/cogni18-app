@@ -1,11 +1,11 @@
 package com.cognizance.cognizance18;
 
 import com.cognizance.cognizance18.models.LoginResponse;
-<<<<<<< HEAD
+
 import com.cognizance.cognizance18.models.OauthUser;
-=======
+
 import com.cognizance.cognizance18.models.SignUpUser;
->>>>>>> sign_up
+
 import com.cognizance.cognizance18.models.User;
 
 import retrofit2.Call;
