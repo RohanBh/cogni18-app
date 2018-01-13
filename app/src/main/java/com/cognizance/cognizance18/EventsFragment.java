@@ -1,8 +1,11 @@
 package com.cognizance.cognizance18;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,9 @@ import android.widget.TextView;
 import com.cognizance.cognizance18.fragments.EventsContentFragment;
 
 public class EventsFragment extends Fragment {
+
+    private static final String CENTERSTAGE_TAG = "centerstage_fragment";
+    private static final String DEPARTMENTAL_TAG = "department_fragment";
 
     private TextView centerstageTab;
     private TextView departmentalTab;
@@ -29,14 +35,15 @@ public class EventsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_events, container, false);
+        return inflater.inflate(R.layout.fragment_events, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         initViews(view);
-        setupViews();
-        selectedEventFragment = EventsContentFragment.newInstance("Centerstage");
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.events_content_fragment, selectedEventFragment);
-        transaction.commit();
-        return view;
+        setupListeners();
+        changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG);
     }
 
     private void initViews(View view) {
@@ -44,30 +51,29 @@ public class EventsFragment extends Fragment {
         departmentalTab = view.findViewById(R.id.departmental_tab);
     }
 
-    private void setupViews() {
+    private void setupListeners() {
         centerstageTab.setOnClickListener(
-                (v) -> {
-                    v.setSelected(true);
-                    centerstageTab.setTextColor(getResources().getColor(R.color.white));
-                    departmentalTab.setSelected(false);
-                    departmentalTab.setTextColor(getResources().getColor(R.color.dark_gray));
-                    selectedEventFragment = EventsContentFragment.newInstance("Centerstage");
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.events_content_fragment, selectedEventFragment);
-                    transaction.commit();
-                }
+                (v) -> changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG)
         );
         departmentalTab.setOnClickListener(
-                (v) -> {
-                    v.setSelected(true);
-                    departmentalTab.setTextColor(getResources().getColor(R.color.white));
-                    centerstageTab.setSelected(false);
-                    centerstageTab.setTextColor(getResources().getColor(R.color.dark_gray));
-                    selectedEventFragment = EventsContentFragment.newInstance("Departmental");
-                    FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-                    transaction.replace(R.id.events_content_fragment, selectedEventFragment);
-                    transaction.commit();
-                }
+                (v) -> changeTab(departmentalTab, centerstageTab, DEPARTMENTAL_TAG)
         );
+    }
+
+    private void changeTab(TextView selectedTab, TextView otherTab, String fragmentTag) {
+        selectedTab.setSelected(true);
+        selectedTab.setTextColor(ResourcesCompat.getColor(getResources(), R.color.white, null));
+        otherTab.setSelected(false);
+        otherTab.setTextColor(ResourcesCompat.getColor(getResources(), R.color.dark_gray, null));
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        selectedEventFragment = fragmentManager.findFragmentByTag(fragmentTag);
+        if (selectedEventFragment == null) {
+            selectedEventFragment = EventsContentFragment.newInstance(selectedTab.getText().toString());
+        }
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.events_content_fragment, selectedEventFragment, fragmentTag);
+        transaction.commit();
     }
 }
