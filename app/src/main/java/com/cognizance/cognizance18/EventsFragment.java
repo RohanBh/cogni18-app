@@ -1,10 +1,10 @@
 package com.cognizance.cognizance18;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +12,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.fragments.EventsContentFragment;
+import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
 public class EventsFragment extends Fragment {
 
     private static final String CENTERSTAGE_TAG = "centerstage_fragment";
     private static final String DEPARTMENTAL_TAG = "department_fragment";
+
+    private OnFragmentAddedListener mListener;
 
     private TextView centerstageTab;
     private TextView departmentalTab;
@@ -28,8 +31,13 @@ public class EventsFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (OnFragmentAddedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString() + "must implement OnFragmentAddedListener");
+        }
     }
 
     @Override
@@ -44,6 +52,7 @@ public class EventsFragment extends Fragment {
         initViews(view);
         setupListeners();
         changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG);
+        mListener.onFragmentAdd(0);
     }
 
     private void initViews(View view) {
@@ -53,10 +62,10 @@ public class EventsFragment extends Fragment {
 
     private void setupListeners() {
         centerstageTab.setOnClickListener(
-                (v) -> changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG)
+                v -> changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG)
         );
         departmentalTab.setOnClickListener(
-                (v) -> changeTab(departmentalTab, centerstageTab, DEPARTMENTAL_TAG)
+                v -> changeTab(departmentalTab, centerstageTab, DEPARTMENTAL_TAG)
         );
     }
 
@@ -66,14 +75,15 @@ public class EventsFragment extends Fragment {
         otherTab.setSelected(false);
         otherTab.setTextColor(ResourcesCompat.getColor(getResources(), R.color.dark_gray, null));
 
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentManager fragmentManager = getChildFragmentManager();
         selectedEventFragment = fragmentManager.findFragmentByTag(fragmentTag);
         if (selectedEventFragment == null) {
             selectedEventFragment = EventsContentFragment.newInstance(selectedTab.getText().toString());
         }
 
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.events_content_fragment, selectedEventFragment, fragmentTag);
-        transaction.commit();
+        fragmentManager.beginTransaction()
+                .replace(R.id.events_content_fragment, selectedEventFragment, fragmentTag)
+                .addToBackStack(null)
+                .commit();
     }
 }

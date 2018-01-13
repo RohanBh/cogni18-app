@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.cognizance.cognizance18.adapters.CarouselRViewAdapter;
+import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 import com.cognizance.cognizance18.models.Event;
 
 import java.util.ArrayList;
@@ -16,7 +18,11 @@ import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
 
-    private RecyclerView spotLightsRecyclerView, eventsRecyclerView, workshopsRecyclerView;
+    private OnFragmentAddedListener mListener;
+
+    private RecyclerView spotLightsRecyclerView;
+    private RecyclerView eventsRecyclerView;
+    private RecyclerView workshopsRecyclerView;
 
     public static HomeFragment newInstance() {
         HomeFragment fragment = new HomeFragment();
@@ -24,9 +30,13 @@ public class HomeFragment extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mListener = (OnFragmentAddedListener) context;
+        } catch (ClassCastException e){
+            throw new ClassCastException(context.toString() + "must implement OnFragmentAddedListener");
+        }
     }
 
     @Override
@@ -36,6 +46,7 @@ public class HomeFragment extends Fragment {
         initViews(view);
         setupViews();
         setListeners();
+        mListener.onFragmentAdd(2);
         return view;
     }
 
