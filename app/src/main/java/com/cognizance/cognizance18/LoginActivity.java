@@ -23,6 +23,7 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.GraphRequest;
 import com.facebook.Profile;
+import com.facebook.ProfileTracker;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -33,6 +34,7 @@ import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -53,11 +55,12 @@ public class LoginActivity extends AppCompatActivity {
     private AppCompatButton getStartedButton;
     private TextView signTextView;
     private final String BASE_URL = "https://api.cognizance.org.in/";
-    private final String LOG_TAG = "LoginActivity :";
+    private final String LOG_TAG = "LoginActivity";
     private SessionManager session;
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager callbackManager;
     private LoginButton loginButton;
+    private ProfileTracker mTracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,8 +113,6 @@ public class LoginActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(R.id.fb_login_button);
-        loginButton.setReadPermissions("email");
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -132,7 +133,8 @@ public class LoginActivity extends AppCompatActivity {
         phoneEditText = findViewById(R.id.mobile_number_edit_text);
         getStartedButton = findViewById(R.id.get_started_btn);
         signTextView = findViewById(R.id.sign_up_text);
-
+        loginButton = findViewById(R.id.fb_login_button);
+        loginButton.setReadPermissions("email");
     }
 
     private void setClickListeners() {
@@ -166,7 +168,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException exception) {
-                Log.w(LOG_TAG, "fbSignInResult:failed " + exception.getMessage());
+                Log.e(LOG_TAG, "fbSignInResult:failed " + exception.getMessage());
             }
         });
 
@@ -183,28 +185,42 @@ public class LoginActivity extends AppCompatActivity {
                 AccessToken.getCurrentAccessToken(),
                 (object, response) -> {
                     Profile profile = Profile.getCurrentProfile();
-                    String userEmail = null;
-                    try {
-                        userEmail = object.getString("email");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    if (profile == null) {
+                        mTracker = new ProfileTracker() {
+                            @Override
+                            protected void onCurrentProfileChanged(
+                                    Profile oldProfile, Profile currentProfile) {
+                                sendLoginParamsForFb(currentProfile, object);
+                                mTracker.stopTracking();
+                            }
+                        };
+                    } else {
+                        sendLoginParamsForFb(profile, object);
                     }
-                    sendOauthRequest(
-                            TYPE_FB,
-                            ROLE,
-                            profile.getName(),
-                            userEmail,
-                            AccessToken.getCurrentAccessToken().getToken(),
-                            "test",
-                            profile.getId(),
-                            profile.getProfilePictureUri(400, 500).toString()
-                    );
                 });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,email" +
-                "");
+        parameters.putString("fields", "id,name,email");
         request.setParameters(parameters);
         request.executeAsync();
+    }
+
+    private void sendLoginParamsForFb(Profile profile, JSONObject object) {
+        String userEmail = null;
+        try {
+            userEmail = object.getString("email");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        sendOauthRequest(
+                TYPE_FB,
+                ROLE,
+                profile.getName(),
+                userEmail,
+                AccessToken.getCurrentAccessToken().getToken(),
+                "test",
+                profile.getId(),
+                profile.getProfilePictureUri(400, 500).toString()
+        );
     }
 
     private void onGoogleSignIn(GoogleSignInAccount account) {
