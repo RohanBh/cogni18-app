@@ -32,7 +32,7 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mListener.onFragmentAdd(3);
+        mListener.onFragmentAdd(4);
         return inflater.inflate(R.layout.fragment_profile, container, false);
     }
 }
