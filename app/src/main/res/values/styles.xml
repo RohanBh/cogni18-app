@@ -7,6 +7,15 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    
+    <style name="Theme1" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+    </style>
 
     <style name="tab_layout_theme" parent="Widget.Design.TabLayout">
         <item name="textAllCaps">false</item>
@@ -15,6 +24,16 @@
         <item name="android:textColor">@color/light_gray</item>
         <item name="tabSelectedTextColor">@color/white</item>
         <item name="tabTextAppearance">@android:style/TextAppearance.Widget.TabWidget</item>
+    </style>
+
+    <style name="profile_tab_layout" parent="Widget.Design.TabLayout">
+
+        <item name="tabIndicatorColor">@color/purple</item>
+        <item name="tabBackground">@color/purple</item>
+
+
+
+
     </style>
 
 </resources>
