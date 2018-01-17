@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         setContentView(R.layout.front_activity);
         session = new SessionManager(getApplicationContext());
         Toast.makeText(this, "Logged in"+ session.isLoggedIn(), Toast.LENGTH_SHORT).show();
-        bottomNavigationView.getMenu().getItem(2).setChecked(true);
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 item -> {
