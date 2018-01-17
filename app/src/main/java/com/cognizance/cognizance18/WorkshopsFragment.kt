@@ -28,12 +28,12 @@ class WorkshopsFragment : Fragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater?,
+            inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
-    ) = inflater?.inflate(R.layout.fragment_workshops, container, false)
+    ) = inflater.inflate(R.layout.fragment_workshops, container, false)
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         workshops_recycler_view.adapter = WorkshopsRViewAdapter(mEventList)
         workshops_recycler_view.layoutManager = LinearLayoutManager(context)
