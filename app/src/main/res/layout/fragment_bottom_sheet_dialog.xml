@@ -1,18 +1,176 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_sheet"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TODO(Add layout for bottom sheet)"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@android:color/white">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/menu_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/menu_string"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintTop_toTopOf="@id/menu_text"
+            app:layout_constraintBottom_toBottomOf="@id/menu_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:padding="4dp"
+            android:src="@drawable/ic_close"
+            android:layout_marginEnd="16dp"/>
+
+        <GridView
+            android:id="@+id/nav_menu"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:columnWidth="70dp"
+            android:gravity="center"
+            android:horizontalSpacing="1dp"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"
+            app:layout_constraintBottom_toTopOf="@+id/divider_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/menu_text" />
+
+        <View
+            android:id="@+id/divider_view"
+            android:layout_width="0dp"
+            android:layout_height="170dp"
+            android:background="@color/background_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nav_menu" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/cogni_logo"
+            app:layout_constraintBottom_toBottomOf="@id/cogni_date_text"
+            app:layout_constraintStart_toStartOf="@id/divider_view"
+            app:layout_constraintTop_toTopOf="@id/divider_view" />
+
+        <TextView
+            android:id="@+id/cogni_date_text"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/logo"
+            app:layout_constraintTop_toTopOf="@id/logo"
+            tools:text="23-25\nMarch\n2018" />
+
+        <TextView
+            android:id="@+id/cogni_all_caps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cognizance_all_caps"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@id/logo"
+            app:layout_constraintTop_toBottomOf="@id/logo"
+            android:textColor="@color/logo_red"/>
+
+        <TextView
+            android:id="@+id/cogni_tag_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cogni_tag_line"
+            android:textSize="10sp"
+            app:layout_constraintTop_toBottomOf="@id/cogni_all_caps"
+            app:layout_constraintStart_toStartOf="@id/logo"
+            android:textColor="@color/logo_red"/>
+
+        <ImageView
+            android:id="@+id/addr_pin"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:layout_marginTop="1dp"
+            app:layout_constraintStart_toStartOf="@id/logo"
+            app:layout_constraintTop_toTopOf="@+id/addr_text"
+            app:layout_constraintBottom_toBottomOf="@+id/helper"
+            android:src="@drawable/ic_pin"/>
+
+        <TextView
+            android:id="@+id/addr_text"
+            android:layout_width="wrap_content"
+            android:textSize="10sp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            app:layout_constraintTop_toBottomOf="@id/cogni_tag_line"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@id/addr_pin"
+            android:text="@string/cogni_office_addr"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/addr_text"
+            app:layout_constraintTop_toBottomOf="@id/addr_text"
+            android:layout_marginTop="8dp"
+            android:text="@string/cogni_office_no"/>
+
+        <View
+            android:id="@+id/helper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/addr_text"
+            app:layout_constraintBottom_toBottomOf="@id/addr_text"/>
+
+        <TextView
+            android:id="@+id/about_us_text"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toTopOf="@id/divider_view"
+            app:layout_constraintBottom_toTopOf="@id/sponsors"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
+            android:layout_marginTop="20dp"
+            android:text="@string/about_us"
+            android:layout_marginEnd="16dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/sponsors"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/about_us_text"
+            app:layout_constraintEnd_toEndOf="@id/about_us_text"
+            app:layout_constraintBottom_toTopOf="@+id/contact_us"
+            android:textSize="14sp"
+            android:text="@string/sponsors"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/contact_us"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/sponsors"
+            app:layout_constraintEnd_toEndOf="@id/about_us_text"
+            app:layout_constraintBottom_toBottomOf="@id/divider_view"
+            android:textSize="14sp"
+            android:text="@string/contact_us"
+            android:layout_marginBottom="20dp"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
