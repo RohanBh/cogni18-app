@@ -18,7 +18,6 @@
     <string name="mobile_number">Mobile Number (an OTP will be sent to this)</string>
     <string name="departmental_string">Departmental</string>
     <string name="centerstage_string">Centerstage</string>
-    <string name="mainstay_string">Mainstay</string>
     <string name="image_description_string">image description</string>
 
     <string name="placeholder_text">Lorem ipsum dolor sit amet,
@@ -53,5 +52,7 @@
 
     <string name="facebook_app_id">1563593923725221</string>
     <string name="fb_login_protocol_scheme">fb1563593923725221</string>
+    <string name="login_string">LOGIN</string>
+    <string name="register_string">REGISTER</string>
 
 </resources>

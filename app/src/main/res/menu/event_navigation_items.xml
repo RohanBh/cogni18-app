@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_center_stage"
-        android:name="@string/centerstage_string"/>
-    <item android:id="@+id/action_departmental"
-        android:name="@string/departmental_string" />
-    <item android:id="@+id/actions_mainstay"
-        android:name="@string/mainstay_string" />
-</menu>
