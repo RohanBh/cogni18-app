@@ -15,6 +15,14 @@
         android:layout_gravity="top"
         android:contentDescription="@string/image_description_string" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:contentDescription="@string/image_description_string"
+        app:srcCompat="@drawable/ic_bookmark_border_black_24dp"
+        android:layout_gravity="end"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

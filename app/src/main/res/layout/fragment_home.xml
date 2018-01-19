@@ -1,4 +1,3 @@
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.cognizance.cognizance18.HomeFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,8 +21,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp">
+            android:layout_marginTop="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,8 +48,7 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp">
+            android:layout_marginTop="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -77,8 +76,8 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="16dp">
+            android:layout_marginTop="20dp">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,5 +99,96 @@
                 android:id="@+id/workshops_recycler_view"/>
 
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="116dp"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@color/light_gray">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="24dp"
+                android:text="@string/bhaari_bakchodi_hai_sab_moh_maya"
+                />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:src="@color/button_back"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="12dp"
+                android:contentDescription="@string/image_description_string"
+                android:id="@+id/thought_image_view"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_2017_spotlights"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:paddingStart="24dp"
+            android:paddingEnd="0dp"
+            android:textSize="20sp"
+            android:textColor="@android:color/black"/>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_marginStart="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/techtainment"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp"
+                    android:id="@+id/techtainment_2017_r_view"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight" />
+
+                <TextView
+                    android:layout_marginStart="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/guest_speakers"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="8dp"/>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:id="@+id/speakers_2017_r_view"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight"
+                    android:layout_marginBottom="12dp"/>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
     </LinearLayout>
+
 </ScrollView>
