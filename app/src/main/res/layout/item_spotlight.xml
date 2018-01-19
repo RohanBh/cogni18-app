@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:text="@string/spotlight_name"
         android:textSize="16sp"
+        android:gravity="center"
         android:id="@+id/spot_text_view"
         android:textColor="@android:color/black"/>
 
