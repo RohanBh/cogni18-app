@@ -54,5 +54,8 @@
     <string name="fb_login_protocol_scheme">fb1563593923725221</string>
     <string name="login_string">LOGIN</string>
     <string name="register_string">REGISTER</string>
+    <string name="events_you_may_like">Events you may like</string>
+    <string name="event_title">Event Title</string>
+    <string name="event_category">Event Category</string>
 
 </resources>

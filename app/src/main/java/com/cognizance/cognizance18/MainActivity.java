@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
 
     SessionManager session;
 
+    // logic variables
     private int prevNonDialogMenuItemId = -1;
     private boolean isFirstTransaction = true;
 
