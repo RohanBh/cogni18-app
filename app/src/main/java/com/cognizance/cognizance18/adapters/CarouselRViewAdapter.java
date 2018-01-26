@@ -29,7 +29,7 @@ public class CarouselRViewAdapter extends RecyclerView.Adapter<CarouselRViewAdap
     @Override
     public EventRHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_spot_light, parent, false);
+        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_carousels, parent, false);
         return new EventRHolder(mainGroup);
     }
 
@@ -46,9 +46,9 @@ public class CarouselRViewAdapter extends RecyclerView.Adapter<CarouselRViewAdap
     class EventRHolder extends RecyclerView.ViewHolder {
         TextView title;
 
-        public EventRHolder(View itemView) {
+        EventRHolder(View itemView) {
             super(itemView);
-            this.title = itemView.findViewById(R.id.title_text);
+            this.title = itemView.findViewById(R.id.event_title_text_view);
         }
     }
 }

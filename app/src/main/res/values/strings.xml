@@ -54,6 +54,14 @@
     <string name="fb_login_protocol_scheme">fb1563593923725221</string>
     <string name="login_string">LOGIN</string>
     <string name="register_string">REGISTER</string>
+    <string name="events_you_may_like">Events you may like</string>
+    <string name="event_title">Event Title</string>
+    <string name="event_category">Event Category</string>
+    <string name="bhaari_bakchodi_hai_sab_moh_maya">BHAARI BAKCHODI HAI SAB MOH MAYA !!</string>
+    <string name="techtainment">TECHTAINMENT</string>
+    <string name="_2017_spotlights">2017 Spotlights</string>
+    <string name="spotlight_name">SpotLight</string>
+    <string name="guest_speakers">GUEST SPEAKERS</string>
     <string name="menu_string">Menu</string>
     <string name="cognizance_all_caps">COGNIZANCE</string>
     <string name="cogni_tag_line">The Annual Technical Festival of IIT Roorkee</string>
