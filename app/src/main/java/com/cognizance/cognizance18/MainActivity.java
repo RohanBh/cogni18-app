@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -9,21 +10,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.cognizance.cognizance18.fragments.BottomSheetFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
-public class MainActivity extends AppCompatActivity implements OnFragmentAddedListener,
-        BottomSheetFragment.OnBottomSheetCancelledListener {
+public class MainActivity extends AppCompatActivity implements OnFragmentAddedListener {
 
     private static final String HOME_TAG = "home_fragment";
     private static final String EVENTS_TAG = "event_fragment";
     private static final String PROFILE_TAG = "profile_fragment";
     private static final String WORKSHOP_TAG = "workshop_fragment";
     private static final String SPOTLIGHT_TAG = "spotlight_fragment";
-    private static final String BOTTOM_SHEET_TAG = "bottom_sheet_fragment";
+    private static final int MORE_ACTIVITY_RC = 129;
 
     private BottomNavigationView bottomNavigationView;
-    private BottomSheetFragment bottomSheetFragment;
 
     SessionManager session;
 
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.front_activity);
         session = new SessionManager(getApplicationContext());
-        Toast.makeText(this, "Logged in"+ session.isLoggedIn(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 item -> {
@@ -46,24 +44,26 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                     switch (item.getItemId()) {
                         case R.id.action_events:
                             replaceFragment(EVENTS_TAG);
-                            dismissBottomSheet(item.getItemId());
+                            prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_workshops:
                             replaceFragment(WORKSHOP_TAG);
-                            dismissBottomSheet(item.getItemId());
+                            prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_home:
                             replaceFragment(HOME_TAG);
-                            dismissBottomSheet(item.getItemId());
+                            prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_spotlight:
                             replaceFragment(SPOTLIGHT_TAG);
-                            dismissBottomSheet(item.getItemId());
+                            prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_profile:
                             //replaceFragment(PROFILE_TAG);
-                            bottomSheetFragment = new BottomSheetFragment();
-                            bottomSheetFragment.show(getSupportFragmentManager(), BOTTOM_SHEET_TAG);
+                            startActivityForResult(
+                                    new Intent(MainActivity.this, MoreActivity.class),
+                                    MORE_ACTIVITY_RC
+                            );
                             break;
                     }
                     return true;
@@ -79,16 +79,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
     }
 
     @Override
-    public void onBottomSheetCancel() {
-        if (prevNonDialogMenuItemId != -1) {
-            bottomNavigationView.setSelectedItemId(prevNonDialogMenuItemId);
-        }
-    }
-
-    private void dismissBottomSheet(int itemId) {
-        prevNonDialogMenuItemId = itemId;
-        if (bottomSheetFragment != null) {
-            bottomSheetFragment.dismiss();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == MORE_ACTIVITY_RC) {
+            if (prevNonDialogMenuItemId != -1) {
+                bottomNavigationView.setSelectedItemId(prevNonDialogMenuItemId);
+            }
         }
     }
 

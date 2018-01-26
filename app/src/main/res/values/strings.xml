@@ -62,5 +62,13 @@
     <string name="_2017_spotlights">2017 Spotlights</string>
     <string name="spotlight_name">SpotLight</string>
     <string name="guest_speakers">GUEST SPEAKERS</string>
+    <string name="menu_string">Menu</string>
+    <string name="cognizance_all_caps">COGNIZANCE</string>
+    <string name="cogni_tag_line">The Annual Technical Festival of IIT Roorkee</string>
+    <string name="cogni_office_addr">Cognizance office,3rd floor, Multi Activity Center,\n IIT ROORKEE, Roorkee-247667,Haridwar, Uttrakhand</string>
+    <string name="cogni_office_no">969816387899</string>
+    <string name="about_us">About Us</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="contact_us">Contact Us</string>
 
 </resources>
