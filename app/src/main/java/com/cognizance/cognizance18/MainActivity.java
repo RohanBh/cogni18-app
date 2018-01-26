@@ -10,6 +10,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.cognizance.cognizance18.fragments.EventsFragment;
+import com.cognizance.cognizance18.fragments.HomeFragment;
+import com.cognizance.cognizance18.fragments.ProfileFragment;
+import com.cognizance.cognizance18.fragments.SpotlightFragment;
+import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentAddedListener {

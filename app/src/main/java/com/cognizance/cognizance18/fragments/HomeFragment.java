@@ -1,4 +1,4 @@
-package com.cognizance.cognizance18;
+package com.cognizance.cognizance18.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.adapters.CarouselRViewAdapter;
 import com.cognizance.cognizance18.adapters.SpotLightRViewAdapter;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;

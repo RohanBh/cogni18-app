@@ -1,4 +1,4 @@
-package com.cognizance.cognizance18;
+package com.cognizance.cognizance18.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.cognizance.cognizance18.fragments.EventsContentFragment;
+import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
 public class EventsFragment extends Fragment {

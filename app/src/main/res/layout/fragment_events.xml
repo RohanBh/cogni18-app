@@ -5,7 +5,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:paddingTop="10dp"
-    tools:context="com.cognizance.cognizance18.EventsFragment">
+    tools:context="com.cognizance.cognizance18.fragments.EventsFragment">
 
     <LinearLayout
         android:id="@+id/event_selector"
