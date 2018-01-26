@@ -54,5 +54,13 @@
     <string name="fb_login_protocol_scheme">fb1563593923725221</string>
     <string name="login_string">LOGIN</string>
     <string name="register_string">REGISTER</string>
+    <string name="menu_string">Menu</string>
+    <string name="cognizance_all_caps">COGNIZANCE</string>
+    <string name="cogni_tag_line">The Annual Technical Festival of IIT Roorkee</string>
+    <string name="cogni_office_addr">Cognizance office,3rd floor, Multi Activity Center,\n IIT ROORKEE, Roorkee-247667,Haridwar, Uttrakhand</string>
+    <string name="cogni_office_no">969816387899</string>
+    <string name="about_us">About Us</string>
+    <string name="sponsors">Sponsors</string>
+    <string name="contact_us">Contact Us</string>
 
 </resources>
