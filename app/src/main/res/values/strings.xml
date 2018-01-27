@@ -70,5 +70,7 @@
     <string name="about_us">About Us</string>
     <string name="sponsors">Sponsors</string>
     <string name="contact_us">Contact Us</string>
+    <string name="techtainment_lower">Techtainment</string>
+    <string name="guest_speakers_lower">Guest Speakers</string>
 
 </resources>
