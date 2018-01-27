@@ -22,7 +22,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     @Override
     public EventRViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_event, parent, false);
+        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_carousels, parent, false);
         return new EventRViewHolder(mainGroup);
     }
 
@@ -38,11 +38,12 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     class EventRViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
+        TextView name, category;
 
         EventRViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.event_name_text);
+            name = itemView.findViewById(R.id.event_title_text_view);
+            category = itemView.findViewById(R.id.event_cat_text_view);
         }
     }
 }
