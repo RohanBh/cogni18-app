@@ -79,7 +79,7 @@ public class HomeFragment extends Fragment {
         ArrayList<SpotLight> speakersList;
         speakersList = new ArrayList<>();
         for (int i=0;i<5;i++){
-            SpotLight spotLight = new SpotLight("G S Name",0);
+            SpotLight spotLight = new SpotLight("G S Name");
             speakersList.add(spotLight);
         }
 
@@ -87,7 +87,7 @@ public class HomeFragment extends Fragment {
 
         ArrayList<SpotLight> techsList = new ArrayList<>();
         for (int i=0;i<5;i++){
-            SpotLight spotLight = new SpotLight("Tech Name",0);
+            SpotLight spotLight = new SpotLight("Tech Name");
             techsList.add(spotLight);
         }
 

@@ -1,13 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.cognizance.cognizance18.fragments.SpotlightFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/event_selector"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="10dp">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/techtainment_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/left_event_tab_background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/techtainment_lower"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/guest_speakers_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/right_event_tab_background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/guest_speakers_lower"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
