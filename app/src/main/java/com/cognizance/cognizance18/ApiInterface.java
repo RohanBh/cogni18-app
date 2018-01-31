@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18;
 
+import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.Notification;
 import com.cognizance.cognizance18.models.OauthUser;
@@ -47,5 +48,9 @@ public interface ApiInterface {
                                         @Header("Accept") String accept,
                                         @Header("Content-Type") String contentType);
 
+    @GET("api/android/events")
+    Call<CentralList> requestEvents(@Header("Authorization") String authorization,
+                                    @Header("Accept") String accept,
+                                    @Header("Content-type") String contentType);
 
 }
