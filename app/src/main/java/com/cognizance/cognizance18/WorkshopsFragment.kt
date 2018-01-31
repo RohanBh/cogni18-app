@@ -6,14 +6,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.cognizance.cognizance18.adapters.WorkshopsRViewAdapter
-import com.cognizance.cognizance18.models.Event
 import kotlinx.android.synthetic.main.fragment_workshops.*
 
 class WorkshopsFragment : Fragment() {
 
     private val mEventList by lazy {
-        generateFakeData()
+        //generateFakeData()
     }
 
     companion object {
@@ -35,13 +33,13 @@ class WorkshopsFragment : Fragment() {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        workshops_recycler_view.adapter = WorkshopsRViewAdapter(mEventList)
+        //workshops_recycler_view.adapter = WorkshopsRViewAdapter(mEventList)
         workshops_recycler_view.layoutManager = LinearLayoutManager(context)
     }
 
-    private fun generateFakeData() = List<Event>(10) {
+    /*private fun generateFakeData() = List<Event>(10) {
         Event("Fake Event ${it + 1}", getString(R.string.placeholder_text), "24-25 March 2018")
-    }
+    }*/
 
 
 }

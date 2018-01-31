@@ -1,16 +1,29 @@
 package com.cognizance.cognizance18;
 
-import android.app.Fragment;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+
+import com.cognizance.cognizance18.database.CategoryCenterStage;
+import com.cognizance.cognizance18.database.CategoryDepartmental;
+import com.cognizance.cognizance18.database.CentralList;
+
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static String LOG_TAG = "MainActivity";
+
     BottomNavigationView bottomNavigationView;
+    List<CategoryCenterStage> centerStageList;
+    List<CategoryDepartmental> departmentalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +63,16 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, HomeFragment.newInstance());
         transaction.commit();
+        Realm.init(this);
+
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<CentralList> centralLists = realm.where(CentralList.class).findAll();
+        for (CentralList centralList : centralLists){
+            centerStageList = centralList.getCentralStage();
+            departmentalList = centralList.getDepartmental();
+        }
+        Log.v(LOG_TAG,centerStageList==null ? "empty":Integer.toString(centerStageList.size()));
+
     }
 }
 

@@ -5,14 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cognizance.cognizance18.R
-import com.cognizance.cognizance18.models.Event
 import kotlinx.android.synthetic.main.item_workshop.view.*
 
 /**
  * Created by rohan on 23/12/17.
  */
 class WorkshopsRViewAdapter(
-        val eventList: List<Event>
+        //val eventList: List<Event>
 ) : RecyclerView.Adapter<WorkshopsRViewAdapter.WorkshopItemHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkshopItemHolder {
@@ -21,13 +20,13 @@ class WorkshopsRViewAdapter(
     }
 
     override fun onBindViewHolder(holder: WorkshopItemHolder, position: Int) {
-        val event = eventList[position]
-        holder.eventTitleText.text = event.name
-        holder.eventDescriptionText.text = event.description
-        holder.eventDateText.text = event.date
+        //val event = eventList[position]
+        /*holder.eventTitleText.text = event.name
+        holder.eventDescriptionText.text = event.description*/
+        //holder.eventDateText.text = event.date
     }
 
-    override fun getItemCount() = eventList.size
+    override fun getItemCount() = 0
 
     class WorkshopItemHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
