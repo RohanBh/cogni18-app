@@ -10,18 +10,12 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.cognizance.cognizance18.interfaces.ApiInterface;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.SignUpUser;
 import com.cognizance.cognizance18.utilities.StateWiseCollegeProvider;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import retrofit2.Call;
 import retrofit2.Callback;

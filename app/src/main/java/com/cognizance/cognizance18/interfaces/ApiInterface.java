@@ -1,4 +1,4 @@
-package com.cognizance.cognizance18;
+package com.cognizance.cognizance18.interfaces;
 
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.models.LoginResponse;
