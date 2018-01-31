@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
@@ -7,15 +8,24 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.cognizance.cognizance18.database.CategoryCenterStage;
+import com.cognizance.cognizance18.database.CategoryDepartmental;
+import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
 import com.cognizance.cognizance18.fragments.HomeFragment;
 import com.cognizance.cognizance18.fragments.ProfileFragment;
 import com.cognizance.cognizance18.fragments.SpotlightFragment;
 import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
+
+import java.util.List;
+
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 public class MainActivity extends AppCompatActivity implements OnFragmentAddedListener {
 
@@ -26,13 +36,18 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
     private static final String SPOTLIGHT_TAG = "spotlight_fragment";
     private static final int MORE_ACTIVITY_RC = 129;
 
-    private BottomNavigationView bottomNavigationView;
 
     SessionManager session;
 
     // logic variables
     private int prevNonDialogMenuItemId = -1;
     private boolean isFirstTransaction = true;
+
+    private static String LOG_TAG = "MainActivity";
+
+    BottomNavigationView bottomNavigationView;
+    List<CategoryCenterStage> centerStageList;
+    List<CategoryDepartmental> departmentalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +89,15 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                     return true;
                 });
         bottomNavigationView.setSelectedItemId(R.id.action_home);
+        Realm.init(this);
+
+        Realm realm = Realm.getDefaultInstance();
+        RealmResults<CentralList> centralLists = realm.where(CentralList.class).findAll();
+        for (CentralList centralList : centralLists){
+            centerStageList = centralList.getCentralStage();
+            departmentalList = centralList.getDepartmental();
+        }
+        Log.v(LOG_TAG,centerStageList==null ? "empty":Integer.toString(centerStageList.size()));
     }
 
     @Override
@@ -108,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         }
         transaction.commit();
 
+
     }
 
     private Fragment getDefaultFragment(String fragmentTag) {
@@ -125,6 +150,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             default:
                 return null;
         }
+
+
+
+
     }
 }
 

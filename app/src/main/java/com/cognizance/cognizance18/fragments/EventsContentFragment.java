@@ -66,7 +66,7 @@ public class EventsContentFragment extends Fragment {
                 eventList.add(event);
             }
             EventCategory eventCategory = new EventCategory();
-            eventCategory.setName(categoryName + " Category " + (i + 1));
+            eventCategory.setName(categoryName + " CategoryCenterStage " + (i + 1));
             eventCategory.setEventList(eventList);
             list.add(eventCategory);
         }
