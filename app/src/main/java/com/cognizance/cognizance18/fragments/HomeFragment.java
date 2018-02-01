@@ -39,7 +39,7 @@ public class HomeFragment extends Fragment {
         super.onAttach(context);
         try {
             mListener = (OnFragmentAddedListener) context;
-        } catch (ClassCastException e){
+        } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + "must implement OnFragmentAddedListener");
         }
     }
@@ -78,7 +78,7 @@ public class HomeFragment extends Fragment {
 
         ArrayList<SpotLight> speakersList;
         speakersList = new ArrayList<>();
-        for (int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             SpotLight spotLight = new SpotLight("G S Name");
             speakersList.add(spotLight);
         }
@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
         // fake list for guest techtainments 2017
 
         ArrayList<SpotLight> techsList = new ArrayList<>();
-        for (int i=0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             SpotLight spotLight = new SpotLight("Tech Name");
             techsList.add(spotLight);
         }
@@ -105,12 +105,12 @@ public class HomeFragment extends Fragment {
 
         // techtainment recycler view
         techtainmentRView.setLayoutManager(new LinearLayoutManager(getContext(),
-                LinearLayoutManager.HORIZONTAL,false));
+                LinearLayoutManager.HORIZONTAL, false));
         techtainmentRView.setAdapter(new SpotLightRViewAdapter(techsList));
 
         // speakers recycler view
         speakersRView.setLayoutManager(new LinearLayoutManager(getContext(),
-                LinearLayoutManager.HORIZONTAL,false));
+                LinearLayoutManager.HORIZONTAL, false));
         speakersRView.setAdapter(new SpotLightRViewAdapter(speakersList));
     }
 

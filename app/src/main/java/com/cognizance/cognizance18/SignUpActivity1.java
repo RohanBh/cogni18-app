@@ -60,7 +60,7 @@ public class SignUpActivity1 extends AppCompatActivity {
         setClickListeners();
     }
 
-    private void initViews(){
+    private void initViews() {
         emailEditText = findViewById(R.id.email_edit_text);
         mobileEditText = findViewById(R.id.mobile_number_edit_text);
         nameEditText = findViewById(R.id.name_edit_text);
@@ -87,7 +87,7 @@ public class SignUpActivity1 extends AppCompatActivity {
         }
     }
 
-    private void setClickListeners(){
+    private void setClickListeners() {
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,7 +95,7 @@ public class SignUpActivity1 extends AppCompatActivity {
                 String password = mobileEditText.getText().toString();
                 String name = nameEditText.getText().toString();
                 String mobile = mobileEditText.getText().toString();
-                SignUpUser signUpUser = new SignUpUser(email,password,mobile,name,"remote");
+                SignUpUser signUpUser = new SignUpUser(email, password, mobile, name, "remote");
                 signUpFromAPI(signUpUser);
             }
         });
@@ -115,9 +115,9 @@ public class SignUpActivity1 extends AppCompatActivity {
     }
 
     private void setupCollegeSpinner(String state) {
-        colleges = mCollegeProvider.getCollegesFromState(this,state);
-        if(colleges!=null) {
-            ArrayAdapter collegeAdapter = new ArrayAdapter(this, R.layout.spinner_dropdown_item,colleges);
+        colleges = mCollegeProvider.getCollegesFromState(this, state);
+        if (colleges != null) {
+            ArrayAdapter collegeAdapter = new ArrayAdapter(this, R.layout.spinner_dropdown_item, colleges);
             collegeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             collegeSpinner.setAdapter(collegeAdapter);
         }
@@ -126,9 +126,9 @@ public class SignUpActivity1 extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String college = colleges.get(i);
-                if(college.equals("Other")){
+                if (college.equals("Other")) {
                     otherCollegeEditText.setEnabled(true);
-                }else {
+                } else {
                     otherCollegeEditText.setText("");
                     otherCollegeEditText.setEnabled(false);
                 }
@@ -141,7 +141,7 @@ public class SignUpActivity1 extends AppCompatActivity {
         });
     }
 
-    private void signUpFromAPI(SignUpUser signUpUser){
+    private void signUpFromAPI(SignUpUser signUpUser) {
 
         ApiInterface apiInterface = this.getInterfaceService();
         Call<LoginResponse> service = apiInterface.signUp(signUpUser);
@@ -150,9 +150,9 @@ public class SignUpActivity1 extends AppCompatActivity {
             public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
                 LoginResponse response1 = response.body();
                 if (response1 == null)
-                    Log.v(LOG_TAG,response.body().toString() + "...");
+                    Log.v(LOG_TAG, response.body().toString() + "...");
                 else
-                    Log.v(LOG_TAG,"Hooray" + response1.getEmail());
+                    Log.v(LOG_TAG, "Hooray" + response1.getEmail());
             }
 
             @Override
