@@ -1,8 +1,10 @@
 package com.cognizance.cognizance18;
 
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,7 +24,17 @@ import com.cognizance.cognizance18.fragments.SpotlightFragment;
 import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import java.util.List;
+import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
+
+import java.lang.reflect.Field;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -79,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                             prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_profile:
-                            //replaceFragment(PROFILE_TAG);
-                            startActivityForResult(
-                                    new Intent(MainActivity.this, MoreActivity.class),
-                                    MORE_ACTIVITY_RC
-                            );
+                            replaceFragment(PROFILE_TAG);
+//                            startActivityForResult(
+//                                    new Intent(MainActivity.this, MoreActivity.class),
+//                                    MORE_ACTIVITY_RC
+//                            );
                             break;
                     }
                     return true;
@@ -98,6 +110,22 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             departmentalList = centralList.getDepartmental();
         }
         Log.v(LOG_TAG,centerStageList==null ? "empty":Integer.toString(centerStageList.size()));
+
+
+        BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
+
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) bottomNavigationView.getChildAt(0);
+
+        for (int i = 0; i < menuView.getChildCount(); i++) {
+            final View iconView = menuView.getChildAt(i).findViewById(android.support.design.R.id.icon);
+            final ViewGroup.LayoutParams layoutParams = iconView.getLayoutParams();
+            final DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+            // set your height here
+            layoutParams.height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, displayMetrics);
+            // set your width here
+            layoutParams.width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 20, displayMetrics);
+            iconView.setLayoutParams(layoutParams);
+        }
     }
 
     @Override
@@ -151,9 +179,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                 return null;
         }
 
-
-
-
     }
+
+
 }
 

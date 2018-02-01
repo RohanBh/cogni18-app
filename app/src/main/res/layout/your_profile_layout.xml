@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:id="@+id/profileDetails"
+        android:background="@color/purple">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:id="@+id/proileImage"
+            android:src="@drawable/user"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:layout_toRightOf="@+id/proileImage"
+            android:textColor="@color/white"
+            android:text="Abhinav Rohilla"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="25dp"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/cogniId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:textColor="@color/gray"
+            android:layout_alignStart="@+id/name"
+            android:text="Cogni ID:247667" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gmail"
+            android:textColor="@color/gray"
+            android:textSize="13sp"
+            android:text="Abhinav@gmail.com"
+            android:layout_below="@+id/proileImage"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/phone"
+            android:textSize="13sp"
+            android:textColor="@color/gray"
+            android:text="+91-967548484"
+            android:layout_below="@+id/gmail"
+            android:layout_marginLeft="25dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/college"
+            android:textSize="13sp"
+            android:textColor="@color/gray"
+            android:text="IIT Roorkee,Haridwar"
+            android:layout_below="@+id/phone"
+            android:layout_marginLeft="25dp"/>
+
+
+
+    </RelativeLayout>
+
+
+
+    <android.support.design.widget.TabLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tablayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        style="@style/tab_layout_theme"
+        android:layout_below="@+id/profileDetails">
+
+        <android.support.design.widget.TabItem
+            android:text="Events"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <android.support.design.widget.TabItem
+            android:text="Workshops"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <android.support.design.widget.TabItem
+            android:text="Bookmarked"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+        
+    </android.support.design.widget.TabLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tablayout"
+        tools:listitem="@layout/event_list">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</RelativeLayout>
