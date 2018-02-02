@@ -2,18 +2,21 @@ package com.cognizance.cognizance18;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
 import com.cognizance.cognizance18.database.CategoryCenterStage;
 import com.cognizance.cognizance18.database.CategoryDepartmental;
 import com.cognizance.cognizance18.database.CentralList;
@@ -24,17 +27,7 @@ import com.cognizance.cognizance18.fragments.SpotlightFragment;
 import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import java.util.List;
-import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
-
-import java.lang.reflect.Field;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
@@ -67,6 +60,13 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         setContentView(R.layout.front_activity);
         session = new SessionManager(getApplicationContext());
         Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
+        findViewById(R.id.ic_your_profile).setOnClickListener(
+                v -> {
+                    Intent intent = new Intent(this, ProfileActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
+                }
+        );
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 item -> {
@@ -91,11 +91,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                             prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_profile:
-                            replaceFragment(PROFILE_TAG);
-//                            startActivityForResult(
-//                                    new Intent(MainActivity.this, MoreActivity.class),
-//                                    MORE_ACTIVITY_RC
-//                            );
+                            //replaceFragment(PROFILE_TAG);
+                            startActivityForResult(
+                                    new Intent(MainActivity.this, MoreActivity.class),
+                                    MORE_ACTIVITY_RC
+                            );
                             break;
                     }
                     return true;
@@ -105,11 +105,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
 
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CentralList> centralLists = realm.where(CentralList.class).findAll();
-        for (CentralList centralList : centralLists){
+        for (CentralList centralList : centralLists) {
             centerStageList = centralList.getCentralStage();
             departmentalList = centralList.getDepartmental();
         }
-        Log.v(LOG_TAG,centerStageList==null ? "empty":Integer.toString(centerStageList.size()));
+        Log.v(LOG_TAG, centerStageList == null ? "empty" : Integer.toString(centerStageList.size()));
 
 
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
