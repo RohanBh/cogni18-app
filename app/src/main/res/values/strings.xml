@@ -84,7 +84,7 @@
     <string name="welcome">Welcome</string>
     <string name="sign_in_with_facebook">Sign In With facebook</string>
     <string name="or">OR</string>
-    <string name="sign_in_with_gmail">Sign in with gmail</string>
     <string name="sign_up_with_email">Sign up with email</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
 
 </resources>

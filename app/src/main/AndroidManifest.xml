@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SignUpActivity1"
             android:label="@string/title_activity_sign_up"
@@ -45,10 +44,11 @@
                 <data android:scheme="@string/fb_login_protocol_scheme" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".OnboardingActivity" />
-        <activity android:name=".MoreActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".activities.SignUpActivity" />
+        <activity
+            android:name=".MoreActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".OnboardingActivity"/>
     </application>
 
 </manifest>
