@@ -1,4 +1,4 @@
-package com.cognizance.cognizance18.fragments;
+package com.cognizance.cognizance18;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * Created by shashank on 12/1/18.
  */
 
-public class EventDetails extends FragmentActivity{
+public class EventDetails extends AppCompatActivity{
 
     private RelativeLayout intro,registration,rules,problem,contact;
 
