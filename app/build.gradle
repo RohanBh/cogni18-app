@@ -19,7 +19,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         javaCompileOptions {
-            annotationProcessorOptions{
+            annotationProcessorOptions {
                 includeCompileClasspath = true
             }
         }

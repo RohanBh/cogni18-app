@@ -75,5 +75,12 @@
 
 
     <string name="Download_Problem_Statment"><u>Download Problem Statment</u>.</string>
+    <string name="login">Login</string>
+    <string name="login_moto">Lets embark on the journey towards technical excellence Together</string>
+    <string name="email_string">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up_string">Already have an account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_q">Login?</string>
 
 </resources>
