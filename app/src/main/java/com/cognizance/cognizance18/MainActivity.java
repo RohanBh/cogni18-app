@@ -15,10 +15,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
-import com.cognizance.cognizance18.database.CategoryCenterStage;
-import com.cognizance.cognizance18.database.CategoryDepartmental;
+import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
 import com.cognizance.cognizance18.fragments.HomeFragment;
@@ -51,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
     private static String LOG_TAG = "MainActivity";
 
     BottomNavigationView bottomNavigationView;
-    List<CategoryCenterStage> centerStageList;
-    List<CategoryDepartmental> departmentalList;
+    List<CategoryList> centerStageList;
+    List<CategoryList> departmentalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +108,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             departmentalList = centralList.getDepartmental();
         }
         Log.v(LOG_TAG, centerStageList == null ? "empty" : Integer.toString(centerStageList.size()));
-
 
         BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
 
@@ -180,7 +177,5 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         }
 
     }
-
-
 }
 

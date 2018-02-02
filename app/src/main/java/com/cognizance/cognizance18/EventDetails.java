@@ -9,8 +9,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.adapters.CarouselRViewAdapter;
+import com.cognizance.cognizance18.adapters.EventsRViewAdapter;
+import com.cognizance.cognizance18.database.EventPreview;
 import com.cognizance.cognizance18.models.Event;
 
 import java.util.ArrayList;
@@ -109,17 +109,17 @@ public class EventDetails extends AppCompatActivity{
 
     private void setViews(){
 
-        ArrayList<Event> eventsList;
+        ArrayList<EventPreview> eventsList;
         eventsList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Event event = new Event();
+            EventPreview event = new EventPreview();
             event.setName("Event" + (i + 1));
             eventsList.add(event);
         }
 
         eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
                 , LinearLayoutManager.HORIZONTAL, false));
-        eventRecyclerView.setAdapter(new CarouselRViewAdapter(getApplicationContext(), eventsList));
+        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList));
     }
 
     private void initializeViews(){

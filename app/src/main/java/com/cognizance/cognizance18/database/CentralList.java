@@ -1,36 +1,37 @@
 package com.cognizance.cognizance18.database;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by samagra on 16/1/18.
  */
-
 public class CentralList extends RealmObject {
+    @PrimaryKey
+    private int key = 1;
     @SerializedName("centralStage")
-    @Expose
-    private RealmList<CategoryCenterStage> centralStage = null;
+    private RealmList<CategoryList> centralStage = null;
     @SerializedName("departmental")
-    @Expose
-    private RealmList<CategoryDepartmental> departmental = null;
+    private RealmList<CategoryList> departmental = null;
 
-    public RealmList<CategoryCenterStage> getCentralStage() {
+    public RealmList<CategoryList> getCentralStage() {
         return centralStage;
     }
 
-    public void setCentralStage(RealmList<CategoryCenterStage> centralStage) {
+    public void setCentralStage(RealmList<CategoryList> centralStage) {
         this.centralStage = centralStage;
     }
 
-    public RealmList<CategoryDepartmental> getDepartmental() {
+    public List<CategoryList> getDepartmental() {
         return departmental;
     }
 
-    public void setDepartmental(RealmList<CategoryDepartmental> departmental) {
+    public void setDepartmental(RealmList<CategoryList> departmental) {
         this.departmental = departmental;
     }
 }
