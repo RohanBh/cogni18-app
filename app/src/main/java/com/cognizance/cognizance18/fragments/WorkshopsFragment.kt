@@ -50,7 +50,7 @@ class WorkshopsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val call = getInterfaceService().getWorkshopList()
+        val call = getInterfaceService().getWorkshopList(session.token)
         call.enqueue(object : Callback<WorkshopList> {
             override fun onResponse(call: Call<WorkshopList>?, response: Response<WorkshopList>) {
                 if (response.isSuccessful && response.body() != null) {

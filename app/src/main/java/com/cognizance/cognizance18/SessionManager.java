@@ -3,6 +3,8 @@ package com.cognizance.cognizance18;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.facebook.login.LoginManager;
@@ -15,31 +17,19 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
  */
 
 public class SessionManager {
-    // Shared Preferences
     private SharedPreferences preferences;
-
-    // Editor for Shared preferences
     private SharedPreferences.Editor editor;
-
-    // Context
     private Context context;
-
-    // Shared pref mode
     private int PRIVATE_MODE = 0;
 
-    // Sharedpref file name
     private static final String PREF_NAME = "LoginPref";
-
-    // All Shared Preferences Keys
     private static final String IS_LOGIN = "IsLoggedIn";
-
-    // User name (make variable public to access from outside)
     private static final String KEY_USER_EMAIL = "email";
-
     private static final String MESSAGE = "message";
     private static final String TOKEN = "token";
     private static final String ROLE = "role";
     private static final String NAME = "name";
+    private static final String LOG_TAG = "SessionManager";
 
 
     public SessionManager(Context context) {
@@ -62,6 +52,8 @@ public class SessionManager {
         editor.putString(TOKEN, response.getToken());
         editor.putString(ROLE, response.getRole());
         editor.putString(NAME, response.getName());
+        Log.d(LOG_TAG, response.toString());
+        Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
 
 
         // commit changes
@@ -69,7 +61,7 @@ public class SessionManager {
     }
 
     public String getToken() {
-        return preferences.getString(TOKEN, null);
+        return "Token " + preferences.getString(TOKEN, null);
     }
 
     /**

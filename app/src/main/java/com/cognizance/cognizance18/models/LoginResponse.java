@@ -59,4 +59,10 @@ public class LoginResponse {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "{ message : " + message + ", email : " + email +
+                ", token : " + token + ", role : " + role + ", name : " + name + "}";
+    }
 }

@@ -6,11 +6,14 @@ import java.util.List;
 
 import io.realm.RealmList;
 import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by samagra on 16/1/18.
  */
 public class CentralList extends RealmObject {
+    @PrimaryKey
+    private int key = 1;
     @SerializedName("centralStage")
     private RealmList<CategoryList> centralStage = null;
     @SerializedName("departmental")

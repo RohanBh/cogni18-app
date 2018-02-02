@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Call<TrendingList> call = ApiUtils.getInterfaceService().getTrendings();
+        Call<TrendingList> call = ApiUtils.getInterfaceService().getTrendings(session.getToken());
         call.enqueue(
                 new Callback<TrendingList>() {
                     @Override
