@@ -1,6 +1,7 @@
 package com.cognizance.cognizance18.interfaces
 
 import com.cognizance.cognizance18.database.CentralList
+import com.cognizance.cognizance18.database.EventPreview
 import com.cognizance.cognizance18.models.*
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -11,47 +12,95 @@ import retrofit2.http.*
  */
 interface ApiInterface {
 
+    /**
+     * This function is used to Login user using email and password.
+     */
     @POST("api/login/")
     fun authenticate(@Body user: User): Call<LoginResponse>
 
+    /**
+     * This is used to Login user using gmail/fb account.
+     */
     @POST("api/oauth/{role}")
     fun oauthLogin(@Path("role") role: String, @Body user: OauthUser): Call<LoginResponse>
 
+    /**
+     * Used to signup/register user taking email, pass, name, type and mobile.
+     */
     @POST("api/signup/spp")
     fun signUp(@Body signUpUser: SignUpUser): Call<LoginResponse>
 
+    /**
+     * Used to upload user image.
+     */
     @POST("api/users/upload/image")
     fun uploadFile(@Header("Authorization") authorization: String,
-                   @Header("Content-Type") contentType: String = "json",
                    @Part image: MultipartBody.Part): Call<UploadFileResponse>
 
-    @GET("api/users/details")
-    fun requestDetails(@Header("Authorization") authorization: String,
-                       @Header("Content-Type") contentType: String = "json"): Call<UserDetailsResponse>
+    /**
+     * Get details filled by user.
+     */
+    @GET("api/users")
+    fun requestDetails(@Header("Authorization") authorization: String): Call<UserDetailsResponse>
+
+    /**
+     * Post user details from the FORM.
+     */
+    @POST("api/users")
+    fun postDetails(@Header("Authorization") authorization: String, userDetails: PostUserDetails)
 
     @GET("api/users/notifications")
-    fun getNotifications(@Header("Authorization") authorization: String,
-                         @Header("Content-Type") contentType: String = "json"): Call<Notification>
+    fun getNotifications(@Header("Authorization") authorization: String): Call<Notification>
 
+    /**
+     * Get CentralStage and Departmental events
+     */
     @GET("api/android/events")
-    fun requestEvents(@Header("Authorization") authorization: String,
-                      @Header("Content-type") contentType: String = "json"): Call<CentralList>
+    fun requestEvents(@Header("Authorization") authorization: String): Call<CentralList>
 
     @GET("/api/users/events/{id}")
-    fun getEventDescription(id: Int)
+    fun getEventDescription(@Path("id") id: Int): Call<EventPreview>
 
     @POST("api/users/event/{id}/register")
-    fun registerEvent(@Body cogniids: CogniIds)
+    fun registerEvent(@Path("id") eventId: Int, @Body cogniids: CogniIds): Call<ResponseMessage>
 
-    @POST("/api/users/event/{id}/team/{teamId}/add_member") // remove_member
-    fun addMemberInEvent(memberCogniId: CogniIds)
+    /**
+     * Unregister from an event. <br>
+     * If a team member unregisters, he/she will be removed from the team.<br>
+     * If that team member is the <b>leader</b>, then the whole team will be disbanded.
+     */
+    @GET("api/users/event/{id}/unregister")
+    fun unregisterEvent(@Path("id") eventId: Int)
 
-    @POST("/api/users/event/{id}/team")
-    fun getTeamForEvent(@Path("id") id: Int)
+    @POST("/api/users/event/{event_id}/team/{team_id}/add_member")
+    fun addMemberInEvent(
+            @Path("event_id") eventId: Int,
+            @Path("team_id") teamId: Int,
+            memberCogniId: SingleCogniId
+    ): Call<ResponseMessage>
+
+    @POST("/api/users/event/{event_id}/team/{team_id}/remove_member")
+    fun removeMemberInEvent(
+            @Path("event_id") eventId: Int,
+            @Path("team_id") teamId: Int,
+            memberCogniId: SingleCogniId
+    ): Call<ResponseMessage>
+
+    @GET("/api/users/event/{id}/team")
+    fun getTeamForEvent(@Path("id") id: Int): Call<MemberList>
 
     //@POST("/api/users/events/minimal") //gives events with registered flag
 
-    @POST("/api/users/events/registered")
-    fun getRegisteredEvents()
+    @GET("/api/users/events/registered")
+    fun getRegisteredEvents(): Call<List<Event>>
+
+    @GET("api/workshops")
+    fun getWorkshopList(): Call<WorkshopList>
+    // /api/workshops array of workshops : (id, name, desc, thumbnail)
+
+    @GET("api/trendings")
+    fun getTrendings(): Call<TrendingList>
+    // api/trendings object : Trending (events(id ,name , thumbnail,
+    // tags(comma separated string )), type : spotlight, workshop)
 
 }
