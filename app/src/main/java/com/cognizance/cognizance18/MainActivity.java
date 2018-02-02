@@ -12,8 +12,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.cognizance.cognizance18.database.CategoryCenterStage;
-import com.cognizance.cognizance18.database.CategoryDepartmental;
+import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
 import com.cognizance.cognizance18.fragments.HomeFragment;
@@ -46,8 +45,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
     private static String LOG_TAG = "MainActivity";
 
     BottomNavigationView bottomNavigationView;
-    List<CategoryCenterStage> centerStageList;
-    List<CategoryDepartmental> departmentalList;
+    List<CategoryList> centerStageList;
+    List<CategoryList> departmentalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,11 +92,11 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
 
         Realm realm = Realm.getDefaultInstance();
         RealmResults<CentralList> centralLists = realm.where(CentralList.class).findAll();
-        for (CentralList centralList : centralLists){
+        for (CentralList centralList : centralLists) {
             centerStageList = centralList.getCentralStage();
             departmentalList = centralList.getDepartmental();
         }
-        Log.v(LOG_TAG,centerStageList==null ? "empty":Integer.toString(centerStageList.size()));
+        Log.v(LOG_TAG, centerStageList == null ? "empty" : Integer.toString(centerStageList.size()));
     }
 
     @Override
@@ -150,8 +149,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             default:
                 return null;
         }
-
-
 
 
     }

@@ -13,15 +13,13 @@ import io.realm.annotations.PrimaryKey;
 public class EventPreview extends RealmObject{
 
     @SerializedName("id")
-    @Expose
     @PrimaryKey
     private Integer id;
     @SerializedName("name")
-    @Expose
     private String name;
     @SerializedName("thumbnail")
-    @Expose
     private String thumbnail;
+    private String category;
 
     public Integer getId() {
         return id;
@@ -47,4 +45,11 @@ public class EventPreview extends RealmObject{
         this.thumbnail = thumbnail;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }

@@ -1,24 +1,38 @@
 package com.cognizance.cognizance18.fragments;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.SessionManager;
 import com.cognizance.cognizance18.adapters.SubEventsRViewAdapter;
-import com.cognizance.cognizance18.models.Event;
-import com.cognizance.cognizance18.models.EventCategory;
+import com.cognizance.cognizance18.database.CategoryList;
+import com.cognizance.cognizance18.database.CentralList;
+import com.cognizance.cognizance18.utilities.ApiUtils;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import io.realm.Realm;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventsContentFragment extends Fragment {
 
+    public static final String CATEGORY_KEY = "category";
+
     private RecyclerView recyclerView;
     private String categoryName;
+    private Realm realm;
+    private SessionManager session;
 
     public EventsContentFragment() {
         // Required empty public constructor
@@ -27,7 +41,7 @@ public class EventsContentFragment extends Fragment {
     public static EventsContentFragment newInstance(String categoryName) {
         EventsContentFragment fragment = new EventsContentFragment();
         Bundle args = new Bundle();
-        args.putString("category", categoryName);
+        args.putString(CATEGORY_KEY, categoryName);
         fragment.setArguments(args);
         return fragment;
     }
@@ -36,18 +50,50 @@ public class EventsContentFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            categoryName = getArguments().getString("category");
+            categoryName = getArguments().getString(CATEGORY_KEY);
         }
+        session = new SessionManager(getActivity());
+        session.checkLogin();
+        realm = Realm.getDefaultInstance();
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_events_content, container, false);
         initViews(view);
-        setupViews();
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Call<CentralList> call = ApiUtils.getInterfaceService().requestEvents(session.getToken());
+        call.enqueue(new Callback<CentralList>() {
+            @Override
+            public void onResponse(Call<CentralList> call, Response<CentralList> response) {
+                if (response.isSuccessful()) {
+                    realm.executeTransaction(
+                            realm -> {
+                                if (response.body() != null) {
+                                    realm.copyToRealmOrUpdate(response.body());
+                                }
+                                setupViews();
+                            }
+                    );
+                } else {
+                    Toast.makeText(getActivity(), "Error : " + response.toString(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CentralList> call, Throwable t) {
+                Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initViews(View view) {
@@ -55,22 +101,20 @@ public class EventsContentFragment extends Fragment {
     }
 
     private void setupViews() {
-        ArrayList<EventCategory> list;
-        list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            ArrayList<Event> eventList;
-            eventList = new ArrayList<>();
-            for (int j = 0; j < 6; j++) {
-                Event event = new Event();
-                event.setName("Event Name " + (j + 1));
-                eventList.add(event);
-            }
-            EventCategory eventCategory = new EventCategory();
-            eventCategory.setName(categoryName + " CategoryCenterStage " + (i + 1));
-            eventCategory.setEventList(eventList);
-            list.add(eventCategory);
-        }
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), list));
+        CentralList centralList = realm.where(CentralList.class).findFirst();
+        if (centralList != null) {
+            List<CategoryList> centralCategories = centralList.getCentralStage();
+            List<CategoryList> departmentalCategories = centralList.getDepartmental();
+            if (categoryName.equals(getString(R.string.centerstage_string))
+                    && centralCategories != null && !centralCategories.isEmpty()) {
+                recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), centralCategories));
+            } else if (categoryName.equals(getString(R.string.departmental_string))
+                    && departmentalCategories != null && !departmentalCategories.isEmpty()) {
+                recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), departmentalCategories));
+            } else {
+                // Nothing to show
+            }
+        }
     }
 }

@@ -7,15 +7,15 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.models.Event;
+import com.cognizance.cognizance18.database.EventPreview;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.EventRViewHolder> {
 
-    private ArrayList<Event> list;
+    private List<EventPreview> list;
 
-    EventsRViewAdapter(ArrayList<Event> eventList) {
+    EventsRViewAdapter(List<EventPreview> eventList) {
         this.list = eventList;
     }
 
@@ -43,7 +43,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
         EventRViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.event_title_text_view);
-            category = itemView.findViewById(R.id.event_cat_text_view);
+            category = itemView.findViewById(R.id.chip1);
         }
     }
 }
