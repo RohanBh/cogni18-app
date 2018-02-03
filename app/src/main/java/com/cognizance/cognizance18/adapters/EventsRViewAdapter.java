@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18.adapters;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,14 +10,19 @@ import android.widget.TextView;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.database.EventPreview;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.EventRViewHolder> {
 
-    private List<EventPreview> list;
+    private AbstractList<EventPreview> list;
 
-    public EventsRViewAdapter(List<EventPreview> eventList) {
+    private OnEventCLickListener mListener;
+
+    public EventsRViewAdapter(AbstractList<EventPreview> eventList, Context ctx) {
         this.list = eventList;
+        this.mListener = (OnEventCLickListener) ctx;
     }
 
     @Override
@@ -29,6 +35,11 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     @Override
     public void onBindViewHolder(EventRViewHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
+        holder.itemView.setOnClickListener(v -> {
+            if(mListener!=null){
+                mListener.click(list.get(position).getId());
+            }
+        });
     }
 
     @Override
@@ -45,5 +56,9 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
             name = itemView.findViewById(R.id.event_title_text_view);
             category = itemView.findViewById(R.id.chip1);
         }
+    }
+
+    private interface OnEventCLickListener{
+        void click(int eventID);
     }
 }

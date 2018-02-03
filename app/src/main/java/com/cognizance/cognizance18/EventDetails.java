@@ -13,6 +13,7 @@ import com.cognizance.cognizance18.adapters.EventsRViewAdapter;
 import com.cognizance.cognizance18.database.EventPreview;
 import com.cognizance.cognizance18.models.Event;
 
+import java.util.AbstractList;
 import java.util.ArrayList;
 
 /**
@@ -109,7 +110,7 @@ public class EventDetails extends AppCompatActivity{
 
     private void setViews(){
 
-        ArrayList<EventPreview> eventsList;
+        AbstractList<EventPreview> eventsList;
         eventsList = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             EventPreview event = new EventPreview();
@@ -119,7 +120,7 @@ public class EventDetails extends AppCompatActivity{
 
         eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
                 , LinearLayoutManager.HORIZONTAL, false));
-        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList));
+        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList,this));
     }
 
     private void initializeViews(){

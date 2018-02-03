@@ -76,5 +76,6 @@
 
     <string name="Download_Problem_Statment"><u>Download Problem Statment</u>.</string>
     <string name="cognizance">Cognizance</string>
+    <string name="event_name">Event Name</string>
 
 </resources>
