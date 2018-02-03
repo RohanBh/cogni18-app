@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cognizance.cognizance18.activities.SignUpActivity;
 import com.cognizance.cognizance18.interfaces.ApiInterface;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.OauthUser;
@@ -44,20 +46,20 @@ import retrofit2.Response;
 // Do not change this Activity's name
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String LOG_TAG = "LoginActivity";
+
     private static final int RC_SIGN_IN = 219;
     private static final String TYPE_GOOGLE = "google";
     private static final String TYPE_FB = "facebook";
     private static final String ROLE = "spp";
 
-    private TextInputEditText emailEditText;
-    private TextInputEditText phoneEditText;
-    private AppCompatButton getStartedButton;
-    private TextView signTextView;
-    private final String LOG_TAG = "LoginActivity";
+    private AppCompatButton signUpWithEmailBtn;
+    private TextView signInTextView;
     private SessionManager session;
     private GoogleSignInClient mGoogleSignInClient;
     private CallbackManager callbackManager;
     private LoginButton loginButton;
+    private Button fbSignInButton;
     private ProfileTracker mTracker;
 
     @Override
@@ -123,32 +125,22 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        emailEditText = findViewById(R.id.email_edit_text);
-        phoneEditText = findViewById(R.id.mobile_number_edit_text);
-        getStartedButton = findViewById(R.id.get_started_btn);
-        signTextView = findViewById(R.id.sign_up_text);
+        signInTextView = findViewById(R.id.sign_in_text);
         loginButton = findViewById(R.id.fb_login_button);
         loginButton.setReadPermissions("email");
+        fbSignInButton = findViewById(R.id.fb_sign_btn);
+        signUpWithEmailBtn = findViewById(R.id.sign_up_email_btn);
     }
 
     private void setClickListeners() {
-        getStartedButton.setOnClickListener(
-                view -> {
-                    String email = emailEditText.getText().toString();
-                    String password = phoneEditText.getText().toString();
-                    verifyFromAPI(email, password);
-                });
-        findViewById(R.id.google_login_button).setOnClickListener(
+
+        findViewById(R.id.google_sign_btn).setOnClickListener(
                 (View v) -> {
-                    switch (v.getId()) {
-                        case R.id.google_login_button: {
-                            Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                            startActivityForResult(signInIntent, RC_SIGN_IN);
-                            break;
-                        }
-                    }
+                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
+                    startActivityForResult(signInIntent, RC_SIGN_IN);
                 }
         );
+
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
@@ -166,9 +158,28 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        signTextView.setOnClickListener(view ->
-                startActivity(new Intent(LoginActivity.this, SignUpActivity1.class))
-        );
+        fbSignInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginButton.performClick();
+            }
+        });
+
+        signInTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(LoginActivity.this, SignUpActivity.class);
+                in.putExtra("mode","SIGN_IN");
+                startActivity(in);
+            }
+        });
+
+        signUpWithEmailBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class).putExtra("mode","SIGN_UP"));
+            }
+        });
     }
 
     private void onFbSignIn() {
@@ -236,33 +247,6 @@ public class LoginActivity extends AppCompatActivity {
                     personPhoto == null ? null : personPhoto.toString()
             );
         }
-    }
-
-    private void verifyFromAPI(String email, String password) {
-        User user = new User(email, password);
-        ApiInterface apiInterface = ApiUtils.getInterfaceService();
-        Call<LoginResponse> service = apiInterface.authenticate(user);
-        service.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(@NonNull Call<LoginResponse> call,
-                                   @NonNull Response<LoginResponse> response) {
-                if (response.isSuccessful() && response.body() != null) {
-                    session.createLoginSession(response.body());
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else
-                    Toast.makeText(LoginActivity.this, "Error : " + response.toString()
-                                    + " " + response.raw(),
-                            Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Toast.makeText(LoginActivity.this, "Failed to fetch data: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     private void sendOauthRequest(String type, String role, String name,

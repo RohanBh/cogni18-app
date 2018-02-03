@@ -51,7 +51,8 @@
         <activity
             android:name=".MoreActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".activities.SignUpActivity" />
     </application>
 
 </manifest>
