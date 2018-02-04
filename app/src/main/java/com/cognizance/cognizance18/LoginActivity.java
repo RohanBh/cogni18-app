@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.util.Log;
@@ -17,7 +16,6 @@ import com.cognizance.cognizance18.activities.SignUpActivity;
 import com.cognizance.cognizance18.interfaces.ApiInterface;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.OauthUser;
-import com.cognizance.cognizance18.models.User;
 import com.cognizance.cognizance18.utilities.ApiUtils;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -169,7 +167,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent in = new Intent(LoginActivity.this, SignUpActivity.class);
-                in.putExtra("mode","SIGN_IN");
+                in.putExtra("mode", "SIGN_IN");
                 startActivity(in);
             }
         });
@@ -177,7 +175,7 @@ public class LoginActivity extends AppCompatActivity {
         signUpWithEmailBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,SignUpActivity.class).putExtra("mode","SIGN_UP"));
+                startActivity(new Intent(LoginActivity.this, SignUpActivity.class).putExtra("mode", "SIGN_UP"));
             }
         });
     }

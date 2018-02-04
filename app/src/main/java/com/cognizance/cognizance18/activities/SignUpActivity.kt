@@ -48,12 +48,14 @@ class SignUpActivity : AppCompatActivity() {
                 login(email, password)
             }
         } else {
+            login_desc_text_view.visibility = View.VISIBLE
+            login_text_view.visibility = View.VISIBLE
             name_edit_text.visibility = View.VISIBLE
             mobile_edit_text.visibility = View.VISIBLE
-            login_text_view.setOnClickListener({ view ->
-                val intent = Intent(this@SignUpActivity, SignUpActivity::class.java).putExtra("mode", "LOGIN")
+            login_text_view.setOnClickListener{ view ->
+                val intent = Intent(this@SignUpActivity, SignUpActivity::class.java).putExtra("mode", "SIGN_IN")
                 startActivity(intent)
-            })
+            }
             sign_up_btn.setOnClickListener {
                 val name = name_edit_text.text.toString()
                 val mobile = mobile_edit_text.text.toString()
