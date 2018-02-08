@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/action_events"
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_events"
         android:title="@string/nav_one"
-        android:icon="@mipmap/ic_launcher" />
-    <item android:id="@+id/action_workshops"
+        android:icon="@drawable/ic_events" />
+
+    <item
+        android:id="@+id/action_workshops"
         android:title="@string/nav_two"
-        android:icon="@mipmap/ic_launcher" />
-    <item android:id="@+id/action_home"
+        android:icon="@drawable/ic_workshop" />
+
+    <item
+        android:id="@+id/action_home"
         android:title="@string/nav_three"
-        android:icon="@mipmap/ic_launcher" />
-    <item android:id="@+id/action_spotlight"
+        android:icon="@drawable/ic_home" />
+
+    <item
+        android:id="@+id/action_spotlight"
         android:title="@string/nav_five"
-        android:icon="@mipmap/ic_launcher" />
-    <item android:id="@+id/action_profile"
+        android:icon="@drawable/ic_spotlight" />
+
+    <item
+        android:id="@+id/action_profile"
         android:title="@string/nav_four"
         android:icon="@mipmap/ic_launcher" />
 </menu>

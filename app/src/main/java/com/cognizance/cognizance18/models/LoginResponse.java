@@ -1,5 +1,7 @@
 package com.cognizance.cognizance18.models;
 
+import android.util.Log;
+
 /**
  * Created by samagra on 7/1/18.
  */
@@ -17,6 +19,7 @@ public class LoginResponse {
         this.token = token;
         this.role = role;
         this.name = name;
+
     }
 
     public String getMessage() {

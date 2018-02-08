@@ -27,7 +27,7 @@
             android:adjustViewBounds="true"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_launcher_round" />
 
     </RelativeLayout>
 

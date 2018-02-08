@@ -58,11 +58,11 @@ interface ApiInterface {
     @GET("api/android/events")
     fun requestEvents(@Header("Authorization") authorization: String): Call<CentralList>
 
-    @GET("/api/users/events/{id}")
+    @GET("/api/android/event/{id}")
     fun getEventDescription(@Header("Authorization") authorization: String,
                             @Path("id") id: Int): Call<EventPreview>
 
-    @POST("api/users/event/{id}/register")
+    @POST("api/users/events/{id}/register")
     fun registerEvent(@Header("Authorization") authorization: String,
                       @Path("id") eventId: Int, @Body cogniids: CogniIds): Call<ResponseMessage>
 
