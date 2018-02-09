@@ -27,7 +27,7 @@ interface ApiInterface {
     /**
      * Used to signup/register user taking email, pass, name, type and mobile.
      */
-    @POST("api/signup/spp")
+    @POST("api/signup/cogni_user")
     fun signUp(@Body signUpUser: SignUpUser): Call<LoginResponse>
 
     /**
