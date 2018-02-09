@@ -1,6 +1,8 @@
 package com.cognizance.cognizance18;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.cognizance.cognizance18.activities.IntroActivity;
 import com.cognizance.cognizance18.activities.SignUpActivity;
 import com.cognizance.cognizance18.interfaces.ApiInterface;
 import com.cognizance.cognizance18.models.LoginResponse;
@@ -64,6 +67,18 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_layout);
+
+        SharedPreferences sp = LoginActivity.this.getPreferences(Context.MODE_PRIVATE);
+        Boolean isUserFirstTime = sp.getBoolean(getString(R.string.first), true);
+
+        if (isUserFirstTime){
+            startActivity(new Intent(LoginActivity.this, IntroActivity.class));
+
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean(getString(R.string.first), false);
+            editor.apply();
+        }
+
         session = new SessionManager(getApplicationContext());
         initViews();
         initVariables();
