@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/text"
+        android:layout_marginLeft="23dp"
+        android:text="Enter Cognizance Id of other team members"
+        android:textSize="12sp"
+
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/InvalidId"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:textSize="12sp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/red"
+        android:text="Entered cognizance Id is not correct"
+        android:layout_below="@+id/text"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/InvalidId"
+        tools:listitem="@layout/member_id_row">
+
+
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>
