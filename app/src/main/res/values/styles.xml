@@ -44,4 +44,5 @@
     <style name="fullScreen" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowFullscreen">true</item>
     </style>
+
 </resources>

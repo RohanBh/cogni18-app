@@ -23,12 +23,9 @@ public class IntroActivity extends AppIntro {
 
         setColorDoneText(getResources().getColor(R.color.black));
         setColorSkipButton(getResources().getColor(R.color.black));
-        setIndicatorColor(getResources().getColor(R.color.black), getResources().getColor(R.color.gray));
+        setIndicatorColor(getResources().getColor(R.color.black), getResources().getColor(R.color.grey));
         setNextArrowColor(getResources().getColor(R.color.black));
-
-
         setNavBarColor(R.color.peach);
-
         setFadeAnimation();
     }
 
