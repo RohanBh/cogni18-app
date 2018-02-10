@@ -8,10 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
     <style name="splashtheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@drawable/splashtheme</item>
     </style>
     
+
     <style name="Theme1" parent="Theme.AppCompat.Light.NoActionBar">
 
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -43,6 +45,10 @@
 
         <item name="tabIndicatorColor">@color/purple</item>
         <item name="tabBackground">@color/purple</item>
+    </style>
+
+    <style name="fullScreen" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
     </style>
 
 </resources>

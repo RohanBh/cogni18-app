@@ -16,4 +16,7 @@
     <color name="logo_red">#ef4136</color>
     <color name="red">#E14D59</color>
     <color name="purple">#52354C</color>
+    <color name="peach">#FDCAD6</color>
+    <color name="black">#BF000000</color>
+    <color name="grey">#64000000</color>
 </resources>
