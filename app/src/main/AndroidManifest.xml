@@ -12,16 +12,19 @@
         android:roundIcon="@drawable/cogni_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity">
+
+        <activity android:name=".activities.SplashActivity"
+            android:theme="@style/splashtheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".LoginActivity"/>
         <activity
             android:name=".SignUpActivity1"
             android:label="@string/title_activity_sign_up"
