@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_marginBottom="3dp"
     android:layout_height="150dp">
@@ -40,23 +41,32 @@
         android:text="Thursday,23 March"
         android:layout_below="@+id/eventname"/>
 
-    <ImageView
-        android:layout_width="20dp"
-        android:layout_height="25dp"
-        android:layout_alignParentRight="true"
-        android:src="@drawable/delete"
-        android:layout_marginTop="25dp"
-        android:layout_marginRight="20dp"
-        />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_more_vert_black_24dp"
+        android:background="#ffffff"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"/>
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="15dp"
-        android:src="@drawable/addmember"/>
+    <!--<ImageView-->
+        <!--android:layout_width="20dp"-->
+        <!--android:layout_height="25dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:src="@drawable/delete"-->
+        <!--android:layout_marginTop="25dp"-->
+        <!--android:layout_marginRight="20dp"-->
+        <!--/>-->
+
+    <!--<ImageView-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_marginRight="30dp"-->
+        <!--android:layout_marginBottom="15dp"-->
+        <!--android:src="@drawable/addmember"/>-->
 
 
 
