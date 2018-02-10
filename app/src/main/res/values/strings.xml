@@ -6,7 +6,7 @@
     <string name="nav_four">Your Profile</string>
     <string name="nav_five">Spotlight</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_string">name</string>
     <string name="spotlight_string">Spotlights</string>
@@ -73,7 +73,25 @@
     <string name="techtainment_lower">Techtainment</string>
     <string name="guest_speakers_lower">Guest Speakers</string>
 
+    <string name="cognizance">Cognizance</string>
+    <string name="Download_Problem_Statment"><u>Download Problem Statement</u>.</string>
+    <string name="login">Login</string>
+    <string name="login_moto">Lets embark on the journey towards technical excellence Together</string>
+    <string name="email_string">Email</string>
+    <string name="sign_up_string">Already have an account</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login_q">Login?</string>
+    <string name="welcome">Welcome</string>
+    <string name="sign_in_with_facebook">Sign In With facebook</string>
+    <string name="or">OR</string>
+    <string name="sign_up_with_email">Sign up with email</string>
+    <string name="sign_in_with_google">Sign in with Google</string>
+    <string name="name">Name</string>
+    <string name="mobile">Mobile Number</string>
 
-    <string name="Download_Problem_Statment"><u>Download Problem Statment</u>.</string>
 
+    <string name="server_client_id">1096386175346-opgqbonid3feovk87jg4brb7bpq3r8an.apps.googleusercontent.com</string>
+
+
+    <string name="first">true</string>
 </resources>

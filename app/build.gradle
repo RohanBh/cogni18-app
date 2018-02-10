@@ -10,6 +10,7 @@ android {
     compileSdkVersion 27
     buildToolsVersion '26.0.2'
     defaultConfig {
+        vectorDrawables.useSupportLibrary = true
         applicationId "com.cognizance.cognizance18"
         minSdkVersion 19
         targetSdkVersion 27
@@ -20,7 +21,7 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         javaCompileOptions {
-            annotationProcessorOptions{
+            annotationProcessorOptions {
                 includeCompileClasspath = true
             }
         }
@@ -36,12 +37,15 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
+repositories {
+    maven { url 'https://jitpack.io' }
+}
 dependencies {
 
     implementation 'com.android.support:support-v4:27.0.2'
 
     implementation 'com.android.support:customtabs:27.0.2'
+    implementation 'com.github.apl-devs:appintro:v4.2.2'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
@@ -55,14 +59,8 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
-    compile 'de.hdodenhof:circleimageview:2.1.0'
+    implementation 'de.hdodenhof:circleimageview:2.1.0'
 
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.google.code.gson:gson:2.8.1'
-
-    // Room
-    implementation "android.arch.persistence.room:runtime:1.0.0"
-    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
-
-
 }
