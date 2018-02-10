@@ -16,4 +16,6 @@
     <color name="logo_red">#ef4136</color>
     <color name="red">#E14D59</color>
     <color name="purple">#52354C</color>
+    <color name="Black">#000000</color>
+    <color name="background">#FAFAFA</color>
 </resources>
