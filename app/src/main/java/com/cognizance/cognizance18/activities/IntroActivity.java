@@ -1,9 +1,8 @@
 package com.cognizance.cognizance18.activities;
 
 /**
- * Created by s4mr4t on 9/2/18.
+ * Created by rohit on 9/2/18.
  */
-
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,7 +25,6 @@ public class IntroActivity extends AppIntro {
         setIndicatorColor(getResources().getColor(R.color.black), getResources().getColor(R.color.grey));
         setNextArrowColor(getResources().getColor(R.color.black));
         setNavBarColor(R.color.peach);
-        setFadeAnimation();
     }
 
     @Override

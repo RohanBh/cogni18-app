@@ -5,12 +5,12 @@
     <item
         android:id="@+id/action_events"
         android:title="@string/nav_one"
-        android:icon="@drawable/ic_events" />
+        android:icon="@drawable/ic_event" />
 
     <item
         android:id="@+id/action_workshops"
         android:title="@string/nav_two"
-        android:icon="@drawable/ic_workshop" />
+        android:icon="@drawable/ic_exhibition" />
 
     <item
         android:id="@+id/action_home"
