@@ -4,26 +4,26 @@
 
     <item
         android:id="@+id/action_events"
-        android:title="@string/nav_one"
-        android:icon="@drawable/ic_events" />
+        android:icon="@drawable/event"
+        android:title="@string/nav_one" />
 
     <item
         android:id="@+id/action_workshops"
         android:title="@string/nav_two"
-        android:icon="@drawable/ic_workshop" />
+        android:icon="@drawable/exhibition" />
 
     <item
         android:id="@+id/action_home"
         android:title="@string/nav_three"
-        android:icon="@drawable/ic_home" />
+        android:icon="@drawable/home" />
 
     <item
         android:id="@+id/action_spotlight"
         android:title="@string/nav_five"
-        android:icon="@drawable/ic_spotlight" />
+        android:icon="@drawable/spotlight" />
 
     <item
         android:id="@+id/action_profile"
         android:title="@string/nav_four"
-        android:icon="@mipmap/ic_launcher" />
+        android:icon="@drawable/cogni_logo" />
 </menu>
