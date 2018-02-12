@@ -1,5 +1,7 @@
-package com.cognizance.cognizance18.HelperClass; /**
- * Created by s4mr4t on 9/2/18.
+package com.cognizance.cognizance18.HelperClass;
+
+/**
+ * Created by rohit on 9/2/18.
  */
 
 import android.os.Bundle;

@@ -2,20 +2,18 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="8dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/ic_item"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/cogni_logo"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         app:layout_constraintBottom_toTopOf="@+id/item_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed" />
+        app:srcCompat="@drawable/cogni_logo" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/item_text"
@@ -24,10 +22,11 @@
         android:layout_marginTop="2dp"
         android:maxLines="1"
         android:textSize="18sp"
+        app:fontFamily="@font/roboto_condensed_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ic_item"
-        tools:text="Home" />
+        tools:text="Hello World" />
 
 </android.support.constraint.ConstraintLayout>

@@ -14,11 +14,9 @@ import android.widget.Toast;
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.SessionManager;
-import com.cognizance.cognizance18.adapters.SpotLightRViewAdapter;
 import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.adapters.TrendingRViewAdapter;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
-import com.cognizance.cognizance18.models.SpotLight;
 import com.cognizance.cognizance18.models.SpotlightCard;
 import com.cognizance.cognizance18.models.TrendingList;
 import com.cognizance.cognizance18.models.Trendings;
@@ -142,7 +140,7 @@ public class HomeFragment extends Fragment {
         }
 
         ArrayList<SpotlightCard> speakersList = new ArrayList<>();
-        speakersList.add(new SpotlightCard(R.drawable.satheesh,"G.Satheesh Reddy"));
+        speakersList.add(new SpotlightCard(R.drawable.gsatheesh,"G.Satheesh Reddy"));
         speakersList.add(new SpotlightCard(R.drawable.ashok, "Ashok Soota"));
         speakersList.add(new SpotlightCard(R.drawable.anil,"Anil Kumar"));
 

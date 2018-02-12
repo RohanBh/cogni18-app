@@ -1,5 +1,6 @@
 package com.cognizance.cognizance18;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.cognizance.cognizance18.activities.SignUpActivity;
 import com.cognizance.cognizance18.interfaces.ApiInterface;
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.cognizance.cognizance18.models.SignUpUser;
@@ -151,8 +153,10 @@ public class SignUpActivity1 extends AppCompatActivity {
                 LoginResponse response1 = response.body();
                 if (response1 == null)
                     Log.v(LOG_TAG, response.body().toString() + "...");
-                else
+                else {
                     Log.v(LOG_TAG, "Hooray" + response1.getEmail());
+                    startActivity(new Intent(SignUpActivity1.this, MainActivity.class));
+                }
             }
 
             @Override
