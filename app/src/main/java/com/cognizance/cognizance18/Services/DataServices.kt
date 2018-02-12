@@ -1,7 +1,6 @@
 package com.cognizance.cognizance18.Services
 
 import com.cognizance.cognizance18.models.Category
-import com.cognizance.cognizance18.models.SpotLight
 
 /**
  * Created by rohit on 10/2/18.
