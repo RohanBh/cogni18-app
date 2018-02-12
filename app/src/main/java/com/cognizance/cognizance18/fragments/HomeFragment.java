@@ -15,9 +15,11 @@ import android.widget.Toast;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.SessionManager;
 import com.cognizance.cognizance18.adapters.SpotLightRViewAdapter;
+import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.adapters.TrendingRViewAdapter;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 import com.cognizance.cognizance18.models.SpotLight;
+import com.cognizance.cognizance18.models.SpotlightCard;
 import com.cognizance.cognizance18.models.TrendingList;
 import com.cognizance.cognizance18.models.Trendings;
 import com.cognizance.cognizance18.utilities.ApiUtils;
@@ -139,32 +141,27 @@ public class HomeFragment extends Fragment {
             eventsRecyclerView.setAdapter(new TrendingRViewAdapter(eventList));
         }
 
-        // fake list for guest speakers 2017
-
-        ArrayList<SpotLight> speakersList;
-        speakersList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            SpotLight spotLight = new SpotLight("G S Name");
-            speakersList.add(spotLight);
-        }
+        ArrayList<SpotlightCard> speakersList = new ArrayList<>();
+        speakersList.add(new SpotlightCard(R.drawable.satheesh,"G.Satheesh Reddy"));
+        speakersList.add(new SpotlightCard(R.drawable.ashok, "Ashok Soota"));
+        speakersList.add(new SpotlightCard(R.drawable.anil,"Anil Kumar"));
 
         // fake list for guest techtainments 2017
 
-        ArrayList<SpotLight> techsList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            SpotLight spotLight = new SpotLight("Tech Name");
-            techsList.add(spotLight);
-        }
+        ArrayList<SpotlightCard> techsList = new ArrayList<>();
+        techsList.add(new SpotlightCard(R.drawable.tvf,"The Viral Fever"));
+        techsList.add(new SpotlightCard(R.drawable.sachinjigar, "Sachin-Jigar"));
+        techsList.add(new SpotlightCard(R.drawable.papon,"Papon"));
 
         // techtainment recycler view
         techtainmentRView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
-        techtainmentRView.setAdapter(new SpotLightRViewAdapter(techsList));
+        techtainmentRView.setAdapter(new SpotLightRviewJAdapter(getContext() ,techsList));
 
         // speakers recycler view
         speakersRView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
-        speakersRView.setAdapter(new SpotLightRViewAdapter(speakersList));
+        speakersRView.setAdapter(new SpotLightRviewJAdapter(getContext() ,speakersList));
     }
 
     private void setListeners() {
