@@ -93,6 +93,13 @@
 
     <!--<string name="server_client_id">1096386175346-opgqbonid3feovk87jg4brb7bpq3r8an.apps.googleusercontent.com</string>-->
 
+
+
+    <string name="server_client_id">917723626955-majts544oj0h9m35it0f1p6o9sijenaj.apps.googleusercontent.com</string>
+
+    <!--<string name="server_client_id">1096386175346-opgqbonid3feovk87jg4brb7bpq3r8an.apps.googleusercontent.com</string>-->
+
+
     <string name="first">true</string>
 
 </resources>
