@@ -8,14 +8,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
-import android.widget.Toast
 import com.cognizance.cognizance18.Services.DataServices
 import com.cognizance.cognizance18.adapters.NavMenuGridAdapter
-import com.cognizance.cognizance18.fragments.EventsFragment
-import com.cognizance.cognizance18.fragments.HomeFragment
-import com.cognizance.cognizance18.fragments.SpotlightFragment
-import com.cognizance.cognizance18.fragments.WorkshopsFragment
+import com.cognizance.cognizance18.models.Category
 import com.cognizance.cognizance18.models.NavMenuGridItem
 import kotlinx.android.synthetic.main.activity_more.*
 
@@ -24,6 +19,10 @@ import kotlinx.android.synthetic.main.activity_more.*
  * Modified by rohit on 9/2/18.
  */
 class MoreActivity : AppCompatActivity() {
+
+    fun MoreActivity() {
+
+    }
 
     lateinit var adapter: NavMenuGridAdapter
 
@@ -40,31 +39,28 @@ class MoreActivity : AppCompatActivity() {
 //                NavMenuGridItem("Home")
 //        ))
 
-        adapter = NavMenuGridAdapter(this@MoreActivity, DataServices.categories) { category ->
-            when (category.title) {
+//        adapter = NavMenuGridAdapter(this@MoreActivity, Datadapter = NavMenuGridAdapter(this@MoreActivity, DataServices.categories, {})aServices.categories, {})
+        adapter = NavMenuGridAdapter(this@MoreActivity, DataServices.categories) { item ->
+            when (item.title) {
                 "Home" -> {
+                    setResult(3000)
                     finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
                 }
                 "Events" -> {
+                    setResult(3001)
                     finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
                 }
                 "Workshop" -> {
+                    setResult(3002)
                     finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
                 }
                 "Spotlights" -> {
+                    setResult(3003)
                     finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
                 }
-                "Exhibitions" -> {
+                "Social", "Exhibitions" -> {
+                    setResult(Activity.RESULT_OK)
                     finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
-                }
-                "Social" -> {
-                    finish()
-                    startActivity(Intent(this@MoreActivity, MainActivity::class.java))
                 }
             }
         }
