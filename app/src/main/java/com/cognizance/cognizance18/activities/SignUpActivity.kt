@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.cognizance.cognizance18.MainActivity
 import com.cognizance.cognizance18.R
 import com.cognizance.cognizance18.SessionManager
+import com.cognizance.cognizance18.SignUpActivity1
 import com.cognizance.cognizance18.interfaces.ApiInterface
 import com.cognizance.cognizance18.models.LoginResponse
 import com.cognizance.cognizance18.models.SignUpUser
@@ -98,7 +99,7 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     session.createLoginSession(response.body())
-                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                    val intent = Intent(this@SignUpActivity, SignUpActivity1::class.java)
                     startActivity(intent)
                     finish()
 
