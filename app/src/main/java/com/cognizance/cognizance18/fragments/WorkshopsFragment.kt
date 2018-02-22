@@ -39,7 +39,7 @@ class WorkshopsFragment : Fragment() {
         super.onAttach(context)
         mListener = context as? OnFragmentAddedListener ?: throw ClassCastException("$context must implement OnFragmentAddedListener")
         session = SessionManager(context)
-        session.checkLogin()
+
     }
 
     override fun onCreateView(

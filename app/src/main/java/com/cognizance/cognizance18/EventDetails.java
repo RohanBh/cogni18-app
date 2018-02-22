@@ -119,7 +119,7 @@ public class EventDetails extends AppCompatActivity{
 
         eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
                 , LinearLayoutManager.HORIZONTAL, false));
-        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList));
+        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList,getApplicationContext()));
     }
 
     private void initializeViews(){
