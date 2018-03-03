@@ -1,343 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
+    <TextView
+        android:id="@+id/event_name"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/eventDetails"
-        android:layout_alignParentTop="true">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Chain Reaction"
+        android:textAppearance="@style/EventTitle" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/event_name">
 
-    </android.support.v7.widget.RecyclerView>
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="260dp"
+            android:background="@drawable/event_gradient" />
 
+        <Button
+            android:id="@+id/register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="84dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_background"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
+            android:text="Register and Pay"
+            android:textAllCaps="false"
+            android:textColor="@color/colorText"
+            android:textSize="20dp"
+            android:elevation="0dp"/>
+
+    </FrameLayout>
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/problem_statment"
-        android:textSize="15sp"
-        android:text="@string/Download_Problem_Statment"
-        android:layout_below="@+id/eventDetails"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp"
-        android:layout_marginTop="10dp"
-        android:text="Register and Pay"
-        android:textColor="@color/colorText"
-        android:id="@+id/register"
-        android:textSize="20dp"
-        android:background="@drawable/button_background"
-        android:textAllCaps="false"
-        android:layout_below="@+id/problem_statment"
-        android:layout_centerHorizontal="true"/>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/register"
-        android:id="@+id/card1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
+        android:layout_marginTop="100dp"
+        android:text="@string/Download_Problem_Statment"
+        android:textSize="15sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
         <RelativeLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:id="@+id/introLayout"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Introduction"
-                    android:id="@+id/intro"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:textSize="20dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_alignParentRight="true"/>
-
-
-            </RelativeLayout>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
+            <android.support.v7.widget.CardView
+                android:id="@+id/card1"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/info"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="@string/placeholder_text"
-                android:layout_below="@+id/introLayout"
-                />
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="220dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/introLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/intro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="12dp"
+                            android:text="Introduction"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="6dp"
+                            app:srcCompat="@drawable/ic_expand_more" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/introLayout"
+                        android:padding="10dp"
+                        android:text="@string/placeholder_text"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/registration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/registrationTextview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="12dp"
+                            android:text="Registration Procedure"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="6dp"
+                            app:srcCompat="@drawable/ic_expand_more" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/registrationProcedure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/registration"
+                        android:padding="10dp"
+                        android:text="@string/placeholder_text"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/rules"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/rulesTextview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="12dp"
+                            android:text="Rules"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="6dp"
+                            app:srcCompat="@drawable/ic_expand_more" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/rulesAndRegulation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rules"
+                        android:padding="10dp"
+                        android:text="@string/placeholder_text"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/problem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/problemTextview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="12dp"
+                            android:text="Problem Statment"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="6dp"
+                            app:srcCompat="@drawable/ic_expand_more" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/problemStatment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/problem"
+                        android:padding="10dp"
+                        android:text="@string/placeholder_text"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/card5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/card4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:id="@+id/contact"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/contactTextview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="12dp"
+                            android:paddingLeft="12dp"
+                            android:paddingTop="12dp"
+                            android:text="Contact Details"
+                            android:textSize="20dp" />
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="6dp"
+                            app:srcCompat="@drawable/ic_expand_more" />
+
+
+                    </RelativeLayout>
+
+
+                    <TextView
+                        android:id="@+id/contactDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/contact"
+                        android:padding="10dp"
+                        android:text="@string/placeholder_text"
+                        android:textSize="15sp"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card1"
-        android:id="@+id/card2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:id="@+id/registration"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Registration Procedure"
-                    android:id="@+id/registrationTextview"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:textSize="20dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_alignParentRight="true"/>
-
-
-            </RelativeLayout>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/registrationProcedure"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="@string/placeholder_text"
-                android:layout_below="@+id/registration"
-                />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card2"
-        android:id="@+id/card3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:id="@+id/rules"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Rules"
-                    android:id="@+id/rulesTextview"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:textSize="20dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_alignParentRight="true"/>
-
-
-            </RelativeLayout>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rulesAndRegulation"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="@string/placeholder_text"
-                android:layout_below="@+id/rules"
-                />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card3"
-        android:id="@+id/card4"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:id="@+id/problem"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Problem Statment"
-                    android:id="@+id/problemTextview"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:textSize="20dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_alignParentRight="true"/>
-
-
-            </RelativeLayout>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/problemStatment"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="@string/placeholder_text"
-                android:layout_below="@+id/problem"
-                />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/card4"
-        android:id="@+id/card5"
-        android:layout_centerHorizontal="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
-        >
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:id="@+id/contact"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Contact Details"
-                    android:id="@+id/contactTextview"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:textSize="20dp"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/add"
-                    android:paddingTop="12dp"
-                    android:paddingLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingRight="12dp"
-                    android:layout_alignParentRight="true"/>
-
-
-            </RelativeLayout>
-
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/contactDetails"
-                android:textSize="15sp"
-                android:padding="10dp"
-                android:visibility="gone"
-                android:text="@string/placeholder_text"
-                android:layout_below="@+id/contact"
-                />
-
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
-
-
-
-
+    </ScrollView>
 
 </RelativeLayout>
