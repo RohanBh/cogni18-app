@@ -40,12 +40,10 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
         String url= list.get(position).getThumbnail();
 
-        if(url!=null)
+        if(url!=null) {
             Picasso.with(context).load(url).placeholder(R.drawable.button_background)
                     .into(holder.eventimage);
 
-        else {
-            holder.eventimage.setImageResource(R.drawable.button_background);
         }
     }
 
