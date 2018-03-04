@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +25,7 @@ import com.cognizance.cognizance18.models.WorkshopModels.WorkshopResponse;
 import com.cognizance.cognizance18.models.WorkshopModels.Workshops;
 import com.cognizance.cognizance18.utilities.ApiUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -65,20 +68,28 @@ public class WorkshopFragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        
         return inflater.inflate(R.layout.fragment_workshops, container, false);
     }
 
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        InitializeViews(view);
+        getWorkshopList();
+        mListener.onFragmentAdd(1);
+    }
+
     public void InitializeViews(View v) {
         recyclerView = (RecyclerView) v.findViewById(R.id.workshop);
-
+        workshopList = new ArrayList<>();
+        workshopsAdapter = new WorkshopsAdapter(getContext(), workshopList);
     }
 
 
     public void getWorkshopList() {
 
-        Call<WorkshopResponse> call = ApiUtils.getInterfaceService().getWorkshopList(session.getToken());
+        Call<WorkshopResponse> call = ApiUtils.getInterfaceService().getWorkshopList();
         call.enqueue(new Callback<WorkshopResponse>() {
             @Override
             public void onResponse(Call<WorkshopResponse> call, Response<WorkshopResponse> response) {
@@ -89,14 +100,15 @@ public class WorkshopFragment extends android.support.v4.app.Fragment {
                     for (int i = 0; i < workshopResponse.getWorkshops().size(); i++) {
                         Workshops workshops = workshopResponse.getWorkshops().get(i);
                         workshopList.add(workshops);
+                        Log.d("LOL", workshops.getName());
                     }
 
-
-                    RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(this, 2);
+                    RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
                     recyclerView.setLayoutManager(mLayoutManager);
-                    recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10),true));
+                    recyclerView.addItemDecoration(new GridSpacingItemDecoration(2, dpToPx(10), true));
                     recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    recyclerView.setAdapter();
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setAdapter(workshopsAdapter);
                 }
             }
 

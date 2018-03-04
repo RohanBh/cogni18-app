@@ -102,7 +102,7 @@ interface ApiInterface {
     fun getRegisteredEvents(@Header("Authorization") authorization: String): Call<List<Event>>
 
     @GET("api/workshops")
-    fun getWorkshopList(@Header("Authorization") authorization: String): Call<WorkshopResponse>
+    fun getWorkshopList(): Call<WorkshopResponse>
     // /api/workshops array of workshops : (id, name, desc, thumbnail)
 
     @GET("api/trending")
