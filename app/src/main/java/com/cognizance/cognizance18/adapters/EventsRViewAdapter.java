@@ -1,7 +1,9 @@
 package com.cognizance.cognizance18.adapters;
 
 import android.content.Context;
-import android.content.Intent;
+
+
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +14,11 @@ import android.widget.TextView;
 import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.database.EventPreview;
+
+import com.squareup.picasso.Picasso;
+
 import com.cognizance.cognizance18.MainActivity;
+
 
 import java.util.List;
 
@@ -21,8 +27,13 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     private List<EventPreview> list;
 
-    public EventsRViewAdapter(List<EventPreview> eventList) {
+    private Context context;
+
+
+    public EventsRViewAdapter(List<EventPreview> eventList,Context context) {
         this.list = eventList;
+        this.context=context;
+
     }
 
     @Override
@@ -35,11 +46,18 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     @Override
     public void onBindViewHolder(EventRViewHolder holder, int position) {
         holder.name.setText(list.get(position).getName());
-        holder.imageView.setOnClickListener(v -> {
-            Context ctx = holder.imageView.getContext();
-            Intent intent = new Intent(ctx, EventDetails.class);
-            ctx.startActivity(intent);
-        });
+
+        String url= list.get(position).getThumbnail();
+
+        if(url!=null) {
+            Picasso.with(context).load(url).placeholder(R.drawable.button_background)
+                    .into(holder.eventimage);
+
+        }
+
+       
+        
+
     }
 
     @Override
@@ -50,13 +68,17 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     class EventRViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, category;
-        ImageView imageView;
+
+        ImageView eventimage;
+
 
         EventRViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.event_title_text_view);
             category = itemView.findViewById(R.id.chip1);
-            imageView = itemView.findViewById(R.id.event_image);
+
+            eventimage = itemView.findViewById(R.id.event_image);
+            
         }
     }
 }

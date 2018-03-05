@@ -5,6 +5,10 @@
     <string name="nav_three">Home</string>
     <string name="nav_four">Your Profile</string>
     <string name="nav_five">Spotlight</string>
+    <string-array name="planets_array">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

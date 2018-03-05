@@ -53,7 +53,7 @@ public class EventsContentFragment extends Fragment {
             categoryName = getArguments().getString(CATEGORY_KEY);
         }
         session = new SessionManager(getActivity());
-        session.checkLogin();
+
         realm = Realm.getDefaultInstance();
     }
 

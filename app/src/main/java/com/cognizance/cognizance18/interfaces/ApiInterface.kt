@@ -3,6 +3,7 @@ package com.cognizance.cognizance18.interfaces
 import com.cognizance.cognizance18.database.CentralList
 import com.cognizance.cognizance18.database.EventPreview
 import com.cognizance.cognizance18.models.*
+import com.cognizance.cognizance18.models.WorkshopModels.WorkshopResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -101,11 +102,11 @@ interface ApiInterface {
     fun getRegisteredEvents(@Header("Authorization") authorization: String): Call<List<Event>>
 
     @GET("api/workshops")
-    fun getWorkshopList(@Header("Authorization") authorization: String): Call<WorkshopList>
+    fun getWorkshopList(): Call<WorkshopResponse>
     // /api/workshops array of workshops : (id, name, desc, thumbnail)
 
     @GET("api/trending")
-    fun getTrendings(@Header("Authorization") authorization: String): Call<TrendingList>
+    fun getTrendings( @Header("Authorization")authorization: String): Call<TrendingList>
     // api/trendings object : Trending (events(id ,name , thumbnail,
     // tags(comma separated string )), type : spotlight, workshop)
 

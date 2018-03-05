@@ -22,6 +22,7 @@ import com.cognizance.cognizance18.fragments.EventsFragment;
 import com.cognizance.cognizance18.fragments.HomeFragment;
 import com.cognizance.cognizance18.fragments.ProfileFragment;
 import com.cognizance.cognizance18.fragments.SpotlightFragment;
+import com.cognizance.cognizance18.fragments.WorkshopFragment;
 import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
 
@@ -179,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             case EVENTS_TAG:
                 return EventsFragment.newInstance();
             case WORKSHOP_TAG:
-                return WorkshopsFragment.newInstance();
+                return WorkshopFragment.newInstance();
             case HOME_TAG:
                 return HomeFragment.newInstance();
             case SPOTLIGHT_TAG:

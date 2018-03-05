@@ -112,6 +112,10 @@ public class EventDetails extends AppCompatActivity{
             event.setName("Event" + (i + 1));
             eventsList.add(event);
         }
+
+        eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
+                , LinearLayoutManager.HORIZONTAL, false));
+        
     }
 
     private void initializeViews(){

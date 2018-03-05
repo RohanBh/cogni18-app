@@ -1,6 +1,7 @@
 package com.cognizance.cognizance18.fragments;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +14,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.SessionManager;
+import com.cognizance.cognizance18.interfaces.Networkservices;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
+import com.cognizance.cognizance18.models.Events;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class EventsFragment extends Fragment {
 
@@ -22,9 +30,15 @@ public class EventsFragment extends Fragment {
 
     private OnFragmentAddedListener mListener;
 
+
     private TextView centerstageTab;
     private TextView departmentalTab;
     private Fragment selectedEventFragment;
+    private SharedPreferences sharedPrefrences;
+
+
+    private Networkservices networkservices;
+
 
     public static EventsFragment newInstance() {
         EventsFragment fragment = new EventsFragment();
@@ -87,4 +101,6 @@ public class EventsFragment extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
+
+
 }
