@@ -25,10 +25,6 @@ public class EventDetails extends AppCompatActivity{
 
     private TextView introText,registrationText,rulesText,problemText,contactText;
 
-    private RecyclerView eventRecyclerView;
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,10 +112,6 @@ public class EventDetails extends AppCompatActivity{
             event.setName("Event" + (i + 1));
             eventsList.add(event);
         }
-
-        eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
-                , LinearLayoutManager.HORIZONTAL, false));
-        eventRecyclerView.setAdapter(new EventsRViewAdapter(eventsList));
     }
 
     private void initializeViews(){
@@ -129,8 +121,6 @@ public class EventDetails extends AppCompatActivity{
         problem = (RelativeLayout)findViewById(R.id.problem);
         contact = (RelativeLayout)findViewById(R.id.contact);
 
-
-        eventRecyclerView = (RecyclerView) findViewById(R.id.eventDetails);
         introText =(TextView)findViewById(R.id.info);
         registrationText = (TextView)findViewById(R.id.registrationProcedure);
         rulesText =(TextView)findViewById(R.id.rulesAndRegulation);

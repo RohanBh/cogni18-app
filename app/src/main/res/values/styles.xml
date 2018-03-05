@@ -51,4 +51,10 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="EventTitle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:textColor">#da000000</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>
