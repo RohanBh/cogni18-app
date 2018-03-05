@@ -136,10 +136,26 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == MORE_ACTIVITY_RC) {
+        if (requestCode == MORE_ACTIVITY_RC && resultCode == RESULT_OK) {
             if (prevNonDialogMenuItemId != -1) {
                 bottomNavigationView.setSelectedItemId(prevNonDialogMenuItemId);
             }
+        }
+        if (resultCode == 3000 && requestCode == MORE_ACTIVITY_RC){
+            replaceFragment(HOME_TAG);
+            prevNonDialogMenuItemId = R.id.action_home;
+        }
+        else if (resultCode == 3001){
+            replaceFragment(EVENTS_TAG);
+            bottomNavigationView.setSelectedItemId(R.id.action_events);
+        }
+        else if (resultCode == 3002){
+            replaceFragment(WORKSHOP_TAG);
+            bottomNavigationView.setSelectedItemId(R.id.action_workshops);
+        }
+        else if (resultCode == 3003){
+            replaceFragment(SPOTLIGHT_TAG);
+            bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
         }
     }
 
@@ -157,8 +173,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             isFirstTransaction = false;
         }
         transaction.commit();
-
-
     }
 
     private Fragment getDefaultFragment(String fragmentTag) {

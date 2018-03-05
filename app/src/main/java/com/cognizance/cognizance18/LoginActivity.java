@@ -118,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void initVariables() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.server_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -248,6 +249,7 @@ public class LoginActivity extends AppCompatActivity {
             String personEmail = account.getEmail();
             String personId = account.getId();
             String personOauthToken = account.getIdToken();
+            Log.e("loginEr  ror", account.getIdToken());
             Uri personPhoto = account.getPhotoUrl();
             sendOauthRequest(
                     TYPE_GOOGLE,

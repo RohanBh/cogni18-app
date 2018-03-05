@@ -222,10 +222,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@color/button_back"
+            android:background="@drawable/pink_rounded_rect"
             android:text="@string/save"
-            android:textColor="@color/colorBackground"
-            />
+            android:textColor="@color/white" />
 
 
     </android.support.v7.widget.LinearLayoutCompat>

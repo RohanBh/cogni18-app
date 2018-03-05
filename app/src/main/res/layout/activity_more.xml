@@ -12,8 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="16dp"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/menu_string"
-        android:textSize="22sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/nav_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,20 +25,18 @@
         android:layout_marginEnd="16dp"
         android:adjustViewBounds="true"
         android:padding="4dp"
-        android:src="@drawable/ic_close"
         app:layout_constraintBottom_toBottomOf="@id/menu_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/menu_text" />
+        app:layout_constraintTop_toTopOf="@id/menu_text"
+        app:srcCompat="@drawable/ic_close" />
 
-    <GridView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/nav_menu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:columnWidth="70dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:gravity="center"
-        android:horizontalSpacing="1dp"
-        android:numColumns="3"
-        android:stretchMode="columnWidth"
+        android:padding="0dp"
         app:layout_constraintBottom_toTopOf="@+id/divider_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,7 +46,7 @@
     <View
         android:id="@+id/divider_view"
         android:layout_width="0dp"
-        android:layout_height="170dp"
+        android:layout_height="225dp"
         android:background="@color/background_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -60,14 +59,20 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/cogni_logo"
         app:layout_constraintBottom_toBottomOf="@id/cogni_date_text"
         app:layout_constraintStart_toStartOf="@id/divider_view"
+
+        app:layout_constraintTop_toTopOf="@id/divider_view"
+        app:srcCompat="@drawable/cogni_logo" />
+
+
         app:layout_constraintTop_toTopOf="@id/divider_view" />
+
     <TextView
         android:id="@+id/cogni_date_text"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_light"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@id/logo"
         app:layout_constraintTop_toTopOf="@id/logo"
@@ -76,18 +81,20 @@
         android:id="@+id/cogni_all_caps"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/cognizance_all_caps"
         android:textColor="@color/logo_red"
-        android:textSize="14sp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/logo"
         app:layout_constraintTop_toBottomOf="@id/logo" />
     <TextView
         android:id="@+id/cogni_tag_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/cogni_tag_line"
         android:textColor="@color/logo_red"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/logo"
         app:layout_constraintTop_toBottomOf="@id/cogni_all_caps" />
     <ImageView
@@ -96,26 +103,32 @@
         android:layout_height="0dp"
         android:layout_marginTop="1dp"
         android:adjustViewBounds="true"
-        app:srcCompat="@drawable/ic_pin"
         app:layout_constraintBottom_toBottomOf="@+id/helper"
         app:layout_constraintStart_toStartOf="@id/logo"
+
+        app:layout_constraintTop_toTopOf="@+id/addr_text"
+        app:srcCompat="@drawable/ic_pin" />
+
         app:layout_constraintTop_toTopOf="@+id/addr_text" />
+
     <TextView
         android:id="@+id/addr_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/cogni_office_addr"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@id/addr_pin"
         app:layout_constraintTop_toBottomOf="@id/cogni_tag_line" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/cogni_office_no"
-        android:textSize="10sp"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@id/addr_text"
         app:layout_constraintTop_toBottomOf="@id/addr_text" />
     <View
@@ -130,8 +143,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/about_us"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@id/sponsors"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/divider_view" />
@@ -139,8 +153,9 @@
         android:id="@+id/sponsors"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/sponsors"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/contact_us"
         app:layout_constraintEnd_toEndOf="@id/about_us_text"
         app:layout_constraintTop_toBottomOf="@id/about_us_text" />
@@ -149,8 +164,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:fontFamily="@font/roboto_condensed_light"
         android:text="@string/contact_us"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@id/divider_view"
         app:layout_constraintEnd_toEndOf="@id/about_us_text"
         app:layout_constraintTop_toBottomOf="@id/sponsors" />

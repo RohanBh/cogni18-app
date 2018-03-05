@@ -1,6 +1,9 @@
 package com.cognizance.cognizance18.adapters;
 
 import android.content.Context;
+
+
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,11 +11,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.database.EventPreview;
+
 import com.squareup.picasso.Picasso;
 
+import com.cognizance.cognizance18.MainActivity;
+
+
 import java.util.List;
+
 
 public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.EventRViewHolder> {
 
@@ -45,6 +54,10 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
                     .into(holder.eventimage);
 
         }
+
+       
+        
+
     }
 
     @Override
@@ -55,6 +68,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     class EventRViewHolder extends RecyclerView.ViewHolder {
 
         TextView name, category;
+
         ImageView eventimage;
 
 
@@ -62,7 +76,9 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
             super(itemView);
             name = itemView.findViewById(R.id.event_title_text_view);
             category = itemView.findViewById(R.id.chip1);
+
             eventimage = itemView.findViewById(R.id.event_image);
+            
         }
     }
 }
