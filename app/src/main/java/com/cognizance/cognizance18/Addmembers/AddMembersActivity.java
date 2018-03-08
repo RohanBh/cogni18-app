@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.cognizance.cognizance18.R;
@@ -19,7 +20,7 @@ public class AddMembersActivity extends AppCompatActivity {
 
 
     private ImageView close;
-    private ViewPager viewPager;
+    private FrameLayout viewPager;
     android.support.v4.app.Fragment selectedFragment;
 
 
@@ -43,7 +44,7 @@ public class AddMembersActivity extends AppCompatActivity {
 
         android.support.v4.app.FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        transaction.replace(R.id.viewpager, selectedFragment);
+        transaction.replace(R.id.frame, selectedFragment);
         transaction.addToBackStack(null);
         transaction.commit();
         return;
@@ -52,7 +53,7 @@ public class AddMembersActivity extends AppCompatActivity {
 
     public void InitializeViews(){
         close = (ImageView)findViewById(R.id.cross);
-        viewPager = (ViewPager)findViewById(R.id.viewpager);
+        viewPager = findViewById(R.id.frame);
     }
 
 
