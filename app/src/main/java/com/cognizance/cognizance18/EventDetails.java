@@ -102,21 +102,21 @@ public class EventDetails extends AppCompatActivity{
         });
     }
 
-
-    private void setViews(){
-
-        ArrayList<EventPreview> eventsList;
-        eventsList = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            EventPreview event = new EventPreview();
-            event.setName("Event" + (i + 1));
-            eventsList.add(event);
-        }
-
-        eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
-                , LinearLayoutManager.HORIZONTAL, false));
-        
-    }
+//
+//    private void setViews(){
+//
+//        ArrayList<EventPreview> eventsList;
+//        eventsList = new ArrayList<>();
+//        for (int i = 0; i < 10; i++) {
+//            EventPreview event = new EventPreview();
+//            event.setName("Event" + (i + 1));
+//            eventsList.add(event);
+//        }
+//
+//        eventRecyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()
+//                , LinearLayoutManager.HORIZONTAL, false));
+//
+//    }
 
     private void initializeViews(){
         intro = (RelativeLayout)findViewById(R.id.introLayout);
