@@ -10,35 +10,44 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.database.CategoryList;
-import com.cognizance.cognizance18.models.Departmental;
+import com.cognizance.cognizance18.models.CentralStage;
 
 import java.util.List;
 
-public class SubEventsRViewAdapter extends RecyclerView.Adapter<SubEventsRViewAdapter.SubEventRViewHolder> {
+/**
+ * Created by shashank on 9/3/18.
+ */
+
+public class SubEventsRViewAdapterS extends RecyclerView.Adapter<SubEventsRViewAdapterS.RViewHolder> {
+
+
 
     private final RecyclerView.RecycledViewPool viewPool;
     private Context ctx;
-    private List<Departmental> list;
+    private List<CentralStage> list;
 
-    public SubEventsRViewAdapter(Context ctx, List<Departmental> list) {
+    public SubEventsRViewAdapterS(Context ctx, List<CentralStage> list){
         viewPool = new RecyclerView.RecycledViewPool();
         this.ctx = ctx;
         this.list = list;
     }
 
+
     @Override
-    public SubEventRViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public SubEventsRViewAdapterS.RViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_sub_events, parent, false);
-        return new SubEventRViewHolder(mainGroup);
+        return new RViewHolder(mainGroup);
     }
 
     @Override
-    public void onBindViewHolder(SubEventRViewHolder holder, int position) {
+    public void onBindViewHolder(SubEventsRViewAdapterS.RViewHolder holder, int position) {
+
         holder.rView.setRecycledViewPool(viewPool);
         holder.category.setText(list.get(position).getName());
         holder.rView.setLayoutManager(new LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false));
         holder.rView.setAdapter(new EventsRViewAdapter(list.get(position).getEvents(),ctx));
+
     }
 
     @Override
@@ -46,15 +55,16 @@ public class SubEventsRViewAdapter extends RecyclerView.Adapter<SubEventsRViewAd
         return list.isEmpty() ? 0 : list.size();
     }
 
-    class SubEventRViewHolder extends RecyclerView.ViewHolder {
+    class RViewHolder extends RecyclerView.ViewHolder {
 
         RecyclerView rView;
         TextView category;
 
-        public SubEventRViewHolder(View itemView) {
+        private RViewHolder(View itemView) {
             super(itemView);
             rView = itemView.findViewById(R.id.event_list__r_view);
             category = itemView.findViewById(R.id.sub_cat_text);
         }
     }
+
 }
