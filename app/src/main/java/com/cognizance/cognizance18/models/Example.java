@@ -6,6 +6,9 @@ import java.util.List;
  * Awesome Pojo Generator
  * */
 public class Example{
+    @SerializedName("message")
+    @Expose
+    private String message;
   @SerializedName("departmental")
   @Expose
   private List<Departmental> departmental;
@@ -24,4 +27,12 @@ public class Example{
   public List<CentralStage> getCentralStage(){
    return centralStage;
   }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

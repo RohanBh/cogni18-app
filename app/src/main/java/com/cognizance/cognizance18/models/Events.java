@@ -14,6 +14,10 @@ public class Events{
   @SerializedName("id")
   @Expose
   private Integer id;
+    @SerializedName("thumbnail")
+    @Expose
+    private String thumbnail;
+
   public void setName(String name){
    this.name=name;
   }
@@ -32,4 +36,12 @@ public class Events{
   public Integer getId(){
    return id;
   }
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
 }

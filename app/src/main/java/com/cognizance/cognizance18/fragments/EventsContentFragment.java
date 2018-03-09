@@ -14,10 +14,15 @@ import android.widget.Toast;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.SessionManager;
 import com.cognizance.cognizance18.adapters.SubEventsRViewAdapter;
+import com.cognizance.cognizance18.adapters.SubEventsRViewAdapterS;
 import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
+import com.cognizance.cognizance18.models.CentralStage;
+import com.cognizance.cognizance18.models.Departmental;
+import com.cognizance.cognizance18.models.Example;
 import com.cognizance.cognizance18.utilities.ApiUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
@@ -33,6 +38,14 @@ public class EventsContentFragment extends Fragment {
     private String categoryName;
     private Realm realm;
     private SessionManager session;
+
+    private List<Example> eventList;
+
+    private List<CentralStage> centralStageList;
+
+    private List<Departmental> departmentalList;
+
+
 
     public EventsContentFragment() {
         // Required empty public constructor
@@ -69,19 +82,38 @@ public class EventsContentFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Call<CentralList> call = ApiUtils.getInterfaceService().requestEvents(session.getToken());
-        call.enqueue(new Callback<CentralList>() {
+        Call<Example> call = ApiUtils.getInterfaceService().requestEvents(session.getToken());
+        call.enqueue(new Callback<Example>() {
             @Override
-            public void onResponse(Call<CentralList> call, Response<CentralList> response) {
+            public void onResponse(Call<Example> call, Response<Example> response) {
                 if (response.isSuccessful()) {
-                    realm.executeTransaction(
-                            realm -> {
-                                if (response.body() != null) {
-                                    realm.copyToRealmOrUpdate(response.body());
-                                }
-                                setupViews();
+                    if (response.body().getMessage().equalsIgnoreCase("Events Fetched.")){
+
+                        Example EventResponse=response.body();
+
+                        if (EventResponse.getCentralStage()!=null) {
+
+
+
+                            for (int i = 0; i < EventResponse.getCentralStage().size(); i++) {
+
+                                centralStageList.add(EventResponse.getCentralStage().get(i));
+
                             }
-                    );
+                        }
+
+                        if (EventResponse.getDepartmental()!=null) {
+                            for (int i = 0; i < EventResponse.getDepartmental().size(); i++) {
+
+                                departmentalList.add(EventResponse.getDepartmental().get(i));
+
+                            }
+                        }
+                       setupViews();
+
+
+                    }
+
                 } else {
                     Toast.makeText(getActivity(), "Error : " + response.toString(),
                             Toast.LENGTH_SHORT).show();
@@ -89,7 +121,7 @@ public class EventsContentFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<CentralList> call, Throwable t) {
+            public void onFailure(Call<Example> call, Throwable t) {
                 Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
@@ -98,23 +130,27 @@ public class EventsContentFragment extends Fragment {
 
     private void initViews(View view) {
         recyclerView = view.findViewById(R.id.sub_events_r_view);
+        centralStageList = new ArrayList<>();
+        departmentalList=new ArrayList<>();
     }
 
     private void setupViews() {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        CentralList centralList = realm.where(CentralList.class).findFirst();
-        if (centralList != null) {
-            List<CategoryList> centralCategories = centralList.getCentralStage();
-            List<CategoryList> departmentalCategories = centralList.getDepartmental();
-            if (categoryName.equals(getString(R.string.centerstage_string))
-                    && centralCategories != null && !centralCategories.isEmpty()) {
-                recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), centralCategories));
-            } else if (categoryName.equals(getString(R.string.departmental_string))
-                    && departmentalCategories != null && !departmentalCategories.isEmpty()) {
-                recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), departmentalCategories));
-            } else {
-                // Nothing to show
-            }
+
+        if (categoryName.equalsIgnoreCase(getString(R.string.centerstage_string))
+                && centralStageList != null && !centralStageList.isEmpty()){
+            recyclerView.setAdapter(new SubEventsRViewAdapterS(getContext(), centralStageList));
+
+            Toast.makeText(getActivity(), "Carpe Diem ",
+                    Toast.LENGTH_SHORT).show();
         }
+
+            if (categoryName.equalsIgnoreCase(getString(R.string.departmental_string))
+                    && departmentalList != null && !departmentalList.isEmpty()) {
+                recyclerView.setAdapter(new SubEventsRViewAdapter(getContext(), departmentalList));
+
+            }
+
+
     }
 }

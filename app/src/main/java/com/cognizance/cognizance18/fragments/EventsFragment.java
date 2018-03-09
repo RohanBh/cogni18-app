@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.SessionManager;
@@ -33,7 +34,7 @@ public class EventsFragment extends Fragment {
 
     private TextView centerstageTab;
     private TextView departmentalTab;
-    private Fragment selectedEventFragment;
+    public   Fragment selectedEventFragment;
     private SharedPreferences sharedPrefrences;
 
 
@@ -76,12 +77,21 @@ public class EventsFragment extends Fragment {
     }
 
     private void setupListeners() {
-        centerstageTab.setOnClickListener(
-                v -> changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG)
-        );
-        departmentalTab.setOnClickListener(
-                v -> changeTab(departmentalTab, centerstageTab, DEPARTMENTAL_TAG)
-        );
+//        centerstageTab.setOnClickListener(
+//                v -> changeTab(centerstageTab, departmentalTab, CENTERSTAGE_TAG)
+//        );
+        centerstageTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(centerstageTab,departmentalTab,CENTERSTAGE_TAG);
+            }
+        });
+        departmentalTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(departmentalTab,centerstageTab,DEPARTMENTAL_TAG);
+            }
+        });
     }
 
     private void changeTab(TextView selectedTab, TextView otherTab, String fragmentTag) {

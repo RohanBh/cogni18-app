@@ -57,7 +57,7 @@ interface ApiInterface {
      * Get CentralStage and Departmental events
      */
     @GET("api/android/events")
-    fun requestEvents(@Header("Authorization") authorization: String): Call<CentralList>
+    fun requestEvents(@Header("Authorization") authorization: String): Call<Example>
 
     @GET("/api/android/event/{id}")
     fun getEventDescription(@Header("Authorization") authorization: String,
