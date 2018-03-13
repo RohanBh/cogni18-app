@@ -89,20 +89,7 @@ public class ScheduleActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-            ArrayList<String[]> myList = new ArrayList<>();
-            myList.add(new String[]{"Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"World", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"World", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"World", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"World", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"});
-            myList.add(new String[]{"World", "09:00-11:30", "Convocation Hall", "0,0"});
-
-
-            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getCategories(),getContext());
+            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getSchedule(),getContext());
             RecyclerView rV = rootView.findViewById(R.id.rV);
             RecyclerView.LayoutManager lM = new LinearLayoutManager(getContext());
             rV.setAdapter(adapter);

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.models.WorkshopModels.ScheduleEvents;
 
 import java.util.ArrayList;
 
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 
 public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder> {
 
-    private ArrayList<String[]> scheduleList;
+    private ArrayList<ScheduleEvents> scheduleList;
     private Context ctx;
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -33,24 +34,24 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
             view.setOnClickListener(this);
         }
 
-        void bindingFunc(String[] txtArr) {
-            title.setText(txtArr[0]);
-            time.setText(txtArr[1]);
-            location.setText(txtArr[2]);
+        void bindingFunc(ScheduleEvents txtArr) {
+            title.setText(txtArr.getTitle());
+            time.setText(txtArr.getTime());
+            location.setText(txtArr.getLocation());
         }
 
         @Override
         public void onClick(View v) {
             int position = getAdapterPosition();
-            String[] details = scheduleList.get(position);
-            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + details[3]);
+            ScheduleEvents details = scheduleList.get(position);
+            Uri gmmIntentUri = Uri.parse("google.navigation:q=" + details.getCoordinates());
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             ctx.startActivity(mapIntent);
         }
     }
 
-    public ScheduleAdapter(ArrayList<String[]> scheduleList, Context ctx) {
+    public ScheduleAdapter(ArrayList<ScheduleEvents> scheduleList, Context ctx) {
         this.scheduleList = scheduleList;
         this.ctx = ctx;
     }

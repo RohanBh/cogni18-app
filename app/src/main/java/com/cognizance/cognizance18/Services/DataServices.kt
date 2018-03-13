@@ -16,7 +16,16 @@ object DataServices {
             Category("Map","ic_workshop")
     )
 
-    val schedule = arrayOf<String>(
+    val schedule = arrayListOf<ScheduleEvents>(
             ScheduleEvents("Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("Hello", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
+            ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89")
     )
 }
