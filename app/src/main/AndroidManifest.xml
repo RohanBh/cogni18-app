@@ -62,6 +62,9 @@
         <activity android:name=".activities.IntroActivity" android:screenOrientation="portrait" android:theme="@style/fullScreen"/>
         <activity android:name=".Addmembers.AddMembersPage" />
         <activity android:name=".EventDetails"/>
+        <activity
+            android:name=".activities.ScheduleActivity"
+            android:theme="@style/AppTheme.Schedule"/>
     </application>
 
 </manifest>

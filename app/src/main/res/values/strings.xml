@@ -4,7 +4,7 @@
     <string name="nav_two">Workshops</string>
     <string name="nav_three">Home</string>
     <string name="nav_four">Your Profile</string>
-    <string name="nav_five">Spotlight</string>
+    <string name="nav_five">Schedule</string>
     <string-array name="planets_array">
         <item>Female</item>
         <item>Male</item>

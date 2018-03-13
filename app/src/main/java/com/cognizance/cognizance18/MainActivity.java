@@ -15,7 +15,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
 import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
+import com.cognizance.cognizance18.activities.ScheduleActivity;
 import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                             prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_spotlight:
-                            replaceFragment(SPOTLIGHT_TAG);
+                            startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
                             prevNonDialogMenuItemId = item.getItemId();
                             break;
                         case R.id.action_profile:
@@ -141,20 +143,20 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                 bottomNavigationView.setSelectedItemId(prevNonDialogMenuItemId);
             }
         }
-        if (resultCode == 3000 && requestCode == MORE_ACTIVITY_RC){
+        if (resultCode == 3000 && requestCode == MORE_ACTIVITY_RC) {
             replaceFragment(HOME_TAG);
             prevNonDialogMenuItemId = R.id.action_home;
-        }
-        else if (resultCode == 3001){
+        } else if (resultCode == 3001) {
             replaceFragment(EVENTS_TAG);
             bottomNavigationView.setSelectedItemId(R.id.action_events);
-        }
-        else if (resultCode == 3002){
+        } else if (resultCode == 3002) {
             replaceFragment(WORKSHOP_TAG);
             bottomNavigationView.setSelectedItemId(R.id.action_workshops);
-        }
-        else if (resultCode == 3003){
+        } else if (resultCode == 3003) {
             replaceFragment(SPOTLIGHT_TAG);
+            bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
+        } else if (resultCode == 3004) {
+            startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
         }
     }
