@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.Services.DataServices;
 import com.cognizance.cognizance18.SessionManager;
+import com.cognizance.cognizance18.adapters.SpotLightRVIewAdapterj;
 import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.adapters.TrendingRViewAdapter;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
@@ -129,7 +130,7 @@ public class HomeFragment extends Fragment {
         //if (spotlightList != null) {
         spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 , LinearLayoutManager.HORIZONTAL, false));
-        spotLightsRecyclerView.setAdapter(new SpotLightRviewJAdapter(getContext(), DataServices.INSTANCE.getSpotlightEvents()));
+        spotLightsRecyclerView.setAdapter(new SpotLightRVIewAdapterj(getContext(), DataServices.INSTANCE.getSpotlightEvents()));
         //}
         if (workshopList != null) {
             workshopsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()

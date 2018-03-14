@@ -2,6 +2,7 @@ package com.cognizance.cognizance18.Services
 
 import com.cognizance.cognizance18.R
 import com.cognizance.cognizance18.models.Category
+import com.cognizance.cognizance18.models.SpotLightCard
 import com.cognizance.cognizance18.models.SpotlightCard
 import com.cognizance.cognizance18.models.WorkshopModels.ScheduleEvents
 
@@ -19,9 +20,9 @@ object DataServices {
     )
 
     val spotlightEvents = listOf(
-            SpotlightCard(R.drawable.spot_biswa, "Biswa"),
-            SpotlightCard(R.drawable.spot_aron, "Aron Chupa"),
-            SpotlightCard(R.drawable.spot_randhawa, "Guru Randhawa")
+            SpotLightCard(R.drawable.spot_biswa, "Biswa"),
+            SpotLightCard(R.drawable.spot_aron, "Aron Chupa"),
+            SpotLightCard(R.drawable.spot_randhawa, "Guru Randhawa")
     )
 
     val scheduleDay1 = arrayListOf(

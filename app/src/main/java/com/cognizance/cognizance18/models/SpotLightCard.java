@@ -2,27 +2,24 @@ package com.cognizance.cognizance18.models;
 
 /**
  * Created by Narendra on 11/2/18.
+ * Modifies by rohit on 14/3/18
  */
 
 public class SpotLightCard {
-    int imageId;
+    int imageid;
     String name;
 
-    public SpotLightCard(){
-
-    }
-
-    public SpotLightCard(int imageId, String name) {
-        this.imageId = imageId;
+    public SpotLightCard(int imageid, String name) {
+        this.imageid = imageid;
         this.name = name;
     }
 
-    public int getImageId() {
-        return imageId;
+    public int getImageid() {
+        return imageid;
     }
 
-    public void setImageId(int imageId) {
-        this.imageId = imageId;
+    public void setImageid(int imageid) {
+        this.imageid = imageid;
     }
 
     public String getName() {
