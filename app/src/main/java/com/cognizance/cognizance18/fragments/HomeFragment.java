@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.Services.DataServices;
 import com.cognizance.cognizance18.SessionManager;
 import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.adapters.TrendingRViewAdapter;
@@ -125,11 +126,11 @@ public class HomeFragment extends Fragment {
                 .equalTo("type", "workshop").findAll();
         List<Trendings> eventList = realm.where(Trendings.class)
                 .equalTo("type", "spotlight").findAll();
-        if (spotlightList != null) {
-            spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                    , LinearLayoutManager.HORIZONTAL, false));
-            spotLightsRecyclerView.setAdapter(new TrendingRViewAdapter(spotlightList));
-        }
+        //if (spotlightList != null) {
+        spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
+                , LinearLayoutManager.HORIZONTAL, false));
+        spotLightsRecyclerView.setAdapter(new SpotLightRviewJAdapter(getContext(), DataServices.INSTANCE.getSpotlightEvents()));
+        //}
         if (workshopList != null) {
             workshopsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                     , LinearLayoutManager.HORIZONTAL, false));
@@ -142,26 +143,26 @@ public class HomeFragment extends Fragment {
         }
 
         ArrayList<SpotlightCard> speakersList = new ArrayList<>();
-        speakersList.add(new SpotlightCard(R.drawable.gsatheesh,"G.Satheesh Reddy"));
+        speakersList.add(new SpotlightCard(R.drawable.gsatheesh, "G.Satheesh Reddy"));
         speakersList.add(new SpotlightCard(R.drawable.ashok, "Ashok Soota"));
-        speakersList.add(new SpotlightCard(R.drawable.anil,"Anil Kumar"));
+        speakersList.add(new SpotlightCard(R.drawable.anil, "Anil Kumar"));
 
         // fake list for guest techtainments 2017
 
         ArrayList<SpotlightCard> techsList = new ArrayList<>();
-        techsList.add(new SpotlightCard(R.drawable.tvf,"The Viral Fever"));
+        techsList.add(new SpotlightCard(R.drawable.tvf, "The Viral Fever"));
         techsList.add(new SpotlightCard(R.drawable.sachinjigar, "Sachin-Jigar"));
-        techsList.add(new SpotlightCard(R.drawable.papon,"Papon"));
+        techsList.add(new SpotlightCard(R.drawable.papon, "Papon"));
 
         // techtainment recycler view
         techtainmentRView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
-        techtainmentRView.setAdapter(new SpotLightRviewJAdapter(getContext() ,techsList));
+        techtainmentRView.setAdapter(new SpotLightRviewJAdapter(getContext(), techsList));
 
         // speakers recycler view
         speakersRView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
-        speakersRView.setAdapter(new SpotLightRviewJAdapter(getContext() ,speakersList));
+        speakersRView.setAdapter(new SpotLightRviewJAdapter(getContext(), speakersList));
     }
 
     private void setListeners() {
