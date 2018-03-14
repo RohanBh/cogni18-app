@@ -58,10 +58,15 @@ class MoreActivity : AppCompatActivity() {
                     setResult(3003)
                     finish()
                 }
-                "Social", "Exhibitions" -> {
+                "Schedule" -> {
+                    setResult(3004)
+                    finish()
+                }
+                "Map" -> {
                     setResult(Activity.RESULT_OK)
                     finish()
                 }
+
             }
         }
         nav_menu.adapter = adapter
