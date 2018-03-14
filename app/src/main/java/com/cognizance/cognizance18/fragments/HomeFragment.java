@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.Services.DataServices;
 import com.cognizance.cognizance18.SessionManager;
+import com.cognizance.cognizance18.adapters.GSRViewAdapter;
 import com.cognizance.cognizance18.adapters.SpotLightRVIewAdapterj;
 import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.adapters.TrendingRViewAdapter;
@@ -26,8 +27,6 @@ import com.cognizance.cognizance18.utilities.ApiUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.annotation.Nonnull;
 
 import io.realm.Realm;
 import retrofit2.Call;
@@ -130,7 +129,7 @@ public class HomeFragment extends Fragment {
         //if (spotlightList != null) {
         spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 , LinearLayoutManager.HORIZONTAL, false));
-        spotLightsRecyclerView.setAdapter(new SpotLightRVIewAdapterj(getContext(), DataServices.INSTANCE.getSpotlightEvents()));
+        spotLightsRecyclerView.setAdapter(new SpotLightRVIewAdapterj(getContext(), DataServices.INSTANCE.getTechtainments()));
         //}
         if (workshopList != null) {
             workshopsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
@@ -140,7 +139,7 @@ public class HomeFragment extends Fragment {
         if (eventList != null) {
             eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                     , LinearLayoutManager.HORIZONTAL, false));
-            eventsRecyclerView.setAdapter(new TrendingRViewAdapter(eventList));
+            eventsRecyclerView.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getGuestSpeakers()));
         }
 
         ArrayList<SpotlightCard> speakersList = new ArrayList<>();
@@ -155,7 +154,7 @@ public class HomeFragment extends Fragment {
         techsList.add(new SpotlightCard(R.drawable.sachinjigar, "Sachin-Jigar"));
         techsList.add(new SpotlightCard(R.drawable.papon, "Papon"));
 
-        // techtainment recycler view
+        // guestSpeakers recycler view
         techtainmentRView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
         techtainmentRView.setAdapter(new SpotLightRviewJAdapter(getContext(), techsList));

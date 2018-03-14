@@ -2,18 +2,14 @@ package com.cognizance.cognizance18.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cognizance.cognizance18.R
 import com.cognizance.cognizance18.Services.DataServices
 import com.cognizance.cognizance18.adapters.SpotLightRVIewAdapterj
-import com.cognizance.cognizance18.adapters.SpotLightRViewAdapter
-import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter
-import com.cognizance.cognizance18.models.SpotLight
-import com.cognizance.cognizance18.models.SpotLightCard
 import kotlinx.android.synthetic.main.fragment_spotlight_content.*
 
 class SpotlightContentFragment : Fragment() {
@@ -27,6 +23,7 @@ class SpotlightContentFragment : Fragment() {
             fragment.arguments = Bundle().apply {
                 putString("category", categoryName)
             }
+            Log.d("LOLOLO", "" + fragment.arguments)
             return fragment
         }
     }
@@ -44,7 +41,11 @@ class SpotlightContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        spotlight_recycler_view.adapter = SpotLightRVIewAdapterj(context, DataServices.spotlightEvents)
+        if (categoryName.equals("Guest Speakers"))
+            spotlight_recycler_view.adapter = SpotLightRVIewAdapterj(context, DataServices.techtainments)
+        else if (categoryName.equals("Techtainment"))
+            spotlight_recycler_view.adapter = SpotLightRVIewAdapterj(context, DataServices.techtainments)
+
         spotlight_recycler_view.layoutManager = LinearLayoutManager(activity)
     }
 
