@@ -5,6 +5,7 @@ import android.content.Context;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,15 +47,9 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     @Override
     public void onBindViewHolder(EventRViewHolder holder, int position) {
-        holder.name.setText(list.get(position).getName());
-
-        String url= list.get(position).getThumbnail();
-
-        if(url!=null) {
-            Picasso.with(context).load(url).placeholder(R.drawable.button_background)
-                    .into(holder.eventimage);
-
-        }
+        Events event = list.get(position);
+        holder.name.setText(event.getName());
+        Picasso.with(context).load(event.getThumbnail()).into(holder.eventimage);
 
         holder.eventimage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +72,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     class EventRViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name, category;
+        TextView name;
 
         ImageView eventimage;
 
@@ -85,8 +80,6 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
         EventRViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.event_title_text_view);
-            category = itemView.findViewById(R.id.chip1);
-
             eventimage = itemView.findViewById(R.id.event_image);
             
         }

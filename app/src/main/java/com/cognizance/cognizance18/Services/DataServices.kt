@@ -32,6 +32,12 @@ object DataServices {
             GuestSpeakers("Jeremie Lasnier", urlbegin + "/images/guestLecture/jeremie.jpg")
     )
 
+    val exhibitions = listOf(
+            Events("Furhat", urlbegin + "/images/exhibitions/FurhatRobot.jpg"),
+            Events("Nino", urlbegin + "/images/exhibitions/NinoRobot.jpg"),
+            Events("Puzzlebox Orbit", urlbegin + "/images/exhibitions/Puzzlebox Orbit.jpg")
+    )
+
     val scheduleDay1 = arrayListOf(
             ScheduleEvents("1", "09:00-11:30", "Convocation Hall", "29.86,77.89"),
             ScheduleEvents("World", "09:00-11:30", "Convocation Hall", "29.86,77.89"),

@@ -8,26 +8,38 @@
     app:cardBackgroundColor="@color/white"
     app:cardCornerRadius="5dp">
 
-    <ImageView
-        android:id="@+id/event_image"
-        android:layout_width="200dp"
-        android:layout_height="150dp"
-        android:layout_gravity="top"
-        android:contentDescription="@string/image_description_string" />
-
-    <ImageView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/image_description_string"
-        app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
         android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="200dp"
+            android:layout_height="150dp">
+
+            <ImageView
+                android:id="@+id/event_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="top"
+                android:contentDescription="@string/image_description_string" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/image_description_string"
+                app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/gray" />
 
         <TextView
             android:id="@+id/event_title_text_view"
@@ -35,74 +47,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:gravity="center_vertical"
-            android:paddingBottom="2dp"
-            android:paddingEnd="0dp"
-            android:paddingStart="8dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="8dp"
             android:text="@string/event_title"
             android:textColor="@android:color/black"
             android:textSize="14sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/gray" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/chip1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/rounded_rect"
-                android:gravity="center_vertical"
-                android:paddingBottom="4dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
-                android:paddingTop="4dp"
-                android:text="@string/event_category"
-                android:textColor="@android:color/black"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/chip2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/rounded_rect"
-                android:gravity="center_vertical"
-                android:paddingBottom="4dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
-                android:paddingTop="4dp"
-                android:text="@string/event_category"
-                android:textColor="@android:color/black"
-                android:textSize="12sp"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/chip3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/rounded_rect"
-                android:gravity="center_vertical"
-                android:paddingBottom="4dp"
-                android:paddingEnd="8dp"
-                android:paddingStart="8dp"
-                android:paddingTop="4dp"
-                android:text="@string/event_category"
-                android:textColor="@android:color/black"
-                android:textSize="12sp"
-                android:visibility="gone" />
-        </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

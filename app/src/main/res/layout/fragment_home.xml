@@ -93,12 +93,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="7dp"
                 android:layout_marginTop="5dp"
-                android:text="@string/workshops_string"
+                android:text="@string/exhibitions"
                 android:textColor="@android:color/black"
                 android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/workshops_recycler_view"
+                android:id="@+id/exhibitions_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/workshops_head"
