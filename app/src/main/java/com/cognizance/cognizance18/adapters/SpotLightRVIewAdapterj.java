@@ -31,7 +31,7 @@ public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewA
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.workshop_row, parent,false);
+        View view = LayoutInflater.from(ctx).inflate(R.layout.workshop_row, parent, false);
         return new ViewHolder(view);
     }
 
@@ -40,6 +40,7 @@ public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewA
         SpotLightCard spotlightCard = spotlightCardList.get(position);
         holder.textView.setText(spotlightCard.getName());
         holder.imageView.setImageResource(spotlightCard.getImageid());
+        holder.day.setText(spotlightCard.getDay());
     }
 
     @Override
@@ -51,11 +52,13 @@ public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewA
 
         private ImageView imageView;
         private TextView textView;
+        private TextView day;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.event_image);
             textView = itemView.findViewById(R.id.chip1);
+            day = itemView.findViewById(R.id.event_title_text_view);
         }
     }
 }

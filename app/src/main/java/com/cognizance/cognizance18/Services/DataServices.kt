@@ -20,9 +20,9 @@ object DataServices {
     )
 
     val spotlightEvents = listOf(
-            SpotLightCard(R.drawable.spot_biswa, "Biswa"),
-            SpotLightCard(R.drawable.spot_aron, "Aron Chupa"),
-            SpotLightCard(R.drawable.spot_randhawa, "Guru Randhawa")
+            SpotLightCard(R.drawable.spot_biswa, "Biswa", "Day 1"),
+            SpotLightCard(R.drawable.spot_aron, "Aron Chupa", "Day 2"),
+            SpotLightCard(R.drawable.spot_randhawa, "Guru Randhawa", "Day 3")
     )
 
     val scheduleDay1 = arrayListOf(
