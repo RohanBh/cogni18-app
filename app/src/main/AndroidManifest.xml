@@ -12,19 +12,19 @@
         android:roundIcon="@drawable/cogni_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".activities.SplashActivity"
+        <activity
+            android:name=".activities.SplashActivity"
             android:theme="@style/splashtheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".SignUpActivity1"
             android:label="@string/title_activity_sign_up"
@@ -59,12 +59,19 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".activities.SignUpActivity" />
-        <activity android:name=".activities.IntroActivity" android:screenOrientation="portrait" android:theme="@style/fullScreen"/>
+        <activity
+            android:name=".activities.IntroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/fullScreen" />
         <activity android:name=".Addmembers.AddMembersPage" />
-        <activity android:name=".EventDetails"/>
+        <activity android:name=".EventDetails" />
         <activity
             android:name=".activities.ScheduleActivity"
-            android:theme="@style/AppTheme.Schedule"/>
+            android:theme="@style/AppTheme.Schedule" />
+        <activity
+            android:name=".SpeakerDetails"
+            android:label="@string/title_activity_speaker_details"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

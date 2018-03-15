@@ -42,6 +42,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView exhibitionsRecyclerView;
     private RecyclerView techtainmentRView;
     private RecyclerView speakersRView;
+    private RecyclerView panelDiscussion1, panelDiscussion2;
 
     private Realm realm;
     private SessionManager session;
@@ -115,29 +116,44 @@ public class HomeFragment extends Fragment {
         exhibitionsRecyclerView = view.findViewById(R.id.exhibitions_recycler_view);
         techtainmentRView = view.findViewById(R.id.techtainment_2017_r_view);
         speakersRView = view.findViewById(R.id.speakers_2017_r_view);
+        panelDiscussion1 = view.findViewById(R.id.panel_discussion1);
+        panelDiscussion2 = view.findViewById(R.id.panel_discussion2);
     }
 
     private void setupViews() {
+
+        //techtainment
         spotLightsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
                 , LinearLayoutManager.HORIZONTAL, false));
         spotLightsRecyclerView.setAdapter(new SpotLightRVIewAdapterj(getContext(), DataServices.INSTANCE.getTechtainments()));
 
-            exhibitionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                    , LinearLayoutManager.HORIZONTAL, false));
-            exhibitionsRecyclerView.setAdapter(new ExhibitionsRViewAdapter(getContext(), DataServices.INSTANCE.getExhibitions()));
+        //exhibitions
+        exhibitionsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
+                , LinearLayoutManager.HORIZONTAL, false));
+        exhibitionsRecyclerView.setAdapter(new ExhibitionsRViewAdapter(getContext(), DataServices.INSTANCE.getExhibitions()));
 
-            eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
-                    , LinearLayoutManager.HORIZONTAL, false));
-            eventsRecyclerView.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getGuestSpeakers()));
+        //Guest Speakers
+        eventsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()
+                , LinearLayoutManager.HORIZONTAL, false));
+        eventsRecyclerView.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getGuestSpeakers()));
 
+        //Panel Discussion 1
+        panelDiscussion1.setLayoutManager(new LinearLayoutManager(getContext()
+                , LinearLayoutManager.HORIZONTAL, false ));
+        panelDiscussion1.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getPaneldiscussion1()));
 
+        //Panel Discussion 2
+        panelDiscussion2.setLayoutManager(new LinearLayoutManager(getContext()
+                , LinearLayoutManager.HORIZONTAL,false));
+        panelDiscussion2.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getPaneldiscussion2()));
+
+        //2017 speakers
         ArrayList<SpotlightCard> speakersList = new ArrayList<>();
         speakersList.add(new SpotlightCard(R.drawable.gsatheesh, "G.Satheesh Reddy"));
         speakersList.add(new SpotlightCard(R.drawable.ashok, "Ashok Soota"));
         speakersList.add(new SpotlightCard(R.drawable.anil, "Anil Kumar"));
 
-        // fake list for guest techtainments 2017
-
+        //2017 techtainment
         ArrayList<SpotlightCard> techsList = new ArrayList<>();
         techsList.add(new SpotlightCard(R.drawable.tvf, "The Viral Fever"));
         techsList.add(new SpotlightCard(R.drawable.sachinjigar, "Sachin-Jigar"));

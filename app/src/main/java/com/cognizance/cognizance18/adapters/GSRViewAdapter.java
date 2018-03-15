@@ -1,6 +1,7 @@
 package com.cognizance.cognizance18.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.widget.RecyclerView;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.HelperClass.CircleImageView;
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.SpeakerDetails;
 import com.cognizance.cognizance18.models.GuestSpeakers;
 import com.squareup.picasso.Picasso;
 
@@ -42,7 +44,20 @@ public class GSRViewAdapter extends RecyclerView.Adapter<GSRViewAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         GuestSpeakers guestSpeakers = guestSpeakersList.get(position);
         holder.textView.setText(guestSpeakers.getName());
-        Picasso.with(ctx).load(guestSpeakers.getImageUrl()).transform(new CircleImageView()).into(holder.imageView);
+        if (guestSpeakers.getImageid() == 0)
+            Picasso.with(ctx).load(guestSpeakers.getImageUrl()).transform(new CircleImageView()).into(holder.imageView);
+        else {
+            holder.imageView.setImageResource(guestSpeakers.getImageid());
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(dptopx(20));
+            holder.imageView.setBackground(gradientDrawable);
+        }
+        holder.imageView.setOnClickListener(v -> {
+            Context ct = holder.imageView.getContext();
+            Intent intent = new Intent(ct, SpeakerDetails.class);
+            intent.putExtra("obj", guestSpeakers);
+            ct.startActivity(intent);
+        });
     }
 
     @Override
@@ -58,15 +73,12 @@ public class GSRViewAdapter extends RecyclerView.Adapter<GSRViewAdapter.ViewHold
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.spot_image_view);
-//            GradientDrawable gradientDrawable = new GradientDrawable();
-//            gradientDrawable.setCornerRadius(dptopx(20));
-//            imageView.setBackground(gradientDrawable);
             textView = itemView.findViewById(R.id.spot_text_view);
         }
     }
-//
-//    private float dptopx(float dp){
-//        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
-//        return dp*displayMetrics.densityDpi/160f;
-//    }
+
+    private float dptopx(float dp){
+        DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
+        return dp*displayMetrics.densityDpi/160f;
+    }
 }

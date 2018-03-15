@@ -109,32 +109,67 @@
 
         </RelativeLayout>
 
-        <LinearLayout
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="116dp"
-            android:layout_marginTop="16dp"
-            android:background="@color/light_gray"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:paddingEnd="0dp"
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:text="Panel Discussions"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
-            <TextView
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/bhaari_bakchodi_hai_sab_moh_maya"
-                android:textColor="@android:color/black" />
+                android:orientation="vertical"
+                android:paddingTop="16dp">
 
-            <ImageView
-                android:id="@+id/thought_image_view"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="12dp"
-                android:layout_marginTop="12dp"
-                android:contentDescription="@string/image_description_string"
-                android:src="@color/button_back" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/panel_discussion_1"
+                    android:textColor="@android:color/black" />
 
-        </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/panel_discussion1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/panel_discussion_2"
+                    android:textColor="@android:color/black" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/panel_discussion2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
 
         <TextView
             android:layout_width="match_parent"
