@@ -1,5 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/spotlight_recycler_view"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" />
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/book_exhibtion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/book_exhibition"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/book_exhibtion_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/book_exhibtion"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/book_exhibition_desc" />
+
+            <LinearLayout
+                android:id="@+id/partners_exhibition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/book_exhibtion_desc"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight=".5">
+
+                    <ImageView
+                        android:id="@+id/rajkamal"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        tools:src="@drawable/spot_biswa" />
+
+                    <TextView
+                        android:id="@+id/rajkamalpartner"
+                        style="@style/EventTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/rajkamal"
+                        android:gravity="center"
+                        android:text="Rajkamal Prakashan"
+
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight=".5">
+
+                    <ImageView
+                        android:id="@+id/pustakmandi"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        tools:src="@drawable/spot_biswa" />
+
+                    <TextView
+                        style="@style/EventTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/pustakmandi"
+                        android:gravity="center"
+                        android:text="PustakMandi"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:id="@+id/exhibition_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/partners_exhibition"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#12000000" />
+
+            <TextView
+                android:id="@+id/book_pitching"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/exhibition_divider"
+                android:layout_marginStart="16dp"
+                android:text="@string/book_pitching"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/book_pitching_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/book_pitching"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:text="@string/book_pitching_desc" />
+
+            <LinearLayout
+                android:id="@+id/partners_pitching"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/book_pitching_desc"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight=".5">
+
+                    <ImageView
+                        android:id="@+id/shrishti"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        tools:src="@drawable/spot_biswa" />
+
+                    <TextView
+                        style="@style/EventTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/shrishti"
+                        android:gravity="center"
+                        android:text="Srishti Publications"
+                        android:textSize="15sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight=".5">
+
+                    <ImageView
+                        android:id="@+id/keshav_aneel"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/gs_keshav_aneel"/>
+
+                    <TextView
+                        style="@style/EventTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/keshav_aneel"
+                        android:gravity="center"
+                        android:text="Keshav Aneel"
+                        android:textSize="15sp" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/pitching_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/partners_pitching"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="#12000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/pitching_divider"
+                android:layout_marginStart="16dp"
+                android:text="@string/book_launch"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:id="@+id/launch"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/book_launch_desc"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_below="@id/launch"
+                android:id="@+id/launch_desc"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/launch_desc"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/gs_gaurav_solanki"
+                        android:id="@+id/gaurav_solanki"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Gaurav Solanki"
+                        android:layout_below="@id/gaurav_solanki"
+                        android:textSize="15sp"
+                        style="@style/EventTitle"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="8dp"
+                        tools:src="@drawable/spot_biswa"
+                        android:id="@+id/Anubhav_Shrivastava"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Anubhav Shrivastava"
+                        android:layout_below="@id/Anubhav_Shrivastava"
+                        android:textSize="15sp"
+                        style="@style/EventTitle"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</FrameLayout>
