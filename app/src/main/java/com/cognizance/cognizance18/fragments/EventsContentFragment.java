@@ -141,8 +141,6 @@ public class EventsContentFragment extends Fragment {
                 && centralStageList != null && !centralStageList.isEmpty()){
             recyclerView.setAdapter(new SubEventsRViewAdapterS(getContext(), centralStageList));
 
-            Toast.makeText(getActivity(), "Carpe Diem ",
-                    Toast.LENGTH_SHORT).show();
         }
 
             if (categoryName.equalsIgnoreCase(getString(R.string.departmental_string))

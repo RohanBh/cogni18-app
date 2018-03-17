@@ -13,7 +13,7 @@ public class Events{
   private String tagline;
   @SerializedName("id")
   @Expose
-  private Integer id;
+  private int id;
     @SerializedName("thumbnail")
     @Expose
     private String thumbnail;
@@ -30,10 +30,10 @@ public class Events{
   public String getTagline(){
    return tagline;
   }
-  public void setId(Integer id){
+  public void setId(int id){
    this.id=id;
   }
-  public Integer getId(){
+  public int getId(){
    return id;
   }
 

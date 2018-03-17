@@ -4,6 +4,7 @@ import android.content.Context;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.SessionManager;
 import com.cognizance.cognizance18.database.EventPreview;
 
 import com.cognizance.cognizance18.models.Events;
@@ -29,6 +31,23 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     private List<Events> list;
 
     private Context context;
+
+    private SharedPreferences sharedPreferences;
+
+    private SharedPreferences.Editor editor;
+
+    private int PRIVATE_MODE = 0;
+
+    String USER_ID= "eventId"
+;
+
+    private static final String PREF_NAME = "LoginPref";
+
+
+
+
+
+
 
 
     public EventsRViewAdapter(List<Events> eventList,Context context) {
@@ -50,6 +69,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
         String url= list.get(position).getThumbnail();
 
+
         if(url!=null) {
             Picasso.with(context).load(url).placeholder(R.drawable.button_background)
                     .into(holder.eventimage);
@@ -59,9 +79,18 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
         holder.eventimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                int a=list.get(position).getId();
                 Context ct=holder.eventimage.getContext();
                 Intent intent=new Intent(ct,EventDetails.class);
                 ct.startActivity(intent);
+
+                sharedPreferences =  ct.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+                editor=sharedPreferences.edit();
+                editor.putInt("id",a);
+                editor.commit();
+
+
             }
         });
 
@@ -82,8 +111,10 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
         ImageView eventimage;
 
 
+
         EventRViewHolder(View itemView) {
             super(itemView);
+
             name = itemView.findViewById(R.id.event_title_text_view);
             category = itemView.findViewById(R.id.chip1);
 

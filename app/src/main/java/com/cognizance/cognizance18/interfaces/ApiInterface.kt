@@ -3,6 +3,7 @@ package com.cognizance.cognizance18.interfaces
 import com.cognizance.cognizance18.database.CentralList
 import com.cognizance.cognizance18.database.EventPreview
 import com.cognizance.cognizance18.models.*
+import com.cognizance.cognizance18.models.EventDetails.EventDescription
 import com.cognizance.cognizance18.models.WorkshopModels.WorkshopResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -12,6 +13,7 @@ import retrofit2.http.*
  * Created by samagra on 6/1/18.
  */
 interface ApiInterface {
+
 
     /**
      * This function is used to Login user using email and password.
@@ -59,9 +61,8 @@ interface ApiInterface {
     @GET("api/android/events")
     fun requestEvents(@Header("Authorization") authorization: String): Call<Example>
 
-    @GET("/api/android/event/{id}")
-    fun getEventDescription(@Header("Authorization") authorization: String,
-                            @Path("id") id: Int): Call<EventPreview>
+    @GET("/api/android/event/{eventId}")
+    fun getEventDescription(@Path("eventId")eventId: String): Call<EventDescription>
 
     @POST("api/users/events/{id}/register")
     fun registerEvent(@Header("Authorization") authorization: String,
