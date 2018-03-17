@@ -123,5 +123,11 @@
 
     <string name="panel_discussion_1">Dawn of FinTech v/s Traditional Banking</string>
     <string name="panel_discussion_2">Lekhni: Aaj aur Kal</string>
+    <string name="book_exhibition">Book Exhibition</string>
+    <string name="book_exhibition_desc">A paradise for book enthusiasts. A collection of books encompassing a plethora of genres, promising to satiate your hunger for good literature.</string>
+    <string name="book_pitching">Book Pitching</string>
+    <string name="book_pitching_desc">A chance for you to make it big. Impress the judge with your out-of-the-box idea for a book, and get a chance to get published by Srishti Publications.</string>
+    <string name="book_launch">Book Launch</string>
+    <string name="book_launch_desc">Be a witness to the grand launching of new books by authors like Gaurav Solanki (“Author of Sau Saal Fida” and “Mera Samaan”) and Anubhav Shrivastava.</string>
 
 </resources>

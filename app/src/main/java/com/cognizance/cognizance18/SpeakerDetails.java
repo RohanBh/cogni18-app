@@ -26,7 +26,8 @@ public class SpeakerDetails extends AppCompatActivity {
         photo = findViewById(R.id.guest_speaker_pic);
         name = findViewById(R.id.guest_speaker_name);
         desc = findViewById(R.id.guest_speaker_desc);
-        venue = findViewById(R.id.guest_speaker_time);
+        venue = findViewById(R.id.guest_speaker_venue);
+        time = findViewById(R.id.guest_speaker_time);
 
         Intent i = getIntent();
         GuestSpeakers guestSpeaker = (GuestSpeakers) i.getSerializableExtra("obj");
