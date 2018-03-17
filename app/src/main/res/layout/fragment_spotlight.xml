@@ -22,7 +22,7 @@
             android:background="@drawable/left_event_tab_background"
             android:gravity="center"
             android:padding="15dp"
-            android:text="@string/techtainment_lower"
+            android:text="@string/lit_af"
             android:textColor="@color/dark_gray"
             android:textSize="14sp" />
 
@@ -34,7 +34,7 @@
             android:background="@drawable/right_event_tab_background"
             android:gravity="center"
             android:padding="15dp"
-            android:text="@string/guest_speakers_lower"
+            android:text="@string/on_the_spot"
             android:textColor="@color/dark_gray"
             android:textSize="14sp" />
     </LinearLayout>

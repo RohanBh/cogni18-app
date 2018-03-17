@@ -2,18 +2,12 @@ package com.cognizance.cognizance18.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.cognizance.cognizance18.R
-import com.cognizance.cognizance18.Services.DataServices
-import com.cognizance.cognizance18.adapters.SpotLightRVIewAdapterj
-import com.cognizance.cognizance18.adapters.SpotLightRViewAdapter
-import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter
-import com.cognizance.cognizance18.models.SpotLight
-import com.cognizance.cognizance18.models.SpotLightCard
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_spotlight_content.*
 
 class SpotlightContentFragment : Fragment() {
@@ -27,6 +21,7 @@ class SpotlightContentFragment : Fragment() {
             fragment.arguments = Bundle().apply {
                 putString("category", categoryName)
             }
+            Log.d("LOLOLO", "" + fragment.arguments)
             return fragment
         }
     }
@@ -44,8 +39,12 @@ class SpotlightContentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        spotlight_recycler_view.adapter = SpotLightRVIewAdapterj(context, DataServices.spotlightEvents)
-        spotlight_recycler_view.layoutManager = LinearLayoutManager(activity)
+        if (categoryName.equals("Lit AF"))
+            Picasso.with(context).load("https://content.jdmagicbox.com/delhi/f6/011pxx11.xx11.000021915617.o7f6/logo/92216176998381152e8b24d143aa4aad.jpg").into(rajkamal)
+            Picasso.with(context).load("https://cognizance.org.in/images/litaf/pustakmandi.png").into(pustakmandi)
+            Picasso.with(context).load("https://cognizance.org.in/images/litaf/srishti.png").into(shrishti)
+            Picasso.with(context).load("https://cognizance.org.in/images/litaf/anubhavshrivastava.jpg").into(Anubhav_Shrivastava)
+
     }
 
 }

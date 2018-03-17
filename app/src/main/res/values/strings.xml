@@ -98,5 +98,36 @@
     <!--<string name="server_client_id">1096386175346-opgqbonid3feovk87jg4brb7bpq3r8an.apps.googleusercontent.com</string>-->
 
     <string name="first">true</string>
+    <string name="exhibitions">Exhibitions</string>
+    <string name="lit_af">Lit AF</string>
+    <string name="on_the_spot">On the Spot</string>
+    <string name="title_activity_speaker_details">SpeakerDetails</string>
+
+    <!--Desc of speakers-->
+    <string name="jagdeep_chhokar">Shri Jagdeep Chhokar is a citizen activist, an engineer, a lawyer and a Founding Member of the Association of Democratic Reforms. He is also a former professor of Management and Organisational Behaviour at IIM Ahmedabad.</string>
+    <string name="Dr_Prashant_Jha">Dr. Prashant Jha is a physician-engineer-entrepreneur-editor with over fifteen years of trans-disciplinary experience in patient care, training physicians, inventing medical technologies, training med-tech leaders and creating an ecosystem for innovating medical devices and technologies in Australia, Finland, India, Japan, UK and USA.</string>
+    <string name="Jeremie_Lasnier">Jeremie Lasnier is the Co-Founder and Chief Creative Officer at LiveLike. Jeremie has won multiple international awards such as the Samsung Design Awards and a Gold Award at the Oculus Mobile VR Jam. He is also member of the Class of 2017 of Forbes 30 under 30.</string>
+    <string name="Amaresh_Ramaswamy">Mr. Amaresh Ramaswamy is the CFO and Director, Microsoft India RnD. He is renowned for his leadership qualities and his experience is an ocean of knowledge for students.</string>
+    <string name="Bharat_Panchal">Mr. Panchal is the Head of Risk Management National Payments Corporation of India (NPCI). Prior to NPCI, Bharat has worked for Kotak Mahindra Bank, Citi, Reliance Communications and AVAYA GlobalConnect.</string>
+    <string name="Harshil_Mathur">Harshil Mathur, an alumnus of IIT Roorkee and the Co-Founder of Razorpay, is a visionary millennial who introduced ground-breaking technology to the emerging Financial Technology markets. Simplifying payments is his company’s only motto.</string>
+    <string name="Prashanthi_Reddy">Prashanthi heads Digital Strategy and Fintech for YES Bank. She comes with 18 years of industry experience with companies like Barclays, Target, Oracle and led product expansion to facilitate global integration in multiple countries, from single to multiple lines of business.</string>
+    <string name="Lizzie_Chapman">Mrs. Chapman has made India her home after leaving UK-based finance company, Wonga, where Lizzie was India country head based out of Mumbai.. An entrepreneur, she is now the CEO and Co-founder of ZestMoney.</string>
+    <string name="Nishant_Govil">Nishant is an experienced technology evangelist with multiple years of diverse experience in the global financial industry. He has currently taken the reins of Blackrock India as its Managing Director. His experience at Morgan Stanley and Goldman Sachs only add to his achievements at Blackrock.</string>
+    <string name="Saumya_Kulshreshtha">A writer by passion and profession, Saumya has made a name for herself as a Poet, Blogger, Editor and Translator. English, Hindi, Urdu and Sanskrit literature are her active sites of engagement.</string>
+    <string name="Ashutosh_Sinha">An author and former senior journalist with leading news channels. As a news presenter with NDTV, he had reported the 2009 Satyam Scandal and Stock Market Crash in 2004 and 2006.</string>
+    <string name="Bharti_Dayal">A national award winner for Madhubani paintings, her art has been exhibited across the globe at various art festivals and galleries.She has played a pioneering role in the propagation of this art form.</string>
+    <string name="Gaurav_Solanki">A Mumbai- based fiction writer, poet, screenwriter, and lyricist.He won Bharatiya Gyaanpeeth’s Navlekhan Award for his first poetry collection  Sau Saal Fida. He has also written the lyrics for the movie, ‘Ugly’.</string>
+    <string name="Nikhil_Chandwani">An author, documentary filmmaker, photographer of  international repute.He has won the Conspiracy Novel of the Year Award for his book ‘Coded Conspiracy’ from the American Literary Forum Society.</string>
+    <string name="Jai_Pawani">Jai Pawani</string>
+    <string name="Keshav_Aneel">Keshav Aneel</string>
+
+    <string name="panel_discussion_1">Dawn of FinTech v/s Traditional Banking</string>
+    <string name="panel_discussion_2">Lekhni: Aaj aur Kal</string>
+    <string name="book_exhibition">Book Exhibition</string>
+    <string name="book_exhibition_desc">A paradise for book enthusiasts. A collection of books encompassing a plethora of genres, promising to satiate your hunger for good literature.</string>
+    <string name="book_pitching">Book Pitching</string>
+    <string name="book_pitching_desc">A chance for you to make it big. Impress the judge with your out-of-the-box idea for a book, and get a chance to get published by Srishti Publications.</string>
+    <string name="book_launch">Book Launch</string>
+    <string name="book_launch_desc">Be a witness to the grand launching of new books by authors like Gaurav Solanki (“Author of Sau Saal Fida” and “Mera Samaan”) and Anubhav Shrivastava.</string>
 
 </resources>

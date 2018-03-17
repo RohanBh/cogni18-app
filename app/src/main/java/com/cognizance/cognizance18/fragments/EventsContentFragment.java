@@ -93,8 +93,6 @@ public class EventsContentFragment extends Fragment {
 
                         if (EventResponse.getCentralStage()!=null) {
 
-
-
                             for (int i = 0; i < EventResponse.getCentralStage().size(); i++) {
 
                                 centralStageList.add(EventResponse.getCentralStage().get(i));
