@@ -27,8 +27,6 @@ import com.cognizance.cognizance18.utilities.ApiUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
 import io.realm.Realm;
 import retrofit2.Call;
 import retrofit2.Callback;
