@@ -1,6 +1,7 @@
 package com.cognizance.cognizance18.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.models.WorkshopModels.Workshops;
 import com.squareup.picasso.Picasso;
@@ -31,7 +33,7 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
     @Override
     public WorkshopsAdapter.WorkshopsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
-        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.workshop_row, parent, false);
+        ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_carousels, parent, false);
         return new WorkshopsAdapter.WorkshopsViewHolder(mainGroup);
     }
 
@@ -50,6 +52,12 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
         else {
             holder.Wspimage.setImageResource(R.drawable.button_background);
         }
+
+        holder.Wspimage.setOnClickListener(v -> {
+            Context ct = v.getContext();
+            Intent intent = new Intent(ct, EventDetails.class);
+        });
+
     }
 
     @Override
