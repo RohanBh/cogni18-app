@@ -24,13 +24,14 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
     private Context ctx;
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView title, time, location;
+        TextView title, time, location, type;
 
         Holder(View view) {
             super(view);
             title = view.findViewById(R.id.tV);
             time = view.findViewById(R.id.time);
             location = view.findViewById(R.id.location);
+            type = view.findViewById(R.id.typeTxt);
             view.setOnClickListener(this);
         }
 
@@ -38,6 +39,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
             title.setText(txtArr.getTitle());
             time.setText(txtArr.getTime());
             location.setText(txtArr.getLocation());
+            type.setText(txtArr.getCategory());
         }
 
         @Override
