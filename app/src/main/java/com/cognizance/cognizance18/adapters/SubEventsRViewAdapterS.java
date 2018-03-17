@@ -46,7 +46,7 @@ public class SubEventsRViewAdapterS extends RecyclerView.Adapter<SubEventsRViewA
         holder.rView.setRecycledViewPool(viewPool);
         holder.category.setText(list.get(position).getName());
         holder.rView.setLayoutManager(new LinearLayoutManager(ctx, LinearLayoutManager.HORIZONTAL, false));
-        holder.rView.setAdapter(new EventsRViewAdapter(list.get(position).getEvents(),ctx));
+        holder.rView.setAdapter(new EventsRViewAdapter(list.get(position).getEvents(), ctx));
 
     }
 

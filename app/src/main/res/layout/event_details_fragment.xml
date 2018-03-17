@@ -8,9 +8,10 @@
         android:id="@+id/event_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="32dp"
+        android:paddingTop="8dp"
+        android:background="@color/white"
         android:text="Chain Reaction"
         android:textAppearance="@style/EventTitle" />
 
@@ -29,17 +30,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="16dp"
             android:layout_marginTop="84dp"
-            android:layout_gravity="center_horizontal"
             android:background="@drawable/button_background"
+            android:elevation="0dp"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:text="Register and Pay"
             android:textAllCaps="false"
             android:textColor="@color/colorText"
-            android:textSize="20dp"
-            android:elevation="0dp"/>
+            android:textSize="20dp" />
 
     </FrameLayout>
 
@@ -96,9 +97,7 @@
                             android:layout_margin="6dp"
                             app:srcCompat="@drawable/ic_expand_more" />
 
-
                     </RelativeLayout>
-
 
                     <TextView
                         android:id="@+id/info"
@@ -291,7 +290,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
-
                     <RelativeLayout
                         android:id="@+id/contact"
                         android:layout_width="wrap_content"
@@ -314,9 +312,7 @@
                             android:layout_margin="6dp"
                             app:srcCompat="@drawable/ic_expand_more" />
 
-
                     </RelativeLayout>
-
 
                     <TextView
                         android:id="@+id/contactDetails"

@@ -14,12 +14,9 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.database.EventPreview;
 
 import com.cognizance.cognizance18.models.Events;
 import com.squareup.picasso.Picasso;
-
-import com.cognizance.cognizance18.MainActivity;
 
 
 import java.util.List;
@@ -48,21 +45,13 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     @Override
     public void onBindViewHolder(EventRViewHolder holder, int position) {
         Events event = list.get(position);
-        holder.name.setText(event.getName());
         Picasso.with(context).load(event.getThumbnail()).into(holder.eventimage);
 
-        holder.eventimage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context ct=holder.eventimage.getContext();
-                Intent intent=new Intent(ct,EventDetails.class);
-                ct.startActivity(intent);
-            }
+        holder.eventimage.setOnClickListener(view -> {
+            Context ct=holder.eventimage.getContext();
+            Intent intent=new Intent(ct,EventDetails.class);
+            ct.startActivity(intent);
         });
-
-       
-        
-
     }
 
     @Override
@@ -72,14 +61,10 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     class EventRViewHolder extends RecyclerView.ViewHolder {
 
-        TextView name;
-
         ImageView eventimage;
-
 
         EventRViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.event_title_text_view);
             eventimage = itemView.findViewById(R.id.event_image);
             
         }

@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.models.Event;
 import com.cognizance.cognizance18.models.Events;
 import com.squareup.picasso.Picasso;
 
@@ -57,7 +56,7 @@ public class ExhibitionsRViewAdapter extends RecyclerView.Adapter<ExhibitionsRVi
             super(itemView);
 
             image = itemView.findViewById(R.id.event_image);
-            name = itemView.findViewById(R.id.event_title_text_view);
+            name = itemView.findViewById(R.id.item_carousel_name);
 
         }
     }

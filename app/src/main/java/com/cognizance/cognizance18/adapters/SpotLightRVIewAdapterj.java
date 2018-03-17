@@ -9,9 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.models.SpotLight;
 import com.cognizance.cognizance18.models.SpotLightCard;
-import com.cognizance.cognizance18.models.SpotlightCard;
 
 import java.util.List;
 
