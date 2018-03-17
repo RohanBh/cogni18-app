@@ -18,7 +18,12 @@ public class Events{
     @Expose
     private String thumbnail;
 
-  public void setName(String name){
+    public Events(String name, String thumbnail) {
+        this.name = name;
+        this.thumbnail = thumbnail;
+    }
+
+    public void setName(String name){
    this.name=name;
   }
   public String getName(){

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.models.SpotLight;
 import com.cognizance.cognizance18.models.SpotLightCard;
+import com.cognizance.cognizance18.models.SpotlightCard;
 
 import java.util.List;
 
@@ -21,40 +22,43 @@ import java.util.List;
 public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewAdapterj.ViewHolder> {
 
     Context ctx;
-    List<SpotLightCard> spotLightCardList;
+    List<SpotLightCard> spotlightCardList;
 
-    public SpotLightRVIewAdapterj(Context ctx, List<SpotLightCard> spotLightCardList) {
+    public SpotLightRVIewAdapterj(Context ctx, List<SpotLightCard> spotlightCardList) {
         this.ctx = ctx;
-        this.spotLightCardList = spotLightCardList;
+        this.spotlightCardList = spotlightCardList;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.item_spotlight,parent,false);
+        View view = LayoutInflater.from(ctx).inflate(R.layout.workshop_row, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SpotLightCard spotLightCard = spotLightCardList.get(position);
-        holder.textView.setText(spotLightCard.getName());
-        holder.imageView.setImageResource(spotLightCard.getImageId());
+        SpotLightCard spotlightCard = spotlightCardList.get(position);
+        holder.textView.setText(spotlightCard.getName());
+        holder.imageView.setImageResource(spotlightCard.getImageid());
+        holder.day.setText(spotlightCard.getDay());
     }
 
     @Override
     public int getItemCount() {
-        return spotLightCardList.size();
+        return spotlightCardList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView imageView;
-        TextView textView;
+        private ImageView imageView;
+        private TextView textView;
+        private TextView day;
+
         public ViewHolder(View itemView) {
             super(itemView);
-
-            imageView = itemView.findViewById(R.id.spot_image_view);
-            textView = itemView.findViewById(R.id.spot_text_view);
+            imageView = itemView.findViewById(R.id.event_image);
+            textView = itemView.findViewById(R.id.chip1);
+            day = itemView.findViewById(R.id.event_title_text_view);
         }
     }
 }

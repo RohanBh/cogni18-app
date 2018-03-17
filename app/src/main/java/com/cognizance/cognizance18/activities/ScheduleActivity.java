@@ -20,8 +20,6 @@ import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.Services.DataServices;
 import com.cognizance.cognizance18.adapters.ScheduleAdapter;
 
-import java.util.ArrayList;
-
 /**
  * Created by rohit on 13/3/18.
  */
@@ -89,7 +87,7 @@ public class ScheduleActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getSchedule(),getContext());
+            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay1(),getContext());
             RecyclerView rV = rootView.findViewById(R.id.rV);
             RecyclerView.LayoutManager lM = new LinearLayoutManager(getContext());
             rV.setAdapter(adapter);

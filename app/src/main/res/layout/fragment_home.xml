@@ -1,7 +1,6 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:context="com.cognizance.cognizance18.fragments.HomeFragment">
@@ -24,24 +23,35 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/events_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/events_you_may_like"
-                android:layout_marginStart="7dp"
-                android:textSize="20sp"
-                android:textColor="@android:color/black"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="5dp"
-                android:id="@+id/events_head"/>
+                android:text="Guest Speakers"
+                android:textColor="@android:color/black"
+                android:textSize="20sp" />
 
-            <android.support.v7.widget.RecyclerView
-                android:layout_marginTop="24dp"
-                android:layout_below="@id/events_head"
+
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                android:id="@+id/events_recycler_view"
-                tools:listitem="@layout/item_carousels"/>
+                android:layout_margin="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="5dp"
+                android:layout_below="@id/events_head">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/events_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight"
+                    android:layout_marginBottom="16dp"/>
+
+            </android.support.v7.widget.CardView>
 
         </RelativeLayout>
 
@@ -49,28 +59,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp">
+
             <TextView
+                android:id="@+id/spot_light_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
                 android:text="@string/spotlight_string"
-                android:layout_marginStart="7dp"
-                android:textSize="20sp"
                 android:textColor="@android:color/black"
 
-                android:id="@+id/spot_light_head"/>
+                android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:layout_marginTop="24dp"
-                android:layout_below="@id/spot_light_head"
+                android:id="@+id/spot_light_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/spot_light_head"
+                android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_carousels"
-                android:id="@+id/spot_light_recycler_view"/>
+                tools:listitem="@layout/item_carousels" />
         </RelativeLayout>
-
-
 
 
         <RelativeLayout
@@ -79,64 +88,36 @@
             android:layout_marginTop="20dp">
 
             <TextView
+                android:id="@+id/workshops_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/workshops_string"
                 android:layout_marginStart="7dp"
                 android:layout_marginTop="5dp"
-                android:textSize="20sp"
+                android:text="@string/exhibitions"
                 android:textColor="@android:color/black"
-                android:id="@+id/workshops_head"/>
+                android:textSize="20sp" />
 
             <android.support.v7.widget.RecyclerView
-                android:layout_marginTop="24dp"
-                android:layout_below="@id/workshops_head"
+                android:id="@+id/exhibitions_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/workshops_head"
+                android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_carousels"
-                android:id="@+id/workshops_recycler_view"/>
+                tools:listitem="@layout/item_carousels" />
 
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="116dp"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical"
-            android:background="@color/light_gray">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:layout_marginStart="56dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/bhaari_bakchodi_hai_sab_moh_maya"
-                />
-
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="12dp"
-                android:src="@color/button_back"
-                android:layout_gravity="bottom|end"
-                android:layout_marginEnd="12dp"
-                android:contentDescription="@string/image_description_string"
-                android:id="@+id/thought_image_view"/>
-
-        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/_2017_spotlights"
-            android:paddingTop="16dp"
-            android:paddingStart="24dp"
             android:paddingEnd="0dp"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"/>
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:text="Panel Discussions"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -152,40 +133,101 @@
                 android:paddingTop="16dp">
 
                 <TextView
-                    android:layout_marginStart="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/techtainment"
-                    android:textColor="@android:color/black"
-                    android:layout_marginBottom="8dp"/>
-
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/panel_discussion_1"
+                    android:textColor="@android:color/black" />
 
 
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/panel_discussion1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="12dp"
-                    android:id="@+id/techtainment_2017_r_view"
+                    android:orientation="horizontal"
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
                     tools:listitem="@layout/item_spotlight" />
 
                 <TextView
-                    android:layout_marginStart="24dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/guest_speakers"
-                    android:textColor="@android:color/black"
-                    android:layout_marginBottom="8dp"/>
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/panel_discussion_2"
+                    android:textColor="@android:color/black" />
 
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/panel_discussion2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
                     android:orientation="horizontal"
-                    android:id="@+id/speakers_2017_r_view"
                     app:layoutManager="android.support.v7.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_spotlight"
-                    android:layout_marginBottom="12dp"/>
+                    tools:listitem="@layout/item_spotlight" />
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="0dp"
+            android:paddingStart="24dp"
+            android:paddingTop="16dp"
+            android:text="@string/_2017_spotlights"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/techtainment"
+                    android:textColor="@android:color/black" />
+
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/techtainment_2017_r_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/guest_speakers"
+                    android:textColor="@android:color/black" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/speakers_2017_r_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="android.support.v7.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_spotlight" />
 
             </LinearLayout>
 
