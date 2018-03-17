@@ -87,7 +87,19 @@ public class ScheduleActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_schedule, container, false);
 
-            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay1(),getContext());
+            ScheduleAdapter adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay1(), getContext());
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay1(), getContext());
+                    break;
+                case 2:
+                    adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay2(), getContext());
+                    break;
+                case 3:
+                    adapter = new ScheduleAdapter(DataServices.INSTANCE.getScheduleDay3(), getContext());
+                    break;
+
+            }
             RecyclerView rV = rootView.findViewById(R.id.rV);
             RecyclerView.LayoutManager lM = new LinearLayoutManager(getContext());
             rV.setAdapter(adapter);
