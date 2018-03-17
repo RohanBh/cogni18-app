@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
+
 
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.facebook.login.LoginManager;
@@ -53,7 +53,7 @@ public class SessionManager {
         editor.putString(ROLE, response.getRole());
         editor.putString(NAME, response.getName());
         Log.d(LOG_TAG, response.toString());
-        Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+      //  Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
 
 
         // commit changes
@@ -103,14 +103,7 @@ public class SessionManager {
         editor.clear();
         editor.apply();
 
-        // Log out from Google
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(context, gso);
-        mGoogleSignInClient.signOut();
-        // Log out from fb
-        LoginManager.getInstance().logOut();
+
 
         // After logout redirect user to Loing Activity
         Intent i = new Intent(context, LoginActivity.class);

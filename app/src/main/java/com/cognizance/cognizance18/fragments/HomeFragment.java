@@ -10,18 +10,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.Services.DataServices;
 import com.cognizance.cognizance18.SessionManager;
-import com.cognizance.cognizance18.adapters.EventsRViewAdapter;
 import com.cognizance.cognizance18.adapters.ExhibitionsRViewAdapter;
 import com.cognizance.cognizance18.adapters.GSRViewAdapter;
 import com.cognizance.cognizance18.adapters.SpotLightRVIewAdapterj;
 import com.cognizance.cognizance18.adapters.SpotLightRviewJAdapter;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
-import com.cognizance.cognizance18.models.SpotlightCard;
+import com.cognizance.cognizance18.models.Spotlightcard1;
 import com.cognizance.cognizance18.models.TrendingList;
 import com.cognizance.cognizance18.utilities.ApiUtils;
 
@@ -96,15 +95,14 @@ public class HomeFragment extends Fragment {
                                     }
                             );
                         } else {
-                            Toast.makeText(getActivity(), "Error : " + response.toString(),
-                                    Toast.LENGTH_SHORT).show();
+
                         }
                     }
 
                     @Override
                     public void onFailure(Call<TrendingList> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
-                                Toast.LENGTH_SHORT).show();
+                 //       Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
+                     //           Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -148,16 +146,16 @@ public class HomeFragment extends Fragment {
         panelDiscussion2.setAdapter(new GSRViewAdapter(getContext(), DataServices.INSTANCE.getPaneldiscussion2()));
 
         //2017 speakers
-        ArrayList<SpotlightCard> speakersList = new ArrayList<>();
-        speakersList.add(new SpotlightCard(R.drawable.gsatheesh, "G.Satheesh Reddy"));
-        speakersList.add(new SpotlightCard(R.drawable.ashok, "Ashok Soota"));
-        speakersList.add(new SpotlightCard(R.drawable.anil, "Anil Kumar"));
+        ArrayList<Spotlightcard1> speakersList = new ArrayList<>();
+        speakersList.add(new Spotlightcard1(R.drawable.gsatheesh, "G.Satheesh Reddy"));
+        speakersList.add(new Spotlightcard1(R.drawable.ashok, "Ashok Soota"));
+        speakersList.add(new Spotlightcard1(R.drawable.anil, "Anil Kumar"));
 
         //2017 techtainment
-        ArrayList<SpotlightCard> techsList = new ArrayList<>();
-        techsList.add(new SpotlightCard(R.drawable.tvf, "The Viral Fever"));
-        techsList.add(new SpotlightCard(R.drawable.sachinjigar, "Sachin-Jigar"));
-        techsList.add(new SpotlightCard(R.drawable.papon, "Papon"));
+        ArrayList<Spotlightcard1> techsList = new ArrayList<>();
+        techsList.add(new Spotlightcard1(R.drawable.tvf, "The Viral Fever"));
+        techsList.add(new Spotlightcard1(R.drawable.sachinjigar, "Sachin-Jigar"));
+        techsList.add(new Spotlightcard1(R.drawable.papon, "Papon"));
 
         // guestSpeakers recycler view
         techtainmentRView.setLayoutManager(new LinearLayoutManager(getContext(),

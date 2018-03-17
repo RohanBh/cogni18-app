@@ -40,12 +40,8 @@ class SpotlightFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        techtainment_tab.setOnClickListener {
-            changeTab(techtainment_tab, guest_speakers_tab, TECHTAINMENT_TAG)
-        }
-        guest_speakers_tab.setOnClickListener {
-            changeTab(guest_speakers_tab, techtainment_tab, GUEST_SPEAKERS_TAG)
-        }
+
+
         techtainment_tab.performClick()
         mListener.onFragmentAdd(3)
     }

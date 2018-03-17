@@ -54,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
             name_edit_text.visibility = View.VISIBLE
             mobile_edit_text.visibility = View.VISIBLE
             login_text_view.setOnClickListener{ view ->
-                val intent = Intent(this@SignUpActivity, SignUpActivity::class.java).putExtra("mode", "SIGN_IN")
+                val intent = Intent(this@SignUpActivity, MainActivity::class.java).putExtra("mode", "SIGN_IN")
                 startActivity(intent)
             }
             sign_up_btn.setOnClickListener {
@@ -78,14 +78,14 @@ class SignUpActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@SignUpActivity,
-                            "Error : $response", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(this@SignUpActivity,
+                         //   "Error : $response", Toast.LENGTH_SHORT).show()
                 }
             }
 
             override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
-                Toast.makeText(this@SignUpActivity,
-                        "Failed to send req : ${t?.message}", Toast.LENGTH_LONG).show()
+               // Toast.makeText(this@SignUpActivity,
+                    //    "Failed to send req : ${t?.message}", Toast.LENGTH_LONG).show()
             }
 
         })
@@ -99,12 +99,12 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     session.createLoginSession(response.body())
-                    val intent = Intent(this@SignUpActivity, SignUpActivity1::class.java)
+                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
 
                 } else {
-                    Toast.makeText(this@SignUpActivity, "Error : " + response.code(), Toast.LENGTH_SHORT).show()
+                  //  Toast.makeText(this@SignUpActivity, "Error : " + response.code(), Toast.LENGTH_SHORT).show()
                 }
             }
 

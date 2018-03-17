@@ -54,15 +54,6 @@
         android:layout_gravity="center"
         android:textSize="16sp"/>
 
-    <android.support.v7.widget.AppCompatButton
-        android:id="@+id/google_sign_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="@drawable/pink_rounded_rect"
-        android:text="@string/sign_in_with_google"
-        android:textColor="@color/white"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/sign_up_email_btn"
