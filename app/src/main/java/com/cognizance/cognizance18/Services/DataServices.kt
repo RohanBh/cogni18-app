@@ -15,7 +15,7 @@ object DataServices {
             Category("Workshop", "ic_exhibition"),
             Category("Spotlights", "ic_spotlight"),
             Category("Schedule", "ic_social"),
-            Category("Map", "ic_workshop")
+            Category("Nearby Events", "ic_workshop")
     )
 
     val techtainments = listOf(
@@ -162,29 +162,31 @@ object DataServices {
             ScheduleEvents("Mobile Gaming", "23:30-03:00", "Ravindra Lounge", "29.86322,77.8926161", "Gaming")
     )
     val scheduleDay2 = arrayListOf(
-            ScheduleEvents("Bharti Dayal", "14:30-15:30", "LHC 001", "29.8648554,77.893711", "Guest Speaker"),
-            ScheduleEvents("Soumya Kulshreshtha", "15:00-17:00", "MAC Auditorium", "29.8706399,77.8962164", "Guest Speaker"),
-            ScheduleEvents("Bharat Panchal", "17:00-18:00", "MAC Auditorium", "29.8706399,77.8962164", "Guest Speaker"),
-            ScheduleEvents("Dawn of FinTexh v/s Traditional Banking", "11:00-14:00", "MAC Auditorium", "29.8706399,77.8962164", "Pannel Discussion"),
-            ScheduleEvents("Armageddon", "09:30-17:30", "SBI Lawns", "29.8643591,77.8947845", "Robotics"),
-            ScheduleEvents("PowerDrift", "09:30-17:30", "LH Parking", "29.8649349,77.8954754", "Robotics"),
-            ScheduleEvents("Cyborg Breakin", "09:30-17:30", "LHC Lawns", "29.8643248,77.8932424", "Robotics"),
-            ScheduleEvents("AeroNave", "09:30-17:30", "Football Ground", "29.8673954,77.8963734", "Robotics"),
-            ScheduleEvents("Poseidon", "09:30-17:30", "LHC Lawns", "29.8643248,77.8932424", "Robotics"),
-            ScheduleEvents("Quadrone", "09:30-17:30", "Saraswati Ground", "29.8679955,77.8950774", "Robotics"),
-            ScheduleEvents("IITR Mun", "10:00-14:00", "Senate Hall", "29.8657711,77.8928973", "Lit A.F."),
-            ScheduleEvents("Mindsweeper", "10:00-16:00", "CC Ground Floor", "29.8638314,77.8943198", "Technology"),
-            ScheduleEvents("Chem-e-Car", "10:00-16:30", "TT ROOM | STUDENT'S CLUB", "29.8645077,77.890639", "Off the Cut"),
-            ScheduleEvents("SafeRoads DataQuest", "10:00-17:00", "CTRANS", "29.8623183,77.8893435", "Technology"),
-            ScheduleEvents("Rush Hour", "10:30-13:30", "LHC 002", "29.8648554,77.893711", "Innovation Enclave"),
-            ScheduleEvents("Yin Yang", "11:00-13:00", "LHC 004", "29.8648554,77.893711", "Lit A.F."),
-            ScheduleEvents("Fifa", "11:00-17:00", "Ravindra Lounge", "29.86322,77.8926161", "Gaming"),
-            ScheduleEvents("Counter Strike", "11:00-17:00", "Ravindra Lounge", "29.86322,77.8926161", "Gaming"),
-            ScheduleEvents("NFS", "11:00-17:00", "Ravindra Lounge", "29.86322,77.8926161", "Gaming"),
-            ScheduleEvents("DOTA", "11:00-17:00", "Ravindra Lounge", "29.86322,77.8926161", "Gaming"),
-            ScheduleEvents("Let's Cube", "11:00-17:00", "LHC 006", "29.8648554,77.893711", "Gaming"),
-            ScheduleEvents("AI", "11:00-17:00", "LHC 006", "29.8648554,77.893711", "Technology"),
-            ScheduleEvents("teAch", "11:00-17:00", "LHC 205", "29.8648554,77.893711", "Technology"),
+
+            ScheduleEvents("Bharti Dayal", "14:30-15:30", "LHC 001", "29.86,77.89", "Guest Speaker"),
+            ScheduleEvents("Soumya Kulshreshtha", "15:00-17:00", "MAC Auditorium", "29.86,77.89", "Guest Speaker"),
+            ScheduleEvents("Bharat Panchal", "17:00-18:00", "MAC Auditorium", "29.86,77.89", "Guest Speaker"),
+            ScheduleEvents("Dawn of FinTech", "11:00-14:00", "MAC Audi", "29.86,77.89", "Pannel Discussion"),
+            ScheduleEvents("Armageddon", "09:30-17:30", "SBI Lawns", "29.86,77.89", "Robotics"),
+            ScheduleEvents("PowerDrift", "09:30-17:30", "LH Parking", "29.86,77.89", "Robotics"),
+            ScheduleEvents("Cyborg Breakin", "09:30-17:30", "LHC Lawns", "29.86,77.89", "Robotics"),
+            ScheduleEvents("AeroNave", "09:30-17:30", "Football Ground", "29.86,77.89", "Robotics"),
+            ScheduleEvents("Poseidon", "09:30-17:30", "LHC Lawns", "29.86,77.89", "Robotics"),
+            ScheduleEvents("Quadrone", "09:30-17:30", "Saraswati Ground", "29.86,77.89", "Robotics"),
+            ScheduleEvents("IITR Mun", "10:00-14:00", "Senate Hall", "29.86,77.89", "Lit A.F."),
+            ScheduleEvents("Mindsweeper", "10:00-16:00", "CC Ground Floor", "29.86,77.89", "Technology"),
+            ScheduleEvents("Chem-e-Car", "10:00-16:30", "TT ROOM | STUDENT'S CLUB", "", ""),
+            ScheduleEvents("SafeRoads DataQuest", "10:00-17:00", "CTRANS", "29.86,77.89", "Technology"),
+            ScheduleEvents("Rush Hour", "10:30-13:30", "LHC 002", "", ""),
+            ScheduleEvents("Yin Yang", "11:00-13:00", "LHC 004", "", "Lit A.F."),
+            ScheduleEvents("Fifa", "11:00-17:00", "Ravindra Lounge", "29.86,77.89", "Gaming"),
+            ScheduleEvents("Counter Strike", "11:00-17:00", "Ravindra Lounge", "29.86,77.89", "Gaming"),
+            ScheduleEvents("NFS", "11:00-17:00", "Ravindra Lounge", "29.86,77.89", "Gaming"),
+            ScheduleEvents("DOTA", "11:00-17:00", "Ravindra Lounge", "29.86,77.89", "Gaming"),
+            ScheduleEvents("Let's Cube", "11:00-17:00", "LHC 006", "29.86,77.89", "Gaming"),
+            ScheduleEvents("AI", "11:00-17:00", "LHC 006", "29.86,77.89", "Technology"),
+            ScheduleEvents("teAch", "11:00-17:00", "LHC 205", "", "Technology"),
+
             ScheduleEvents("Artboard", "11:00-17:00", "-", "", "Technology"),
             ScheduleEvents("Verzeo AI Algo Challenge", "11:00-17:00", "LHC 003", "29.8648554,77.893711", "Technology"),
             ScheduleEvents("Innovation Challenge", "11:00-17:00", "LHC 105", "29.8648554,77.893711", "Innovation Enclave"),
