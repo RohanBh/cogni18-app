@@ -19,12 +19,12 @@ object DataServices {
     )
 
     val techtainments = listOf(
-            SpotLightCard(R.drawable.spot_biswa, "Biswa", "Day 1"),
+            SpotLightCard2(R.drawable.spot_biswa, "Biswa", "Day 1"),
 
 
-            SpotLightCard(R.drawable.spot_aron, "Aron Chupa & Diego Miranda", "Day 2"),
+            SpotLightCard2(R.drawable.spot_aron, "Aron Chupa & Diego Miranda", "Day 2"),
 
-            SpotLightCard(R.drawable.spot_randhawa, "Guru Randhawa", "Day 3")
+            SpotLightCard2(R.drawable.spot_randhawa, "Guru Randhawa", "Day 3")
     )
 
     val urlbegin = "https://cognizance.org.in"
