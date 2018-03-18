@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.models.SpotLight;
-import com.cognizance.cognizance18.models.SpotLightCard;
-import com.cognizance.cognizance18.models.SpotlightCard;
+import com.cognizance.cognizance18.models.SpotLightCard2;
+
 
 import java.util.List;
 
@@ -22,9 +21,9 @@ import java.util.List;
 public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewAdapterj.ViewHolder> {
 
     Context ctx;
-    List<SpotLightCard> spotlightCardList;
+    List<SpotLightCard2> spotlightCardList;
 
-    public SpotLightRVIewAdapterj(Context ctx, List<SpotLightCard> spotlightCardList) {
+    public SpotLightRVIewAdapterj(Context ctx, List<SpotLightCard2> spotlightCardList) {
         this.ctx = ctx;
         this.spotlightCardList = spotlightCardList;
     }
@@ -37,7 +36,7 @@ public class SpotLightRVIewAdapterj extends RecyclerView.Adapter<SpotLightRVIewA
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SpotLightCard spotlightCard = spotlightCardList.get(position);
+        SpotLightCard2 spotlightCard = spotlightCardList.get(position);
         holder.textView.setText(spotlightCard.getName());
         holder.imageView.setImageResource(spotlightCard.getImageid());
         holder.day.setText(spotlightCard.getDay());

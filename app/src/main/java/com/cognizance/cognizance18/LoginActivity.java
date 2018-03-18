@@ -12,7 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.cognizance.cognizance18.activities.IntroActivity;
 import com.cognizance.cognizance18.activities.SignUpActivity;
@@ -103,18 +103,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-            handleSignInResult(task);
-        }
-    }
+
+
 
     private void initVariables() {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -125,18 +115,7 @@ public class LoginActivity extends AppCompatActivity {
         callbackManager = CallbackManager.Factory.create();
     }
 
-    private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
-        try {
-            GoogleSignInAccount account = completedTask.getResult(ApiException.class);
-            // Signed in successfully, show authenticated UI.
-            onGoogleSignIn(account);
-        } catch (ApiException e) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(LOG_TAG, "googleSignInResult:failed code=" + e.getStatusCode());
-            onGoogleSignIn(null);
-        }
-    }
+
 
     private void initViews() {
         signInTextView = findViewById(R.id.sign_in_text);
@@ -148,12 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void setClickListeners() {
 
-        findViewById(R.id.google_sign_btn).setOnClickListener(
-                (View v) -> {
-                    Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-                    startActivityForResult(signInIntent, RC_SIGN_IN);
-                }
-        );
+
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -239,30 +213,7 @@ public class LoginActivity extends AppCompatActivity {
         );
     }
 
-    private void onGoogleSignIn(GoogleSignInAccount account) {
-        if (account == null) {
-            // No account exists or error
-            Toast.makeText(this, "Google Login Error", Toast.LENGTH_SHORT).show();
-        } else {
-            // user is signed in
-            String personName = account.getDisplayName();
-            String personEmail = account.getEmail();
-            String personId = account.getId();
-            String personOauthToken = account.getIdToken();
-            Log.e("loginEr  ror", account.getIdToken());
-            Uri personPhoto = account.getPhotoUrl();
-            sendOauthRequest(
-                    TYPE_GOOGLE,
-                    ROLE,
-                    personName,
-                    personEmail,
-                    personOauthToken,
-                    "test",
-                    personId,
-                    personPhoto == null ? null : personPhoto.toString()
-            );
-        }
-    }
+
 
     private void sendOauthRequest(String type, String role, String name,
                                   String email, String accessToken,
@@ -284,15 +235,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
 //                    Log.e("ABC", response.body().getMessage());
-                    Toast.makeText(LoginActivity.this, "Error : " + response.body()
-                                    + " " + response.raw(),
-                            Toast.LENGTH_SHORT).show(); }
+                   // Toast.makeText(LoginActivity.this, "Error : " + response.body()
+                          //          + " " + response.raw(),
+                          //  Toast.LENGTH_SHORT).show();
+                    }
             }
 
             @Override
             public void onFailure(@NonNull Call<LoginResponse> call, @NonNull Throwable t) {
-                Toast.makeText(LoginActivity.this, "Request Failed" + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+             //   Toast.makeText(LoginActivity.this, "Request Failed" + t.getMessage(),
+                    //    Toast.LENGTH_SHORT).show();
             }
         });
     }

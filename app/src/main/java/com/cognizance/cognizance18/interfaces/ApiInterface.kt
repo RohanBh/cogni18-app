@@ -30,7 +30,8 @@ interface ApiInterface {
      */
     @POST("api/signup/cogni_user")
     fun signUp(@Body signUpUser: SignUpUser): Call<LoginResponse>
-
+    @POST("api/Android/event/details")
+    fun detailsevent(@Body eventId: String ) :Call<EventPreview>
     /**
      * Used to upload user image.
      */
@@ -59,9 +60,9 @@ interface ApiInterface {
     @GET("api/android/events")
     fun requestEvents(@Header("Authorization") authorization: String): Call<Example>
 
-    @GET("/api/android/event/{id}")
-    fun getEventDescription(@Header("Authorization") authorization: String,
-                            @Path("id") id: Int): Call<EventPreview>
+    //@GET("/api/android/event/{id}")
+    //fun getEventDescription(@Header("Authorization") authorization: String,
+                         //   @Path("id") id: Int): Call<EventPreview>
 
     @POST("api/users/events/{id}/register")
     fun registerEvent(@Header("Authorization") authorization: String,

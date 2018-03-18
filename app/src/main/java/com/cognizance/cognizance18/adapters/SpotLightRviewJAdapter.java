@@ -1,16 +1,15 @@
 package com.cognizance.cognizance18.adapters;
 
 import android.content.Context;
-import android.provider.ContactsContract;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.cognizance.cognizance18.models.Spotlightcard1;
 
 import com.cognizance.cognizance18.R;
-import com.cognizance.cognizance18.models.SpotlightCard;
 
 import java.util.List;
 
@@ -21,9 +20,9 @@ import java.util.List;
 public class SpotLightRviewJAdapter extends RecyclerView.Adapter<SpotLightRviewJAdapter.ViewHolder> {
 
     Context ctx;
-    List<SpotlightCard> spotlightCardList;
+    List<Spotlightcard1> spotlightCardList;
 
-    public SpotLightRviewJAdapter(Context ctx, List<SpotlightCard> spotlightCardList) {
+    public SpotLightRviewJAdapter(Context ctx, List<Spotlightcard1> spotlightCardList) {
         this.ctx = ctx;
         this.spotlightCardList = spotlightCardList;
     }
@@ -36,7 +35,7 @@ public class SpotLightRviewJAdapter extends RecyclerView.Adapter<SpotLightRviewJ
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        SpotlightCard spotlightCard = spotlightCardList.get(position);
+        Spotlightcard1 spotlightCard = spotlightCardList.get(position);
         holder.textView.setText(spotlightCard.getName());
         holder.imageView.setImageResource(spotlightCard.getImageid());
     }
