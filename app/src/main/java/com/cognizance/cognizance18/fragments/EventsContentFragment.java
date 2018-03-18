@@ -9,7 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.SessionManager;
@@ -113,15 +113,15 @@ public class EventsContentFragment extends Fragment {
                     }
 
                 } else {
-                    Toast.makeText(getActivity(), "Error : " + response.toString(),
-                            Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "Error : " + response.toString(),
+                           // Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<Example> call, Throwable t) {
-                Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
-                        Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
+                      //  Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -139,8 +139,8 @@ public class EventsContentFragment extends Fragment {
                 && centralStageList != null && !centralStageList.isEmpty()){
             recyclerView.setAdapter(new SubEventsRViewAdapterS(getContext(), centralStageList));
 
-            Toast.makeText(getActivity(), "Carpe Diem ",
-                    Toast.LENGTH_SHORT).show();
+           // Toast.makeText(getActivity(), "Carpe Diem ",
+                   // Toast.LENGTH_SHORT).show();
         }
 
             if (categoryName.equalsIgnoreCase(getString(R.string.departmental_string))

@@ -15,7 +15,7 @@ object DataServices {
             Category("Workshop", "ic_exhibition"),
             Category("Spotlights", "ic_spotlight"),
             Category("Schedule", "ic_social"),
-            Category("Map", "ic_workshop")
+            Category("Nearby Events", "ic_workshop")
     )
 
     val techtainments = listOf(
@@ -165,7 +165,7 @@ object DataServices {
             ScheduleEvents("Bharti Dayal", "14:30-15:30", "LHC 001", "29.86,77.89", "Guest Speaker"),
             ScheduleEvents("Soumya Kulshreshtha", "15:00-17:00", "MAC Auditorium", "29.86,77.89", "Guest Speaker"),
             ScheduleEvents("Bharat Panchal", "17:00-18:00", "MAC Auditorium", "29.86,77.89", "Guest Speaker"),
-            ScheduleEvents("Dawn of FinTexh v/s Traditional Banking", "11:00-14:00", "MAC Auditorium", "29.86,77.89", "Pannel Discussion"),
+            ScheduleEvents("Dawn of FinTexh", "11:00-14:00", "MAC Audi", "29.86,77.89", "Pannel Discussion"),
             ScheduleEvents("Armageddon", "09:30-17:30", "SBI Lawns", "29.86,77.89", "Robotics"),
             ScheduleEvents("PowerDrift", "09:30-17:30", "LH Parking", "29.86,77.89", "Robotics"),
             ScheduleEvents("Cyborg Breakin", "09:30-17:30", "LHC Lawns", "29.86,77.89", "Robotics"),
