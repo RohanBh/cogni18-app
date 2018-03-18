@@ -27,6 +27,19 @@
             android:textSize="14sp" />
 
 
+        <TextView
+            android:id="@+id/guest_speakers_tab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/right_event_tab_background"
+            android:gravity="center"
+            android:padding="15dp"
+            android:text="@string/on_the_spot"
+            android:textColor="@color/dark_gray"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
     <FrameLayout
