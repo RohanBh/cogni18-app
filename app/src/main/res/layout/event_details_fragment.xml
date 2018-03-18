@@ -106,7 +106,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/introLayout"
                         android:padding="10dp"
-                        android:text="@string/placeholder_text"
                         android:textSize="15sp"
                         android:visibility="gone" />
 
@@ -160,7 +159,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/registration"
                         android:padding="10dp"
-                        android:text="@string/placeholder_text"
                         android:textSize="15sp"
                         android:visibility="gone" />
 
@@ -215,7 +213,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/rules"
                         android:padding="10dp"
-                        android:text="@string/placeholder_text"
                         android:textSize="15sp"
                         android:visibility="gone" />
 
@@ -269,7 +266,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/problem"
                         android:padding="10dp"
-                        android:text="@string/placeholder_text"
                         android:textSize="15sp"
                         android:visibility="gone" />
 
@@ -324,7 +320,6 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/contact"
                         android:padding="10dp"
-                        android:text="@string/placeholder_text"
                         android:textSize="15sp"
                         android:visibility="gone" />
 
