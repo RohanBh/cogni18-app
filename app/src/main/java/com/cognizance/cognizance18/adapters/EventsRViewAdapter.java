@@ -4,6 +4,7 @@ import android.content.Context;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -31,6 +32,10 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
 
     private Context context;
 
+    private int PRIVATE_MODE = 0;
+
+    private static final String PREF_NAME = "LoginPref";
+
 
     public EventsRViewAdapter(List<Events> eventList,Context context) {
         this.list = eventList;
@@ -56,6 +61,12 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
             public void onClick(View view) {
                 Context ct=holder.eventimage.getContext();
                 Intent intent=new Intent(ct,EventDetails.class);
+                SharedPreferences shared = ct.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
+                int a= list.get(position).getId();
+                SharedPreferences.Editor editor = shared.edit();
+                editor.putInt("id",a);
+                editor.apply();
+
                 ct.startActivity(intent);
             }
         });
