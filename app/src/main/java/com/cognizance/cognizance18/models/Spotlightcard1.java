@@ -1,32 +1,16 @@
 package com.cognizance.cognizance18.models;
 
 /**
- * Created by Narendra on 11/2/18.
- * Modifies by rohit on 14/3/18
+ * Created by me on 12/2/18.
  */
 
-public class SpotLightCard {
+public class Spotlightcard1 {
     int imageid;
-
-    public String getDay() {
-        return day;
-    }
-
-    public void setDay(String day) {
-        this.day = day;
-    }
-
     String name;
-    String day;
 
-    public SpotLightCard(int imageid, String name) {
-        this(imageid,name,"");
-    }
-
-    public SpotLightCard(int imageid, String name, String day) {
+    public Spotlightcard1(int imageid, String name) {
         this.imageid = imageid;
         this.name = name;
-        this.day = day;
     }
 
     public int getImageid() {

@@ -60,14 +60,8 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.front_activity);
         session = new SessionManager(getApplicationContext());
-        Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
-        findViewById(R.id.ic_your_profile).setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, ProfileActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                }
-        );
+       // Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
+
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 item -> {

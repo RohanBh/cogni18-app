@@ -99,7 +99,7 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     session.createLoginSession(response.body())
-                    val intent = Intent(this@SignUpActivity, SignUpActivity1::class.java)
+                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
 
