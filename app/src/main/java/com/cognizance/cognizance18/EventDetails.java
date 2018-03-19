@@ -1,6 +1,8 @@
 package com.cognizance.cognizance18;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
@@ -8,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,9 +36,10 @@ import retrofit2.Response;
 
 public class EventDetails extends AppCompatActivity{
 
-    private RelativeLayout intro,registration,rules,problem,contact;
+    private RelativeLayout intro,registration,rules,problem,contact,Registerbtn;
 
     private TextView introText,registrationText,rulesText,problemText,contactText;
+    private Button btn ;
 
     private int PRIVATE_MODE = 0;
 
@@ -43,7 +47,7 @@ public class EventDetails extends AppCompatActivity{
     String rule;
     String description1;
 
-    private EventDescription description;
+
 
 
     private List<EventD> customList;
@@ -92,6 +96,13 @@ public class EventDetails extends AppCompatActivity{
     }
 
     private void expandCardview(int pos){
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("https://cognizance.org.in/enroll#signup"));
+                startActivity(i);
+            }
+        });
 
 
         intro.setOnClickListener(new View.OnClickListener() {
