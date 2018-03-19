@@ -79,6 +79,21 @@ class MoreActivity : AppCompatActivity() {
             finish()
             setResult(Activity.RESULT_OK)
         }
+
+        sponsors.setOnClickListener{
+            setResult(5000)
+            finish()
+        }
+
+        about_us_text.setOnClickListener {
+            setResult(5001)
+            finish()
+        }
+
+        contact_us.setOnClickListener {
+            setResult(5002)
+            finish()
+        }
     }
 
     override fun onBackPressed() {

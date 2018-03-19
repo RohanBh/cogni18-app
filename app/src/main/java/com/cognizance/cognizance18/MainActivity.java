@@ -1,6 +1,9 @@
 package com.cognizance.cognizance18;
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -152,6 +155,54 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         } else if (resultCode == 3004) {
             startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
+        }
+        else if (resultCode == 5000){
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in/sponsors18";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+            catch(ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
+        }
+        else if (resultCode == 5001){
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+            catch(ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
+        }
+        else if (resultCode == 5002){
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            }
+            catch(ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
         }
     }
 
