@@ -3,6 +3,7 @@ package com.cognizance.cognizance18.interfaces
 import com.cognizance.cognizance18.database.CentralList
 import com.cognizance.cognizance18.database.EventPreview
 import com.cognizance.cognizance18.models.*
+import com.cognizance.cognizance18.models.EventDetails.EventDescription
 import com.cognizance.cognizance18.models.WorkshopModels.WorkshopResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
@@ -63,6 +64,11 @@ interface ApiInterface {
     //@GET("/api/android/event/{id}")
     //fun getEventDescription(@Header("Authorization") authorization: String,
                          //   @Path("id") id: Int): Call<EventPreview>
+
+    @FormUrlEncoded
+    @POST("/api/android/event/details")
+    fun getEventDetails(@Field("id") id: Integer): Call<EventDescription>
+
 
     @POST("api/users/events/{id}/register")
     fun registerEvent(@Header("Authorization") authorization: String,
