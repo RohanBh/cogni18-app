@@ -6,11 +6,12 @@
     <string name="nav_four">Your Profile</string>
     <string name="nav_five">Schedule</string>
     <string-array name="planets_array">
+
         <item>Female</item>
         <item>Male</item>
     </string-array>
-
-
+    <string name="txtCredits"><a href="https://cognizance.org.in/sponsors17">Sponsors</a></string>
+    <string name="txtCredits1"><a href="https://cognizance.org.in">About Us</a></string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_string">name</string>
     <string name="spotlight_string">Spotlights</string>
