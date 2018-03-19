@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="4dp"
     android:orientation="vertical"
     app:cardBackgroundColor="@color/white"
@@ -13,28 +14,19 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:layout_width="200dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="150dp">
 
             <ImageView
                 android:id="@+id/event_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="top"
-                android:contentDescription="@string/image_description_string" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginEnd="8dp"
-                android:layout_marginTop="8dp"
                 android:contentDescription="@string/image_description_string"
-                app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
+                tools:src="@drawable/spot_biswa"
+                android:scaleType="fitXY"/>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
@@ -42,14 +34,14 @@
             android:background="@color/gray" />
 
         <TextView
-            android:id="@+id/event_title_text_view"
+            android:id="@+id/item_carousel_name"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:gravity="center_vertical"
             android:layout_marginBottom="2dp"
-            android:layout_marginTop="2dp"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
             android:text="@string/event_title"
             android:textColor="@android:color/black"
             android:textSize="14sp" />

@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
 import com.cognizance.cognizance18.models.SpotLightCard2;
-
-
 import java.util.List;
 
 /**

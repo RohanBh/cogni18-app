@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.cognizance.cognizance18.EventDetails;
 import com.cognizance.cognizance18.R;
+import com.cognizance.cognizance18.Services.DetailWorkshop;
+import com.cognizance.cognizance18.WorkshopDetails;
 import com.cognizance.cognizance18.models.WorkshopModels.Workshops;
 import com.squareup.picasso.Picasso;
 
@@ -55,7 +57,9 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
 
         holder.Wspimage.setOnClickListener(v -> {
             Context ct = v.getContext();
-            Intent intent = new Intent(ct, EventDetails.class);
+            Intent intent = new Intent(ct, WorkshopDetails.class);
+            intent.putExtra("obj", DetailWorkshop.INSTANCE.getWorkshops().get(position));
+            ct.startActivity(intent);
         });
 
     }
@@ -73,7 +77,7 @@ public class WorkshopsAdapter extends RecyclerView.Adapter<WorkshopsAdapter.Work
         public WorkshopsViewHolder(View itemView) {
             super(itemView);
             Wspimage = itemView.findViewById(R.id.event_image);
-            Wspname = itemView.findViewById(R.id.event_title_text_view);
+            Wspname = itemView.findViewById(R.id.item_carousel_name);
         }
     }
 }
