@@ -79,6 +79,10 @@
         <activity
             android:name=".WebView"
             android:label="@string/title_activity_web_view"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".TreasureHunt"
+            android:label="@string/title_activity_treasure_hunt"
             android:theme="@style/AppTheme"></activity>
     </application>
 

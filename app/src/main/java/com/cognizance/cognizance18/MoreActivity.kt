@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.cognizance.cognizance18.R.string.contact_us
 import com.cognizance.cognizance18.Services.DataServices
 import com.cognizance.cognizance18.adapters.NavMenuGridAdapter
 import com.cognizance.cognizance18.models.Category
@@ -62,8 +63,8 @@ class MoreActivity : AppCompatActivity() {
                     setResult(3004)
                     finish()
                 }
-                "Map" -> {
-                    setResult(Activity.RESULT_OK)
+                "Nearby Events" -> {
+                    setResult(3005)
                     finish()
                 }
 

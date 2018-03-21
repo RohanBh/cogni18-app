@@ -207,6 +207,9 @@
     <string name="tall"><p>The design of tall buildings essentially involves conceptual design, approximate analysis, preliminary design and optimization to safely carry different loads acting on structure. The structural design for a skyscraper must ensure that the building is able to stand up safely, able to function without excessive deflections or movements which may cause fatigue of structural elements, cracking or failure of fixtures, fittings or partitions, or discomfort for occupants. Tall Building Design Workshop primarily aims at educating the participants about analysis and design of tall buildings.</p>\n\n<p>Students will be introduced to Structural building engineering and associated software used in tall building design. With the help of various case studies, the participants would be made to understand and develop the skills required for designing tall buildings in the real world. Participants will learn to evaluate different problem statements given to them and so increase proficiency in key civil engineering concepts.</p></string>
     <string name="tall_benefits"><p>1. Certificate for attending the Workshop.<br />\n2. Certificate of Participation from Cognizance'18, IIT Roorkee.<br />\n3. Required Software for the workshop.</p></string>
     <string name="tall_rules"><p>1. Participants are expected to bring their laptop (Windows 8/8.1/10 only).</p></string>
+
     <string name="title_activity_web_view">WebView</string>
+    <string name="title_activity_treasure_hunt">TreasureHunt</string>
+    <string name="treasure_hunt_intro"><p>Let us embark our treasure hunt journey on Day 1.</p></string>
 
 </resources>

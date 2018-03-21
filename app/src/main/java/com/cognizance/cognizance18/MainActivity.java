@@ -156,6 +156,10 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
             startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
         }
+        else if (resultCode == 3005){
+            startActivity(new Intent(MainActivity.this, TreasureHunt.class));
+            bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
+        }
         else if (resultCode == 5000){
             bottomNavigationView.setSelectedItemId(R.id.action_home);
             String url = "https://cognizance.org.in/sponsors18";
