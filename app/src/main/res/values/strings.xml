@@ -216,5 +216,11 @@
     <string name="txtCredits1"><a href="https://cognizance.org.in">About Us</a></string>
     <string name="title_activity_web_view">WebView</string>
     <string name="title_activity_treasure_hunt">TreasureHunt</string>
+
     <string name="treasure_hunt_intro"><p>Let us embark our treasure hunt journey on Day 1.</p></string>
+    <string name="clue_ncc">Ekta, anushasan ko karo pukaar,\nDesh ka ho safal nirmaan,\nSudarshan ka aisa gyan,\nFakir bhi kare Gungaan.</string>
+    <string name="clue_azad">- .-. -.-- ... - / .-- .. - .... / -.. . ... - .. -. -.-- / ..--- ----. .-.-.- ---.. -.... ..... ..... ---.. ..--- --..-- --... --... .-.-.- ---.. ----. .---- --... ---.. / ..--- ----. .-.-.- ---.. -.... ..... ..... ....- -.... --..-- --... --... .-.-.- ---.. ----. ..--- ----- ...-- -.... / ..--- ----. .-.-.- ---.. -.... ..... ...-- ----. ----- --..-- --... --... .-.-.- ---.. ----. .---- ----. ---.. ...--</string>
+    <string name="clue_teachers">\“The true teachers are those who help us think for ourselves.\”</string>
+    <string name="clue_nesci">Badal life ki raftaar,\nGhode pe hoja savaar,\nAgar lagani h naiyya paar,\nTo maidaan me aaja yaar.</string>
+
 </resources>

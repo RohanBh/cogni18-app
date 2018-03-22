@@ -26,7 +26,6 @@ import android.widget.Toast;
 
 import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
 import com.cognizance.cognizance18.activities.ScheduleActivity;
-import com.cognizance.cognizance18.activities.TreasureHunt;
 import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
@@ -166,7 +165,12 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         else if (resultCode == 3004) {
             startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
-        } else if (resultCode == 5000) {
+        }
+        else if (resultCode == 3005){
+            startActivity(new Intent(MainActivity.this, TreasureHunt.class));
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+        }
+        else if (resultCode == 5000) {
             bottomNavigationView.setSelectedItemId(R.id.action_home);
             String url = "https://cognizance.org.in/sponsors18";
             try {
@@ -181,20 +185,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                 startActivity(i);
             }
         } else if (resultCode == 5001) {
-            bottomNavigationView.setSelectedItemId(R.id.action_home);
-            String url = "https://cognizance.org.in";
-            try {
-                Intent i = new Intent("android.intent.action.MAIN");
-                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
-                i.addCategory("android.intent.category.LAUNCHER");
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            } catch (ActivityNotFoundException e) {
-                // Chrome is not installed
-                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(i);
-            }
-        } else if (resultCode == 5002) {
             bottomNavigationView.setSelectedItemId(R.id.action_home);
             String url = "https://cognizance.org.in";
             try {

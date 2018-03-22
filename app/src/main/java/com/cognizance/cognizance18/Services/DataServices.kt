@@ -15,7 +15,7 @@ object DataServices {
             Category("Workshop", "ic_exhibition"),
             Category("Spotlights", "ic_spotlight"),
             Category("Schedule", "ic_social"),
-            Category("Treasure Hunt(Coming Soon)", "ic_workshop")
+            Category("Treasure Hunt", "ic_workshop")
     )
 
     val techtainments = listOf(
