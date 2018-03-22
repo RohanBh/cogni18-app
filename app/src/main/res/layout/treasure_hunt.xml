@@ -11,63 +11,68 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/before_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:visibility="gone"
             android:background="@drawable/event_gradient"
-            android:id="@+id/before_time">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
                 android:text="@string/treasure_hunt_intro"
-                android:textSize="20sp"
-                android:layout_margin="32dp"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:gravity="center"
                 android:text="Win prizes worth 4K."
-                android:layout_margin="32dp"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hunt Begins on 5pm"
                 android:layout_margin="32dp"
                 android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/black"/>
+                android:text="Hunt Begins on 5pm"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <RelativeLayout
+            android:id="@+id/start_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
-            android:id="@+id/start_time">
+            android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Start your Treasure Hunt"
-                android:textSize="20sp"
                 android:layout_margin="32dp"
+                android:gravity="center"
+                android:text="Start your Treasure Hunt"
                 android:textColor="@color/black"
-                android:gravity="center"/>
+                android:textSize="20sp" />
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_above="@id/go_forward_btn"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="64dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginStart="32dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/rounded_rect"
-                android:hint="Enter Start Code"
                 android:gravity="center"
+                android:hint="Enter Start Code"
                 android:inputType="text"
                 android:maxLines="1"
                 android:padding="12dp"
@@ -76,337 +81,356 @@
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/colorTextHint"
                 android:textSize="18sp"
-                android:layout_marginStart="32dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginBottom="64dp"
-                android:layout_gravity="bottom"
-                android:layout_above="@id/go_forward_btn"/>
+                android:id="@+id/start_route"/>
 
             <Button
+                android:id="@+id/go_forward_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/pink_rounded_rect"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="128dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginBottom="128dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/white"
+                android:background="@drawable/pink_rounded_rect"
                 android:text="Go Forward"
-                android:layout_centerVertical="true"
-                android:id="@+id/go_forward_btn"/>
+                android:textColor="@color/white" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/treasure_hunt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/treasure_hunt"
             android:visibility="gone">
 
             <TextView
+                android:id="@+id/clue_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Clue"
                 android:layout_margin="16dp"
                 android:gravity="center"
+                android:text="Clue"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-                android:id="@+id/clue_text"/>
+                android:textSize="24sp" />
 
             <View
+                android:id="@+id/clue_divider"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@id/clue_text"
                 android:layout_marginBottom="4dp"
-                android:id="@+id/clue_divider"
-                android:background="#45000000"
+                android:layout_marginEnd="24dp"
                 android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"/>
+                android:background="#45000000" />
 
-            <ScrollView
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/clue_divider"
-                android:layout_above="@id/clue_btn">
+                android:layout_above="@id/clue_btn"
+                android:layout_below="@id/clue_divider">
 
                 <LinearLayout
+                    android:id="@+id/ll_hospital"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:visibility="gone">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/ll_hospital1"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:id="@+id/ll_hospital"
-                        android:visibility="gone">
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa"
+                        android:layout_gravity="center"/>
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".5"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="2dp"
-                            android:id="@+id/ll_hospital1"/>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_weight=".5"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginEnd="8dp"
-                            android:id="@+id/ll_hospital2"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:id="@+id/ll_oat"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_weight=".5"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="2dp"
-                            android:id="@+id/ll_oat_img"/>
-
-                        <VideoView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".5"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginEnd="8dp"
-                            android:id="@+id/ll_oat_video"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/ll_hospital2"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/ll_tpo"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Chai piyo aur ye video dekho."
-                            android:layout_marginStart="32dp"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="16dp"
-                            android:gravity="center"
-                            android:textSize="24sp"
-                            android:textColor="#da000000"/>
-
-                        <VideoView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginEnd="32dp"
-                            android:id="@+id/ll_tpo1"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:id="@+id/ll_finearts"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_weight=".5"
-                            android:id="@+id/ll_finearts1"/>
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_weight=".5"
-                            android:id="@+id/ll_finearts2"/>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:visibility="gone"
-                        android:id="@+id/ll_jd">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight=".5"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="2dp"
-                            android:id="@+id/ll_jd1"/>
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_weight=".5"
-                            android:layout_marginStart="2dp"
-                            android:layout_marginEnd="8dp"
-                            android:id="@+id/ll_jd2"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ll_ncc"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/clue_ncc"
-                            android:layout_margin="32dp"
-                            android:textSize="22sp"
-                            android:gravity="center"
-                            android:textColor="#da000000"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/ll_azad"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:layout_marginTop="0dp"
-                            android:id="@+id/ll_azad1"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/clue_azad"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:textColor="#da000000"
-                            android:textSize="20sp"
-                            android:layout_marginTop="4dp"
-                            android:layout_marginBottom="16dp"
-                            android:id="@+id/ll_azad2"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/ll_alpahar"
-                        android:visibility="gone">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:src="@drawable/spot_biswa"
-                            android:id="@+id/ll_alpahar1"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/ll_oldhostel"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/clue_teachers"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginBottom="16dp"
-                            android:gravity="center"
-                            android:textSize="24sp"
-                            android:textColor="#da000000"/>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                tools:src="@drawable/spot_biswa"
-                                android:layout_weight=".5"
-                                android:id="@+id/ll_oldhostel1"/>
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                tools:src="@drawable/spot_biswa"
-                                android:layout_weight=".5"
-                                android:id="@+id/ll_oldhostel2"/>
-
-                        </LinearLayout>
-
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:id="@+id/ll_nesci"
-                        android:visibility="gone">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="It all starts with the forbidden one"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginTop="32dp"
-                            android:textSize="20sp"
-                            android:textColor="#da000000"/>
-
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/clue_nesci"
-                            android:layout_margin="32dp"
-                            android:textSize="22sp"
-                            android:gravity="center"
-                            android:textColor="#da000000"/>
-
-                    </LinearLayout>
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa"
+                        android:layout_gravity="center"/>
                 </LinearLayout>
-            </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/ll_oat"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ll_oat_img"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="0.5"
+                        tools:src="@drawable/spot_biswa"
+                        android:layout_gravity="center_horizontal"/>
+
+                    <VideoView
+                        android:id="@+id/ll_oat_video"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight="0.5"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_tpo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Chai piyo aur ye video dekho."
+                        android:textColor="#da000000"
+                        android:textSize="24sp"
+                        android:layout_weight=".5"/>
+
+                    <VideoView
+                        android:id="@+id/ll_tpo1"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_weight=".5"
+                        android:layout_marginBottom="16dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_finearts"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ll_finearts1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa" />
+
+                    <ImageView
+                        android:id="@+id/ll_finearts2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_jd"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ll_jd1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa" />
+
+                    <ImageView
+                        android:id="@+id/ll_jd2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_weight=".5"
+                        tools:src="@drawable/spot_biswa" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_ncc"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="32dp"
+                        android:gravity="center"
+                        android:text="@string/clue_ncc"
+                        android:textColor="#da000000"
+                        android:textSize="22sp" />
+                </LinearLayout>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/ll_azad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/ll_azad1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="0dp"
+                            tools:src="@drawable/spot_biswa"
+                            android:layout_gravity="center_horizontal"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/clue_azad"
+                            android:textColor="#da000000"
+                            android:textSize="20sp" />
+                    </LinearLayout>
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/ll_alpahar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:id="@+id/ll_alpahar1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:src="@drawable/spot_biswa"
+                        android:layout_margin="16dp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_oldhostel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="@string/clue_teachers"
+                        android:textColor="#da000000"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/ll_oldhostel1"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight=".5"
+                            tools:src="@drawable/spot_biswa"
+                            android:layout_gravity="center"/>
+
+                        <ImageView
+                            android:id="@+id/ll_oldhostel2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight=".5"
+                            tools:src="@drawable/spot_biswa" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_nesci"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="32dp"
+                        android:text="It all starts with the forbidden one"
+                        android:textColor="#da000000"
+                        android:textSize="20sp" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="32dp"
+                        android:gravity="center"
+                        android:text="@string/clue_nesci"
+                        android:textColor="#da000000"
+                        android:textSize="22sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
 
             <Button
+                android:id="@+id/clue_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="@drawable/pink_rounded_rect"
+                android:layout_marginBottom="16dp"
                 android:layout_marginEnd="32dp"
                 android:layout_marginStart="32dp"
-                android:layout_marginBottom="16dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/white"
+                android:background="@drawable/pink_rounded_rect"
                 android:text="Check for clue"
-                android:id="@+id/clue_btn"/>
+                android:textColor="@color/white" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/after_time"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/after_time"
             android:visibility="gone">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Treasure Hunt is completed."
-                android:textSize="20sp"
+                android:layout_gravity="center"
                 android:layout_margin="32dp"
-                android:textColor="@color/black"
                 android:gravity="center"
-                android:layout_gravity="center"/>
+                android:text="Treasure Hunt is completed."
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
         </RelativeLayout>
     </FrameLayout>
