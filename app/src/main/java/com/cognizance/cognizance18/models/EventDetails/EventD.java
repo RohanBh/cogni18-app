@@ -7,8 +7,9 @@ import java.util.List;
  * */
 public class EventD {
 
-    private String info,procedure,rules;
+    private String info,procedure,rules,thumbnail;
     private int id;
+
 
 
     public EventD(){
@@ -55,6 +56,13 @@ public class EventD {
         this.id = id;
     }
 
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
+    }
     //    @SerializedName("id")
 //    @Expose
 //    private Integer id;

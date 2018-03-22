@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cognizance.cognizance18.R;
@@ -25,6 +26,7 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
 
     public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView title, time, location, type;
+        ImageView fb;
 
         Holder(View view) {
             super(view);
@@ -32,7 +34,8 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
             time = view.findViewById(R.id.time);
             location = view.findViewById(R.id.location);
             type = view.findViewById(R.id.typeTxt);
-            view.setOnClickListener(this);
+            fb=view.findViewById(R.id.imageButton);
+           // fb.setOnClickListener(this);
         }
 
         void bindingFunc(ScheduleEvents txtArr) {
@@ -40,16 +43,19 @@ public class ScheduleAdapter extends RecyclerView.Adapter<ScheduleAdapter.Holder
             time.setText(txtArr.getTime());
             location.setText(txtArr.getLocation());
             type.setText(txtArr.getCategory());
+            fb.setOnClickListener(this);
         }
 
+
         @Override
-        public void onClick(View v) {
+        public void onClick(View view) {
             int position = getAdapterPosition();
             ScheduleEvents details = scheduleList.get(position);
             Uri gmmIntentUri = Uri.parse("google.navigation:q=" + details.getCoordinates());
             Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
             mapIntent.setPackage("com.google.android.apps.maps");
             ctx.startActivity(mapIntent);
+
         }
     }
 

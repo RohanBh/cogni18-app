@@ -62,7 +62,7 @@ public class HomeFragment extends Fragment {
         }
         realm = Realm.getDefaultInstance();
         session = new SessionManager(context);
-        session.checkLogin();
+       // session.checkLogin();
     }
 
     @Override
@@ -96,15 +96,15 @@ public class HomeFragment extends Fragment {
                                     }
                             );
                         } else {
-                            Toast.makeText(getActivity(), "Error : " + response.toString(),
-                                    Toast.LENGTH_SHORT).show();
+                        //    Toast.makeText(getActivity(), "Error : " + response.toString(),
+                                   // Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onFailure(Call<TrendingList> call, Throwable t) {
-                        Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
-                                Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getActivity(), "Failed to fetch data: " + t.getMessage(),
+                               // Toast.LENGTH_SHORT).show();
                     }
                 }
         );

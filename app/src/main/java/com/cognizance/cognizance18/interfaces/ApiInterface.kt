@@ -66,7 +66,7 @@ interface ApiInterface {
 
     @FormUrlEncoded
     @POST("/api/android/event/details")
-    fun getEventDetails(@Field("id") id: Integer): Call<EventDescription>
+    fun getEventDetails(@Field("id") id: Int): Call<EventDescription>
 
 
     @POST("api/users/events/{id}/register")

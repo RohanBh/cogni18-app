@@ -8,8 +8,8 @@ import android.widget.Toast;
 
 import com.cognizance.cognizance18.models.LoginResponse;
 import com.facebook.login.LoginManager;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+//import com.google.android.gms.auth.api.signin.GoogleSignIn;
+//import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 /**
@@ -52,8 +52,8 @@ public class SessionManager {
         editor.putString(TOKEN, response.getToken());
         editor.putString(ROLE, response.getRole());
         editor.putString(NAME, response.getName());
-        Log.d(LOG_TAG, response.toString());
-        Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
+     //   Log.d(LOG_TAG, response.toString());
+      //  Toast.makeText(context, response.toString(), Toast.LENGTH_LONG).show();
 
 
         // commit changes
@@ -107,8 +107,8 @@ public class SessionManager {
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
-        GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(context, gso);
-        mGoogleSignInClient.signOut();
+        //GoogleSignInClient mGoogleSignInClient = GoogleSignIn.getClient(context, gso);
+        //mGoogleSignInClient.signOut();
         // Log out from fb
         LoginManager.getInstance().logOut();
 

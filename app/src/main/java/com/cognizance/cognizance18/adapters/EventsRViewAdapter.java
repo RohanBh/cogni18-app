@@ -58,7 +58,7 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     }
 
     @Override
-    public EventRViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public EventsRViewAdapter.EventRViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater mInflater = LayoutInflater.from(parent.getContext());
         ViewGroup mainGroup = (ViewGroup) mInflater.inflate(R.layout.item_carousels, parent, false);
         return new EventRViewHolder(mainGroup);
@@ -67,19 +67,29 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
     @Override
     public void onBindViewHolder(EventRViewHolder holder, int position) {
         Events event = list.get(position);
-        holder.name.setText(event.getName());
-        Picasso.with(context).load(event.getThumbnail()).into(holder.eventimage);
 
+
+        holder.name.setText(event.getName());
+        String url = list.get(position).getThumbnail();
+        if (url != null)
+        //Picasso.with(context).load(event.getThumbnail()).into(holder.eventimage);
+            Picasso.with(context).load(url).placeholder(R.drawable.button_background)
+                    .into(holder.eventimage);
+      else
+        {holder.eventimage.setImageResource(R.drawable.button_background);}
         holder.eventimage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Context ct=holder.eventimage.getContext();
                 int a= list.get(position).getId();
+                String eventName = list.get(position).getName();
                 Intent intent=new Intent(ct,EventDetails.class);
                 SharedPreferences shared = ct.getSharedPreferences(PREF_NAME,PRIVATE_MODE);
                 SharedPreferences.Editor editor = shared.edit();
                 editor.putInt("id",a);
+                editor.putString("name",eventName);
                 editor.apply();
+
 
                 ct.startActivity(intent);
             }
@@ -102,9 +112,9 @@ public class EventsRViewAdapter extends RecyclerView.Adapter<EventsRViewAdapter.
         ImageView eventimage;
 
 
-        EventRViewHolder(View itemView) {
+      public  EventRViewHolder(View itemView) {
             super(itemView);
-            name = itemView.findViewById(R.id.event_title_text_view);
+            name = itemView.findViewById(R.id.item_carousel_name);
             eventimage = itemView.findViewById(R.id.event_image);
             
         }

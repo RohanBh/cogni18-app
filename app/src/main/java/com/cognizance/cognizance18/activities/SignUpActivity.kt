@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Toast
+
 import com.cognizance.cognizance18.MainActivity
 import com.cognizance.cognizance18.R
 import com.cognizance.cognizance18.SessionManager
@@ -78,14 +78,11 @@ class SignUpActivity : AppCompatActivity() {
                     startActivity(intent)
                     finish()
                 } else {
-                    Toast.makeText(this@SignUpActivity,
-                            "Error : $response", Toast.LENGTH_SHORT).show()
-                }
+                                   }
             }
 
             override fun onFailure(call: Call<LoginResponse>?, t: Throwable?) {
-                Toast.makeText(this@SignUpActivity,
-                        "Failed to send req : ${t?.message}", Toast.LENGTH_LONG).show()
+
             }
 
         })
@@ -99,12 +96,12 @@ class SignUpActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     session.createLoginSession(response.body())
-                    val intent = Intent(this@SignUpActivity, SignUpActivity1::class.java)
+                    val intent = Intent(this@SignUpActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
 
                 } else {
-                    Toast.makeText(this@SignUpActivity, "Error : " + response.code(), Toast.LENGTH_SHORT).show()
+
                 }
             }
 

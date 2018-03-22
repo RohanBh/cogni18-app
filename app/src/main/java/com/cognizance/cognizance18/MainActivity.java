@@ -1,6 +1,13 @@
 package com.cognizance.cognizance18;
 
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
+import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
+
+//import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
@@ -15,9 +22,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+//import android.widget.Toast;
 
 import com.cognizance.cognizance18.HelperClass.BottomNavigationViewHelper;
 import com.cognizance.cognizance18.activities.ScheduleActivity;
+import com.cognizance.cognizance18.activities.TreasureHunt;
 import com.cognizance.cognizance18.database.CategoryList;
 import com.cognizance.cognizance18.database.CentralList;
 import com.cognizance.cognizance18.fragments.EventsFragment;
@@ -27,6 +36,7 @@ import com.cognizance.cognizance18.fragments.SpotlightFragment;
 import com.cognizance.cognizance18.fragments.WorkshopFragment;
 import com.cognizance.cognizance18.fragments.WorkshopsFragment;
 import com.cognizance.cognizance18.interfaces.OnFragmentAddedListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.List;
 
@@ -60,14 +70,9 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.front_activity);
         session = new SessionManager(getApplicationContext());
-        Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
-        findViewById(R.id.ic_your_profile).setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, ProfileActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(R.anim.slide_from_right, R.anim.slide_to_left);
-                }
-        );
+       // FirebaseMessaging.getInstance().setAutoInitEnabled(true);
+       // Toast.makeText(this, "Logged in" + session.isLoggedIn(), Toast.LENGTH_SHORT).show();
+
         bottomNavigationView = findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(
                 item -> {
@@ -98,6 +103,7 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
                                     MORE_ACTIVITY_RC
                             );
                             break;
+
                     }
                     return true;
                 });
@@ -155,9 +161,53 @@ public class MainActivity extends AppCompatActivity implements OnFragmentAddedLi
         } else if (resultCode == 3003) {
             replaceFragment(SPOTLIGHT_TAG);
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
-        } else if (resultCode == 3004) {
+        }
+
+        else if (resultCode == 3004) {
             startActivity(new Intent(MainActivity.this, ScheduleActivity.class));
             bottomNavigationView.setSelectedItemId(R.id.action_spotlight);
+        } else if (resultCode == 5000) {
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in/sponsors18";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
+        } else if (resultCode == 5001) {
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
+        } else if (resultCode == 5002) {
+            bottomNavigationView.setSelectedItemId(R.id.action_home);
+            String url = "https://cognizance.org.in";
+            try {
+                Intent i = new Intent("android.intent.action.MAIN");
+                i.setComponent(ComponentName.unflattenFromString("com.android.chrome/com.android.chrome.Main"));
+                i.addCategory("android.intent.category.LAUNCHER");
+                i.setData(Uri.parse(url));
+                startActivity(i);
+            } catch (ActivityNotFoundException e) {
+                // Chrome is not installed
+                Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(i);
+            }
         }
     }
 
