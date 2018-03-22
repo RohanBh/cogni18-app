@@ -7,10 +7,9 @@ import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import com.cognizance.cognizance18.Services.DataServices
 import com.cognizance.cognizance18.adapters.NavMenuGridAdapter
-import android.support.v7.widget.RecyclerView
-
 import com.cognizance.cognizance18.models.Category
 import com.cognizance.cognizance18.models.NavMenuGridItem
 import kotlinx.android.synthetic.main.activity_more.*
@@ -63,43 +62,28 @@ class MoreActivity : AppCompatActivity() {
                     setResult(3004)
                     finish()
                 }
-                "Nearby Events" -> {
-                    setResult(3005)
+                "Map" -> {
+                    setResult(Activity.RESULT_OK)
                     finish()
                 }
 
             }
-
-            sponsors.setOnClickListener {
-                setResult(5000)
-                finish()
-            }
-
-            about_us_text.setOnClickListener {
-                setResult(5001)
-                finish()
-            }
-
-            contact_us.setOnClickListener {
-                setResult(5002)
-                finish()
-            }
-            nav_menu.adapter = adapter
-
-            val layoutManager = GridLayoutManager(this@MoreActivity, 3)
-            nav_menu.layoutManager = layoutManager
-            nav_menu.setHasFixedSize(true)
-
-            close_button.setOnClickListener {
-                finish()
-                setResult(Activity.RESULT_OK)
-            }
         }
+        nav_menu.adapter = adapter
 
-        fun onBackPressed() {
-            super.onBackPressed()
+        val layoutManager = GridLayoutManager(this@MoreActivity, 3)
+        nav_menu.layoutManager = layoutManager
+        nav_menu.setHasFixedSize(true)
+
+        close_button.setOnClickListener {
+            finish()
             setResult(Activity.RESULT_OK)
         }
-
     }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        setResult(Activity.RESULT_OK)
+    }
+
 }
