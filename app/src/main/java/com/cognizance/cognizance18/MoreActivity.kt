@@ -62,13 +62,29 @@ class MoreActivity : AppCompatActivity() {
                     setResult(3004)
                     finish()
                 }
-                "Map" -> {
-                    setResult(Activity.RESULT_OK)
+                "Treasure Hunt" -> {
+                    setResult(3005)
                     finish()
                 }
 
             }
         }
+
+        about_us_text.setOnClickListener {
+            setResult(5001)
+            finish()
+        }
+
+        sponsors.setOnClickListener {
+            setResult(5000)
+            finish()
+        }
+
+        contact_us.setOnClickListener {
+            setResult(5000)
+            finish()
+        }
+
         nav_menu.adapter = adapter
 
         val layoutManager = GridLayoutManager(this@MoreActivity, 3)
