@@ -1,17 +1,11 @@
 package com.cognizance.cognizance18
 
 import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import com.cognizance.cognizance18.Services.DataServices
 import com.cognizance.cognizance18.adapters.NavMenuGridAdapter
-import com.cognizance.cognizance18.models.Category
-import com.cognizance.cognizance18.models.NavMenuGridItem
 import kotlinx.android.synthetic.main.activity_more.*
 
 /**
@@ -80,8 +74,8 @@ class MoreActivity : AppCompatActivity() {
             finish()
         }
 
-        contact_us.setOnClickListener {
-            setResult(5000)
+        feedback.setOnClickListener {
+            setResult(5002)
             finish()
         }
 
